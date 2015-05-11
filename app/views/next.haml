@@ -1,0 +1,36 @@
+.site-wrapper
+	.site-wrapper-inner
+		.cover-container
+			.masthead.clearfix
+				.inner
+					%h3.masthead-brand 
+						%a{:href => "http://www.shakespeare-monologues.org/"} Shakespeare's Monologues
+					%nav
+						%ul.nav.masthead-nav
+							%li
+								%a{:href => "http://www.shakespeare-monologues.org/women/"} The Women
+							%li
+								%a{:href => "http://www.shakespeare-monologues.org/men/"} The Men
+			.inner.cover
+				%h1.cover-heading 
+				%p.lead Making it easier to find monologues since 1997
+				%form.navbar-form{:role => "search"}
+					.input-group
+						%input#srch-term.form-control{:name => "srch-term", :placeholder => "Search", :type => "text"}
+							.input-group-btn
+								%button.btn.btn-default{:type => "submit"}
+									%i.glyphicon.glyphicon-search
+			.mastfoot
+				.inner
+					%p
+						This site is licensed under a Creative Commons License.
+						The texts of Shakespeare's plays is public domain.
+						Contact linked sites regarding intellectual property rights of those sites.
+
+/ Bootstrap core JavaScript
+/ ==================================================
+/ Placed at the end of the document so the pages load faster
+%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"}
+%script{:src => "../../dist/js/bootstrap.min.js"}
+/ IE10 viewport hack for Surface/desktop Windows 8 bug
+%script{:src => "../../assets/js/ie10-viewport-bug-workaround.js"}

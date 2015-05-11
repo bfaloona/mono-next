@@ -1,0 +1,9 @@
+---
+:orm: none
+:test: minitest
+:mock: mocha
+:script: jquery
+:renderer: haml
+:stylesheet: scss
+:namespace: MonoNext
+:migration_format: number

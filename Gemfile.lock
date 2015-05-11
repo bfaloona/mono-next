@@ -1,0 +1,129 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.2.1)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
+    bond (0.5.1)
+    coderay (1.1.0)
+    debug_inspector (0.0.2)
+    haml (4.0.6)
+      tilt
+    http_router (0.11.1)
+      rack (>= 1.0.0)
+      url_mount (~> 0.2.1)
+    i18n (0.7.0)
+    json (1.8.2)
+    mail (2.5.4)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    metaclass (0.0.4)
+    method_source (0.8.2)
+    mime-types (1.25.1)
+    minitest (5.6.1)
+    mocha (1.1.0)
+      metaclass (~> 0.0.1)
+    moneta (0.7.20)
+    padrino (0.12.5)
+      padrino-admin (= 0.12.5)
+      padrino-cache (= 0.12.5)
+      padrino-core (= 0.12.5)
+      padrino-gen (= 0.12.5)
+      padrino-helpers (= 0.12.5)
+      padrino-mailer (= 0.12.5)
+      padrino-support (= 0.12.5)
+    padrino-admin (0.12.5)
+      padrino-core (= 0.12.5)
+      padrino-helpers (= 0.12.5)
+    padrino-cache (0.12.5)
+      moneta (~> 0.7.0)
+      padrino-core (= 0.12.5)
+      padrino-helpers (= 0.12.5)
+    padrino-core (0.12.5)
+      activesupport (>= 3.1)
+      http_router (~> 0.11.0)
+      padrino-support (= 0.12.5)
+      rack (< 1.6.0)
+      rack-protection (>= 1.5.0)
+      sinatra (~> 1.4.2)
+      thor (~> 0.18)
+    padrino-gen (0.12.5)
+      bundler (~> 1.0)
+      padrino-core (= 0.12.5)
+    padrino-helpers (0.12.5)
+      i18n (~> 0.6, >= 0.6.7)
+      padrino-support (= 0.12.5)
+      tilt (~> 1.4.1)
+    padrino-mailer (0.12.5)
+      mail (~> 2.5.3)
+      padrino-core (= 0.12.5)
+    padrino-support (0.12.5)
+      activesupport (>= 3.1)
+    plymouth (0.3.3)
+      pry-exception_explorer (~> 0.1.7)
+    polyglot (0.3.5)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-doc (0.6.0)
+      pry (~> 0.9)
+      yard (~> 0.8)
+    pry-exception_explorer (0.1.9)
+      pry-stack_explorer (>= 0.3.9)
+    pry-nav (0.2.4)
+      pry (>= 0.9.10, < 0.11.0)
+    pry-stack_explorer (0.4.9.2)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
+    rack (1.5.3)
+    rack-maintenance (2.0.0)
+      rack (>= 1.0)
+    rack-protection (1.5.3)
+      rack
+    rack-rewrite (1.5.1)
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rake (10.4.2)
+    sass (3.4.13)
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    slop (3.6.0)
+    thor (0.19.1)
+    thread_safe (0.3.5)
+    tilt (1.4.1)
+    treetop (1.4.15)
+      polyglot
+      polyglot (>= 0.3.1)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    url_mount (0.2.1)
+      rack
+    yard (0.8.7.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bond
+  haml
+  minitest
+  mocha
+  padrino (= 0.12.5)
+  plymouth
+  pry
+  pry-doc
+  pry-nav
+  pry-stack_explorer
+  rack-maintenance
+  rack-rewrite
+  rack-test
+  rake
+  sass

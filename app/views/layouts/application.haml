@@ -1,0 +1,17 @@
+!!! Strict
+%html
+  %head
+    %title= [@title, "Shakespeare's Monologues"].compact.join(" | ")
+    -# = stylesheet_link_tag 'reset', 'application'
+    = javascript_include_tag 'jquery', 'application'
+    = stylesheet_link_tag 'bootstrap', 'application'
+    = stylesheet_link_tag 'cover', 'application'
+    = yield_content :include
+  %body
+    -# #header
+    -#   The header!
+    -# #container
+    #main= yield
+    -#   #sidebar
+    -# #footer
+    -#   That's it!
