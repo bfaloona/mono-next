@@ -5,6 +5,8 @@ module MonoNext
     register ScssInitializer
     register Padrino::Mailer
     register Padrino::Helpers
+    
+    use Rack::Protection
 
     enable :sessions
 
