@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 # Project requirements
+ruby "2.2.0"
 gem 'rake'
 
 # Component requirements
