@@ -6,7 +6,7 @@ Synopsis
 
 Prototype of updated Shakespeare's Monologues site
 
-Devlopment
+Development
 ----------
 
  - Install ruby 2.2.0
@@ -19,5 +19,4 @@ Devlopment
  - travis ci runs automatically
  - heroku deploys automatically if ci build passes 
  
- ![build status](https://travis-ci.org/bfaloona/mono-next.svg)
-
+[![Build Status](https://travis-ci.org/bfaloona/mono-next.svg?branch=master)](https://travis-ci.org/bfaloona/mono-next)
