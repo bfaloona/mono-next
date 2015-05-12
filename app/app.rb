@@ -69,13 +69,9 @@ module MonoNext
     
     get '/' do
       haml :next
-
-      # File.read(File.join('public', 'index.html'))
-      # @time = Time.now.to_s
-    	# haml :index
     end
     
-    get '/next' do
+    get '/a' do
       haml :next
     end
 

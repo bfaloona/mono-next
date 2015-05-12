@@ -2,10 +2,8 @@
 %html
   %head
     %title= [@title, "Shakespeare's Monologues"].compact.join(" | ")
-    -# = stylesheet_link_tag 'reset', 'application'
-    = javascript_include_tag 'jquery', 'application'
-    = stylesheet_link_tag 'bootstrap', 'application'
-    = stylesheet_link_tag 'cover', 'application'
+    = javascript_include_tag 'jquery', '/javascripts/bootstrap.min'
+    = stylesheet_link_tag 'bootstrap.min', 'application'
     = yield_content :include
   %body
     -# #header
