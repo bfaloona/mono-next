@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Project requirements
-ruby "2.2.0"
+ruby '2.2.1'
 gem 'rake'
 
 # Component requirements
@@ -10,9 +10,11 @@ gem 'rack-rewrite'
 gem 'rack-maintenance', :require => 'rack/maintenance'
 gem 'sass'
 gem 'haml'
+gem 'activerecord', '>= 3.1', :require => 'active_record'
+gem 'pg'
 
 # Padrino Stable Gem
-gem 'padrino', '0.12.5'
+gem 'padrino', '>= 0.13'
 
 # Dev / Test requirements
 group 'test', 'development' do
@@ -24,5 +26,6 @@ group 'test', 'development' do
   gem 'pry-nav'
   gem 'pry-stack_explorer'
   gem 'bond'
+  gem 'rest-client'
   # gem 'mocha', require: false
 end

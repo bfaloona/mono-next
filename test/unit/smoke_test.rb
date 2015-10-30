@@ -1,4 +1,5 @@
 require_relative '../test_helper'
+require_relative './test_unit_helper'
 
 describe 'Monologues' do
 

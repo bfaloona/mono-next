@@ -12,7 +12,8 @@ Development
  - Install ruby 2.2.0
  - git clone
  - bundle install
- - rake test
+ - test with `rake` (or `bundle exec rake`)
+ - test urls with `rake prod`
  - make changes
  - rake test
  - git push
