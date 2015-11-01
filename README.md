@@ -17,7 +17,7 @@ Development
    - postgres
 
 ### Setup
- - See (project wiki)[https://github.com/bfaloona/mono-next/wiki]
+ - See [project wiki](https://github.com/bfaloona/mono-next/wiki)
 
 ### Workflow
  - `bundle` to configure
