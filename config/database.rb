@@ -13,6 +13,9 @@
 #     :socket    => '/tmp/mysql.sock'
 #   }
 #
+
+# Heroku creates ActiveRecord::Base configuration in production automatically
+
 ActiveRecord::Base.configurations[:development] = {
   :adapter   => 'postgresql',
   :database  => 'mono_development',
@@ -22,12 +25,6 @@ ActiveRecord::Base.configurations[:development] = {
   :port      => 5432
 
 }
-
-ActiveRecord::Base.configurations[:production] = {
-  :adapter   => 'postgresql',
-  :url   => ENV['DATABASE_URL']
-}
-
 ActiveRecord::Base.configurations[:test] = {
   :adapter   => 'postgresql',
   :database  => 'mono_test',

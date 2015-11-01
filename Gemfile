@@ -17,11 +17,15 @@ gem 'rack-protection'
 gem 'rack-rewrite'
 
 # Test requirements
-gem 'minitest', :require => 'minitest/autorun', :group => 'test'
-gem 'minitest-reporters', :group => 'test', :require => false
-gem 'rack-test', :require => 'rack/test', :group => 'test'
-gem 'mocha', :group => 'test', :require => false
-gem 'rest-client', :group => 'test', :require => false
+group :test do
+  gem 'minitest', :require => 'minitest/autorun'
+  gem 'minitest-reporters', :require => false
+  gem 'rack-test', :require => 'rack/test'
+  gem 'mocha', :require => false
+  gem 'rest-client', :require => false
+  gem 'pry', :require => false
+  gem 'pry-padrino', :require => false
+end
 
 # Padrino Stable Gem
 gem 'padrino', '0.13.0'
