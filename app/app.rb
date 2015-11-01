@@ -6,7 +6,6 @@ module Monologues
 
     register Padrino::Mailer
     register Padrino::Helpers
-    register LessInitializer
 
     enable :sessions
 

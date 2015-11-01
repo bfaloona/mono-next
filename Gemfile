@@ -8,8 +8,6 @@ gem 'rake'
 
 # Component requirements
 gem 'bcrypt'
-gem 'rack-less'
-gem 'less'
 gem 'haml'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'pg'
@@ -29,7 +27,3 @@ end
 
 # Padrino Stable Gem
 gem 'padrino', '0.13.0'
-
-
-# Remove?
-gem 'therubyracer'
