@@ -1,14 +1,3 @@
-RACK_ENV = 'test' unless defined?(RACK_ENV)
-
-require 'minitest/spec'
-require 'minitest/autorun'
-require 'minitest/reporters'
-require 'mocha/api'
-
-Dir[File.expand_path(File.dirname(__FILE__) + "/../app/helpers/**/*.rb")].each(&method(:require))
-
-Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new]
-
 require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
 
 class MiniTest::Spec
@@ -28,8 +17,4 @@ class MiniTest::Spec
     @app ||= block_given? ? app.instance_eval(&blk) : app
     @app ||= Padrino.application
   end
-end
-
-def prepend_protocol url
-  return url.match(/^https?\:\/\//) ? url : 'http://' + url
 end
