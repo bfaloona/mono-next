@@ -1,5 +1,6 @@
-require_relative '../test_helper'
-require_relative './test_prod_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../test_config.rb')
+
+require 'rest-client'
 
 describe 'Production URL Validation' do
 

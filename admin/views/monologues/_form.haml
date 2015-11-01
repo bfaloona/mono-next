@@ -1,0 +1,67 @@
+- error = @monologue.errors.include?(:play_id)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :play_id, :class => 'control-label'
+  .controls
+    =f.text_field :play_id, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    %span.help-inline=error ? f.error_message_on(:play_id, :class => 'text-error') : pat(:example)
+- error = @monologue.errors.include?(:location)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :location, :class => 'control-label'
+  .controls
+    =f.text_field :location, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:location, :class => 'text-error') : pat(:example)
+- error = @monologue.errors.include?(:first_line)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :first_line, :class => 'control-label'
+  .controls
+    =f.text_field :first_line, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:first_line, :class => 'text-error') : pat(:example)
+- error = @monologue.errors.include?(:body)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :body, :class => 'control-label'
+  .controls
+    ~f.text_area :body, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:body, :class => 'text-error') : pat(:example)
+- error = @monologue.errors.include?(:gender_id)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :gender_id, :class => 'control-label'
+  .controls
+    =f.text_field :gender_id, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:gender_id, :class => 'text-error') : pat(:example)
+- error = @monologue.errors.include?(:character)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :character, :class => 'control-label'
+  .controls
+    =f.text_field :character, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:character, :class => 'text-error') : pat(:example)
+- error = @monologue.errors.include?(:style)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :style, :class => 'control-label'
+  .controls
+    =f.text_field :style, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:style, :class => 'text-error') : pat(:example)
+- error = @monologue.errors.include?(:pdf_link)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :pdf_link, :class => 'control-label'
+  .controls
+    =f.text_field :pdf_link, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:pdf_link, :class => 'text-error') : pat(:example)
+- error = @monologue.errors.include?(:body_link)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :body_link, :class => 'control-label'
+  .controls
+    =f.text_field :body_link, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:body_link, :class => 'text-error') : pat(:example)
+- error = @monologue.errors.include?(:intercut)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :intercut, :class => 'control-label'
+  .controls
+    =f.text_field :intercut, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:intercut, :class => 'text-error') : pat(:example)
+
+.form-actions
+  =f.submit pat(:save), :class => 'btn btn-primary'
+  &nbsp;
+  =f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  &nbsp;
+  =link_to pat(:cancel), url(:monologues, :index), :class => 'btn btn-default'

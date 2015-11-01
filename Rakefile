@@ -1,7 +1,6 @@
-require File.dirname(__FILE__) + '/config/boot'
-require 'thor'
+require 'bundler/setup'
 require 'padrino-core/cli/rake'
 
+PadrinoTasks.use(:database)
+PadrinoTasks.use(:activerecord)
 PadrinoTasks.init
-
-task default: 'test'

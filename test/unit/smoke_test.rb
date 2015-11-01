@@ -1,5 +1,4 @@
-require_relative '../test_helper'
-require_relative './test_unit_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../test_config.rb')
 
 describe 'Monologues' do
 

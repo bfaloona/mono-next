@@ -1,12 +1,12 @@
-module MonoNext
-  class Monologues < Padrino::Application
-    register RewriteInitializer
-    register MaintenanceInitializer
-    register ScssInitializer
+module Monologues
+  class App < Padrino::Application
+
+    use Rack::Protection
+    use ConnectionPoolManagement
+
     register Padrino::Mailer
     register Padrino::Helpers
-    
-    use Rack::Protection
+    register LessInitializer
 
     enable :sessions
 
@@ -20,7 +20,7 @@ module MonoNext
     #
     # set :cache, Padrino::Cache.new(:LRUHash) # Keeps cached values in memory
     # set :cache, Padrino::Cache.new(:Memcached) # Uses default server at localhost
-    # set :cache, Padrino::Cache.new(:Memcached, '127.0.0.1:11211', :exception_retry_limit => 1)
+    # set :cache, Padrino::Cache.new(:Memcached, :server => '127.0.0.1:11211', :exception_retry_limit => 1)
     # set :cache, Padrino::Cache.new(:Memcached, :backend => memcached_or_dalli_instance)
     # set :cache, Padrino::Cache.new(:Redis) # Uses default server at localhost
     # set :cache, Padrino::Cache.new(:Redis, :host => '127.0.0.1', :port => 6379, :db => 0)
