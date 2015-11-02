@@ -7,6 +7,6 @@ describe "/plays" do
   end
 
   it "should return plays title" do
-     last_response.body.must_include "Shakespeare's Plays"
+     last_response.body.must_include "Shakespeare's Monologues"
   end
 end

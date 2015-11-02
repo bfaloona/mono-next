@@ -20,8 +20,11 @@ Monologues::App.controllers :plays do
   # end
   
   get :index do
-    @title = "Shakespeare's Plays"
+    @title = "Shakespeare's Monologues"
     @plays = Play.all
+    @comedies = Play.where(classification: 'Comedy')
+    @histories = Play.where(classification: 'History')
+    @tragedies = Play.where(classification: 'Tragedy')
     render 'plays/index'
 
   end
