@@ -65,13 +65,17 @@ module Monologues
     #     render 'errors/500'
     #   end
     #
-    
+
     get '/' do
-      haml :next
+      render :splash, layout: false
+    end
+
+    get '/p' do
+      redirect url :plays, :index
     end
     
     get '/a' do
-      haml :next
+      haml :splash
     end
 
   end

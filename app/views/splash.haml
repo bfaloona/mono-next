@@ -1,0 +1,37 @@
+!!! 5
+%html{lang: 'en', itemscope: '', itemtype: 'http://schema.org/CollectionPage', class: 'gr__shakespeare-monologues_org'}
+  %head
+    %title= @title.present? ? "#{@title} | Shakespeare's Monologues" : "Shakespeare's Monologues"
+    = javascript_include_tag 'jquery', '/javascripts/bootstrap.min'
+    = stylesheet_link_tag 'reset'
+    = stylesheet_link_tag 'bootstrap.min', 'splash'
+    = yield_content :include
+  %body
+    .site-wrapper
+      .site-wrapper-inner
+        .cover-container
+          .masthead.clearfix
+            .inner
+              %h3.masthead-brand
+                %a{:href => "http://www.shakespeare-monologues.org/"} Shakespeare's Monologues
+              %nav
+                %ul.nav.masthead-nav
+                  %li
+                    =link_to 'The Women', url_for(:plays, :index)
+                  %li
+                    = link_to 'The Men', url_for(:plays, :index)
+          .inner.cover
+            %h1.cover-heading
+            %p.lead Making it easier to find monologues since 1997
+            %form.navbar-form{:role => "search"}
+              .input-group
+                %input#srch-term.form-control{:name => "srch-term", :placeholder => "Search", :type => "text"}
+                  .input-group-btn
+                    %button.btn.btn-default{:type => "submit"}
+                      %i.glyphicon.glyphicon-search
+          .mastfoot
+            .inner
+              %p
+                This site is licensed under a Creative Commons License.
+                The texts of Shakespeare's plays is public domain.
+                Contact linked sites regarding intellectual property rights of those sites..

@@ -1,16 +1,123 @@
-!!! Strict
-%html
-  %head
-    %title= [@title, "Shakespeare's Monologues"].compact.join(" | ")
-    = javascript_include_tag 'jquery', '/javascripts/bootstrap.min'
-    = stylesheet_link_tag 'reset'
-    = stylesheet_link_tag 'bootstrap.min', 'application'
-    = yield_content :include
-  %body
-    -# #header
-    -#   The header!
-    -# #container
-    #main= yield
-    -#   #sidebar
-    -# #footer
-    -#   That's it!
+!!! 5
+%html{lang: 'en', itemscope: '', itemtype: 'http://schema.org/CollectionPage', class: 'gr__shakespeare-monologues_org'}
+	%head
+		%title= @title.present? ? "#{@title} | Shakespeare's Monologues" : "Shakespeare's Monologues"
+		= javascript_include_tag 'jquery', '/javascripts/bootstrap.min'
+		= stylesheet_link_tag 'reset'
+		= stylesheet_link_tag 'bootstrap.min', 'application'
+		= yield_content :include
+	%body
+		.main
+			.left-column.col-md-3
+				.menu-top-left
+
+
+					/ left column menu
+					%a{href: "/men"} [The Men]
+					%a{href: "/women"} [The Women]
+					%a{href: "/plays"} [Both]
+					%br/
+					%br/
+					%a{href: "http://shakespeare-monologues.org/store/index.html"} [Books]
+					%a{href: "/quiz.html"} [Quiz]
+					%a{href: "http://twitter.com/ShakesMonos", target: "_blank"} [Twitter]
+					%a{href: "https://www.facebook.com/ShakespearesMonologues", target: "_blank"} [FB]
+					%a{href: "https://plus.google.com/106045313819632308693", rel: "publisher", target: "_blank"} [G+]
+					%br/
+					%br/
+					%a{href: "/links"} [Links]
+					%a{href: "/faq.html#Q0"} [How To]
+					%a{href: "/home"} [Home]
+
+
+				/ left column ads
+				.left-column-ads
+				%p
+					%script{async: "", src: "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+					/ leftcol1
+					%ins.adsbygoogle{"data-ad-client" => "ca-pub-5236095389905910", "data-ad-slot" => "3862062942", :style => "display:inline-block;width:120px;height:90px"}
+					:javascript
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					%script{async: "", src: "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+					/ leftcol2
+					%ins.adsbygoogle{"data-ad-client" => "ca-pub-5236095389905910", "data-ad-slot" => "8729942714", :style => "display:inline-block;width:120px;height:600px"}
+					:javascript
+						(adsbygoogle = window.adsbygoogle || []).push({});
+
+
+			.center-column.col-md-6
+				= yield
+				.center-column-footer
+					%p
+						This site is licensed under a Creative Commons License.
+						The texts of Shakespeare's plays is public domain.
+						Contact linked sites regarding intellectual property rights of those sites..
+
+
+			.right-column.col-md-3
+				%td#right_column{:align => "center"}
+				%p  
+				%br/
+				%p  
+				%p  
+				%a#everbutton-693-1398040059-85.everbutton.everbutton-693-1398040059-85.everbutton-blue{:href => "https://www.everbutton.com/donate/693", :style => "height:20px;width:49px;min-width:45px;padding:0px;"} Tip Jar
+				%br/
+				%br/
+				/ AddThis Button BEGIN
+				:css
+					div.addthis_toolbox {
+									width: 85px;
+									margin: 0 auto;
+					}
+				.addthis_toolbox.addthis_default_style.addthis_16x16_style
+					%a.addthis_button_facebook.at300b{:href => "#", :title => "Facebook"}
+						%span.at4-icon-left.at4-icon.aticon-facebook{:style => "background-color: rgb(48, 88, 145);"}
+							%span.at_a11y Share on facebook
+					%a.addthis_button_twitter.at300b{:href => "#", :title => "Tweet"}
+						%span.at4-icon-left.at4-icon.aticon-twitter{:style => "background-color: rgb(44, 168, 210);"}
+							%span.at_a11y Share on twitter
+					%a.addthis_button_google_plusone_share.at300b{:href => "#", :target => "_blank", :title => "Google+"}
+						%span.at4-icon-left.at4-icon.aticon-google_plusone_share{:style => "background-color: rgb(220, 78, 65);"}
+							%span.at_a11y Share on google_plusone_share
+					%a.addthis_button_compact.at300m{:href => "#"}
+						%span.at4-icon-left.at4-icon.aticon-compact{:style => "background-color: rgb(252, 109, 76);"}
+							%span.at_a11y More Sharing Services
+					.atclear{:tabindex => "1000"}
+					%script{:src => "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-532e2d3068288ec1", :type => "text/javascript"}
+					/ AddThis Button END
+				%div{:style => "text-align:center"}
+					%span.small
+						%br/
+						%font{:face => "verdana", :size => "-1"}
+							%a{:href => "https://www.facebook.com/ShakespearesMonologues", :target => "_blank"}> FB
+							\  
+							= succeed "\u{a0}\u{a0}" do
+								%a{:href => "https://plus.google.com/106045313819632308693", :rel => "publisher", :target => "_blank"} G+
+							%a{:href => "http://twitter.com/ShakesMonos", :target => "_blank"} Twitter
+							%br/
+							%br/
+							%a{:href => "http://www.shakespeare-monologues.org/quiz.html"} Quiz
+							%br/
+							%br/
+							%a{:href => "https://play.google.com/store/apps/details?id=com.ShakespearesMonologues.app", :target => "_blank"} Android App
+							%br/
+							%br/
+							%a{:href => "https://chrome.google.com/webstore/detail/ejfdmafokffchogjkmfjdhalghlfemno", :target => "_blank"} Chrome App
+							%br/
+				%br/
+				%hr{:noshade => "noshade", :size => "1", :width => "75"}/
+				%br/
+				%p
+					/ OSC ad run ended, commented out, hopefully they'll want another run next year. a href="http://shakespeareclass.org/Shakespeare_Class/Shakespeare_Class.html" target="_blank"><img src="http://www.shakespeare-monologues.org/images/OSC300x250AdFor2015.2.jpg" border="0" width="300" height="250" alt="Oxford Shakespeare Company" title="Oxford Shakespeare Company" /></a
+					/ begin rightcol google graphic ad
+					%script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+					/ rightcolgraphic
+					%ins.adsbygoogle{"data-ad-client" => "ca-pub-5236095389905910", "data-ad-slot" => "1016396307", :style => "display:inline-block;width:300px;height:250px"}
+					:javascript
+					(adsbygoogle = window.adsbygoogle || []).push({});
+				/ end rightcol google graphic ad
+					%script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+					/ rightcoltext
+					%ins.adsbygoogle{"data-ad-client" => "ca-pub-5236095389905910", "data-ad-slot" => "9566106364", :style => "display:inline-block;width:120px;height:600px"}
+					:javascript
+					(adsbygoogle = window.adsbygoogle || []).push({});

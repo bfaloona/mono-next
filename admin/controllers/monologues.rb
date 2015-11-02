@@ -5,6 +5,18 @@ Monologues::Admin.controllers :monologues do
     render 'monologues/index'
   end
 
+  get :men do
+    @title = 'Men\'s Monologues'
+    @monologues = Monologue.where(gender: 3)
+    render 'monologues/index'
+  end
+
+  get :women do
+    @title = 'Women\'s Monologues'
+    @monologues = Monologue.where(gender: 2)
+    render 'monologues/index'
+  end
+
   get :new do
     @title = pat(:new_title, :model => 'monologue')
     @monologue = Monologue.new
