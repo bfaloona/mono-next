@@ -3,6 +3,8 @@
   %li=link_to tag_icon(:plus, pat(:new)), url(:monologues, :new)
 
 .tabs-content
+  %p
+    %strong First 20 Monologes ...
   %table#list.table.table-striped.table-hover.table-condensed
     %thead
       %tr
@@ -50,14 +52,18 @@
           %td.list-column=monologue.play_id
           %td.list-column=monologue.location
           %td.list-column=monologue.first_line
-          %td.list-column=monologue.body
+          %td.list-column=truncate(monologue.body, length: 75)
           %td.list-column=monologue.gender_id
           %td.list-column=monologue.character
           %td.list-column=monologue.style
-          %td.list-column=monologue.pdf_link
+          %td.list-column
+            %a{href: monologue.pdf_link}
+              %i.halflings.halflings-link PDF
           %td.list-column=time_ago_in_words monologue.created_at
           %td.list-column=time_ago_in_words monologue.updated_at
-          %td.list-column=monologue.body_link
+          %td.list-column
+            %a{href: monologue.body_link}
+              %i.halflings.halflings-link LINK
           %td.list-column=monologue.intercut
           %td.list-column.list-row-action
             .list-row-action-wrapper

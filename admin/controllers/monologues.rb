@@ -1,7 +1,7 @@
 Monologues::Admin.controllers :monologues do
   get :index do
-    @title = "Monologues"
-    @monologues = Monologue.all
+    @title = "Monologues (well 20 of them)"
+    @monologues = Monologue.take(20)
     render 'monologues/index'
   end
 
