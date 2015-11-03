@@ -1,7 +1,7 @@
 RACK_ENV = 'test' unless defined?(RACK_ENV)
 
-require 'minitest/spec'
 require 'minitest/autorun'
+require 'minitest/spec'
 require 'minitest/reporters'
 require 'mocha/api'
 
@@ -28,6 +28,13 @@ class MiniTest::Spec
     @app ||= block_given? ? app.instance_eval(&blk) : app
     @app ||= Padrino.application
   end
+end
+
+# Config and helper for prod tests
+PROD_WEBSITE ||= 'shakespeare-monologues.org'
+
+def full_url path
+  'http://' + PROD_WEBSITE + path
 end
 
 def prepend_protocol url

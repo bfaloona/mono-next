@@ -6,3 +6,6 @@ PadrinoTasks.use(:activerecord)
 PadrinoTasks.init
 
 task default: 'test'
+
+desc 'Run all tests (including prod)'
+task :testall => [:test, :prod]
