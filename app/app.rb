@@ -70,10 +70,14 @@ module Monologues
       render :splash, layout: false
     end
 
-    get '/p' do
+    get '/men' do
       redirect url :plays, :index
     end
-    
+
+    get '/women' do
+      redirect url :plays, :index
+    end
+
     get '/a' do
       haml :splash
     end
