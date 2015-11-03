@@ -19,7 +19,8 @@
 						.monologue-character=monologue.character
 						.monologue-detail=monologue.style + monologue.intercut_label
 					%td
-						.monologue-firstline-table=monologue.first_line
+						.monologue-firstline-table
+							= link_to(monologue.first_line, url_for(:monologues, :show, id: monologue.id))
 					%td
 						.monologue-actscene=monologue.location
 					%td
