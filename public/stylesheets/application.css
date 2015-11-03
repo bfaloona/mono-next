@@ -10,7 +10,6 @@ a {
 
 a,
 a:focus {
-    margin-left: 0.4em;
 }
 
 a:hover {
@@ -40,7 +39,6 @@ html {
     min-height: 100%;
 }
 body {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .2);
     /* Margin bottom by footer height */
     margin-bottom: 60px;
 }
@@ -68,10 +66,10 @@ h3 {
 
 .left-column {
     vertical-align: top;
-    margin-top: 0px;
+    margin-top: 0;
     width: 210px;
     padding: 10px;
-    padding-top: 20px;
+    padding-top: 30px;
 }
 
 .right-column {
@@ -93,18 +91,28 @@ h3 {
 }
 
 div.menu-top-left {
-    font-size: 11px;
     vertical-align: top;
-    margin-top: 0px;
+    margin-top: 0;
     white-space: nowrap;
     padding-bottom: 60px;
     text-align: left;
 }
 
+/* Add a bit of space before each link */
+div.menu-top-left a {
+    margin-left: 0.4em;
+}
+
 div.menu-bottom-center {
+    font-size: 125%;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+/* Add a bit of space before each link */
+div.menu-bottom-center a {
+    margin-left: 0.4em;
 }
 
 .footer-row {
@@ -155,13 +163,13 @@ table.categories-list th {
     line-height: 150%;
     font-weight: bold;
     text-align: left;
-    padding-left: 25px;
+    padding-left: 20px;
     padding-bottom: 5px;
     border: 1px solid black;
 }
 
 table.categories-list td {
-    padding-left: 25px;
+    padding-left: 15px;
     padding-right: 15px;
     line-height: 150%;
     font-size: 130%;
@@ -177,34 +185,53 @@ table.monologue-list {
 }
 
 table.monologue-list th {
-    padding-left: 5px;
+    font-size: 120%;
     text-align: left;
     white-space: nowrap;
-    font-size: 110%;
+    padding-left: 6px;
+    padding-right: 8px;
+    padding-bottom: 6px;
 }
 
-tr.monologue-listing {
+table.monologue-list tr {
     vertical-align: top;
 }
 
+table.monologue-list td {
+    padding: 6px;
+}
+
+tr.odd {
+    background-color: #F9F9D1;
+}
+
+tr.even {
+    background-color: #F9F9DF;
+}
+
 div.monologue-character {
-    font-size: 125%;
+    font-size: 115%;
     font-weight: bold;
     width: 100px;
     border-collapse:collapse;
 }
 
 div.monologue-detail {
-    font-size: 115%;
-    width: 110px;
+    font-size: 80%;
+    padding-top: 3px;
     border-collapse:collapse;
 }
 
+div.monologue-detail a {
+    text-decoration: underline;
+}
+
 td.monologue-firstline {
-    padding-left: 0px;
+    padding-left: 0;
     align: left;
     text-align: left;
-    font-size: 110%;
+    font-size: 125%;
+    font-style: italic;
     line-height: 20px;
     width: 455px;
     border-collapse:collapse;
@@ -233,9 +260,6 @@ td.monologue-actscene {
     font-size: 100%;
     white-space: nowrap;
 }
-
-td.monologue-pdflink {}
-
 
 div.google-sitesearch {
     padding-top: 15px;
@@ -306,5 +330,9 @@ a#everbutton-693-1398040059-85.everbutton.everbutton-693-1398040059-85.everbutto
     height: 20px;
     width: 49px;
     min-width: 45px;
-    padding: 0px;
+    padding: 0;
+}
+
+th.th-pad-right {
+    padding-right: 50px;
 }

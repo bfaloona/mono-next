@@ -1,0 +1,25 @@
+.center-column-header
+	%h3= @title
+
+.center-column-list
+
+	%table.monologue-list
+		%thead
+			%tr
+				%th.header Character
+				%th.header First Line
+				%th.header Act/Scene
+				%th.header PDF
+
+		%tbody
+			-@monologues.each_with_index do |monologue, index|
+
+				%tr{class: (index.even? ? 'even' : 'odd')}
+					%td
+						.monologue-character=monologue.character
+						.monologue-detail=monologue.style + monologue.intercut_label
+					%td.monologue-firstline=monologue.first_line
+					%td.monologue-actscene=monologue.location
+					%td
+						%a{href: monologue.pdf_link}
+							%img{src: '/images/pdf_file_icon_16x16.png'}

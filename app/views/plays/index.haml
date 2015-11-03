@@ -6,18 +6,18 @@
 	%table.categories-list
 		%tr
 			%th Comedies
-			%th Histories
+			%th.th-pad-right Histories
 			%th Tragedies
 		%tr
 			%td
 				- @comedies.sort{|a,b| a.title <=> b.title }.each do |comedy|
-					=comedy.title
+					=link_to comedy.title, url_for(:plays, :show, id: comedy.id)
 					%br/
 			%td
 				- @histories.sort{|a,b| a.title <=> b.title }.each do |history|
-					= history.title
+					=link_to history.title, url_for(:plays, :show, id: history.id)
 					%br/
 			%td
 				- @tragedies.sort{|a,b| a.title <=> b.title }.each do |tragedy|
-					= tragedy.title
+					=link_to tragedy.title, url_for(:plays, :show, id: tragedy.id)
 					%br/
