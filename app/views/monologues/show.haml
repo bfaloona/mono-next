@@ -1,0 +1,23 @@
+.center-column-header
+	%h1.monologue-firstline-heading
+		= @title
+
+.center-column-list
+
+	/ bootstrap column
+	.col-md-2.monologue-show
+		%div.monologue-detail
+			=@monologue.style + @monologue.intercut_label
+		%div.monologue-playname
+			=link_to(@monologue.play.title, url_for(:plays, :show, id: @monologue.play.id))
+		%div.monologue-actscene
+			=@monologue.location
+		%div.monologue-character
+			=@monologue.character
+		%div
+			%a{href: @monologue.pdf_link}
+				%img{src: '/images/pdf_file_icon_16x16.png'}
+	/ second column
+	.col-md-10
+		%div.monologue-body
+			=erb(@monologue.body, layout: false)

@@ -209,24 +209,20 @@ tr.even {
     background-color: #F9F9DF;
 }
 
-div.monologue-character {
-    font-size: 115%;
-    font-weight: bold;
-    width: 100px;
-    border-collapse:collapse;
+
+h1.monologue-firstline-heading {
+    font-size: 200%;
+    padding-top: 10px;
+    vertical-align: top;
+    line-height: 150%;
 }
 
-div.monologue-detail {
-    font-size: 80%;
-    padding-top: 3px;
-    border-collapse:collapse;
+h1.monologue-firstline-heading::first-letter {
+    font-size: 300%;
+    color: #777;
 }
 
-div.monologue-detail a {
-    text-decoration: underline;
-}
-
-td.monologue-firstline {
+.monologue-firstline-table {
     padding-left: 0;
     align: left;
     text-align: left;
@@ -237,11 +233,27 @@ td.monologue-firstline {
     border-collapse:collapse;
 }
 
-.monologue-firstline A {
+.monologue-firstline-table A {
     color: #555;
 }
 
-div.monologue-preview {
+.monologue-playname {
+    font-size: 125%;
+    text-decoration: underline;
+}
+
+.monologue-character {
+    font-size: 125%;
+    font-weight: bold;
+    width: 100px;
+}
+
+.monologue-detail {
+    font-size: 80%;
+    padding-top: 3px;
+}
+
+.monologue-preview {
     padding: 10px;
     font-size: 100%;
     line-height: 1.25;
@@ -256,10 +268,39 @@ div.monologue-preview {
     /* z-index: 0; */
 }
 
-td.monologue-actscene {
+.monologue-actscene {
     font-size: 100%;
     white-space: nowrap;
 }
+
+
+/*
+    Monologues show view modifies above classes
+*/
+
+.monologue-show {
+    margin-top: 0;
+    padding-bottom: 60px;
+    line-height: 150%;
+    font-size: 100%;
+}
+
+.monologue-body {
+    font-size: 150%;
+    line-height: 125%;
+    padding: 15px;
+    border: #333 solid;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+
+
+
+/*
+    Google search
+*/
+
 
 div.google-sitesearch {
     padding-top: 15px;
@@ -336,3 +377,5 @@ a#everbutton-693-1398040059-85.everbutton.everbutton-693-1398040059-85.everbutto
 th.th-pad-right {
     padding-right: 50px;
 }
+
+

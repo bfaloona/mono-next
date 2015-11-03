@@ -17,11 +17,14 @@
 				%tr{class: (index.even? ? 'even' : 'odd')}
 					%td
 						.monologue-character=monologue.character
-						.monologue-detail=monologue.style + monologue.intercut_label
-					%td
-						.monologue-firstline-table=monologue.first_line
-					%td
-						.monologue-actscene=monologue.location
+						.monologue-detail
+							=monologue.style + monologue.intercut_label
+						.monologue-playname
+							=link_to(monologue.play.title, url_for(:plays, :show, id: monologue.play.id))
+
+					%td.monologue-firstline-table
+						=link_to(monologue.first_line, url_for(:monologues, :show, id: monologue.id))
+					%td.monologue-actscene=monologue.location
 					%td
 						%a{href: monologue.pdf_link}
 							%img{src: '/images/pdf_file_icon_16x16.png'}
