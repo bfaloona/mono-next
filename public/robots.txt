@@ -1,0 +1,8 @@
+# robots.txt for http://www.shakespeare-monologues.org
+
+User-agent: *
+Disallow: /monologues/preview  # Don't bother with the ajax.
+
+Disallow: /plays/32?g=21 # typo on a clickbait site being followed by bots.
+
+Disallow: /plays/7?g=22 # same as above
