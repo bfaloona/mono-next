@@ -75,7 +75,7 @@ h3 {
 .right-column {
     vertical-align: top;
     text-align: center;
-    line-height: 1;
+    line-height: 100%;
     padding: 5px;
     padding-top: 80px;
 }
@@ -136,9 +136,9 @@ h3 {
 
 
 
-
-div.addthis_toolbox {
-    width: 105px;
+div.wrapper_for_addthis {
+    padding-left: 20px;
+    width: 125px;
     margin-left: auto;
     margin-right: auto;
 }
