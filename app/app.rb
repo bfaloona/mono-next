@@ -54,18 +54,15 @@ module Monologues
     #   end
     #
 
-    set :show_exceptions, false
+    # :show_exceptions is false in production by default, but having it
+    # set to true in development can get in the way of our customer error handling.
+    # set :show_exceptions, false
 
     not_found do
       render  'errors/404', layout: false
     end
 
     error 500 do
-      render  'errors/500', layout: false
-    end
-
-    # TODO Remove once we're done tweaking the page
-    get '/error' do
       render  'errors/500', layout: false
     end
 
@@ -81,8 +78,5 @@ module Monologues
       redirect url :plays, :index
     end
 
-    def nbsp
-      '&nbsp; &nbsp'.html_safe
-    end
   end
 end

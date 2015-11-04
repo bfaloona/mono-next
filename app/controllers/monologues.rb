@@ -7,11 +7,20 @@ Monologues::App.controllers :monologues do
   end
 
   get :show, :map => "/monologues/:id" do
-    @monologue = Monologue.find(params[:id])
-    @title = @monologue.first_line
-    render 'monologues/show'
+    begin
+      @monologue = Monologue.find(params[:id])
+      @title = @monologue.first_line
+      render 'monologues/show'
+
+    rescue
+      if !@monologue
+        # requested monologue does not exist
+        render 'errors/404', layout: false
+      else
+        render 'errors/500', layout: false
+      end
+
+    end
+
   end
-
-
-
 end
