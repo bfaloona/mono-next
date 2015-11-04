@@ -55,40 +55,47 @@ body {
     line-height: 13px;
 }
 
+.container{
+    max-width: none !important;
+    width: 1270px;
+}
+
 h3 {
     padding-left: 7px;
 }
 
-.main {
-    padding-left: 30px;
-}
-
-
 .left-column {
+    padding-top: 30px;
+/*
     vertical-align: top;
     margin-top: 0;
     width: 210px;
     padding: 10px;
-    padding-top: 30px;
+*/
 }
 
 .right-column {
+    padding: 10px;
+    padding-top: 80px;
+/*
     vertical-align: top;
     text-align: center;
     line-height: 100%;
-    padding: 5px;
-    padding-top: 80px;
+*/
 }
 
 /* Padding for spacing */
 .center-column {
+/*
     vertical-align: top;
+*/
 }
 
 .center-column-list {
-    /* display: table-cell; */
+/*
     vertical-align: top;
     padding-bottom: 60px;
+*/
 }
 
 .link-menu-left, .link-menu-right {
@@ -105,7 +112,7 @@ h3 {
     padding-bottom: 60px;
 }
 .link-menu-bottom {
-    font-size: 125%;
+    font-size: 150%;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -122,8 +129,7 @@ h3 {
     margin-left: 0.4em;
 }
 
-.footer-row {
-    position: absolute;
+.center-column-footer {
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
@@ -167,6 +173,7 @@ table.categories-list {
 }
 
 table.categories-list th {
+    width: 100%;
     font-size: 130%;
     line-height: 150%;
     font-weight: bold;
@@ -375,11 +382,44 @@ input.googlesearch {
 #even-row {
     background-color: #F9F9D1;
 }
+
+
+/*
 a#everbutton-693-1398040059-85.everbutton.everbutton-693-1398040059-85.everbutton-blue {
-    height: 20px;
+    height: 25px;
     width: 49px;
-    min-width: 45px;
     padding: 0;
+}
+*/
+
+
+a.tip-jar {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-family: Verdana;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 6px 12px 8px 12px;
+    margin-left: 8px;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+a.tip-jar:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
 }
 
 th.th-pad-right {
