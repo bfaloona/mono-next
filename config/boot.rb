@@ -16,6 +16,7 @@ require 'dalli'
 # Enable devel logging
 Padrino::Logger::Config[:development][:log_level]  = :devel
 Padrino::Logger::Config[:development][:log_static] = true
+Padrino::Logger::Config[:production][:log_level]  = :info
 
 
 # ## Enable logging of source location

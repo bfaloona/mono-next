@@ -20,6 +20,9 @@ Monologues::App.controllers :monologues do
 
   get :index, map: '/search/:query', cache: true do
     begin
+
+      logger.log "Monologues controller called with: #{params[:query]}"
+
       @title = "Monologues results for: #{params[:query]}"
 
       s = "%#{params[:query].to_s.downcase}%"
