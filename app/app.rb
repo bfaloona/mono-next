@@ -6,14 +6,16 @@ module Monologues
 
     register Padrino::Mailer
     register Padrino::Helpers
+    register Padrino::Cache
 
     enable :sessions
+    enable :caching
+
+    # TODO Investigate ActiveRecord::QueryCache
+    # use ActiveRecord::QueryCache
 
     ##
     # Caching support.
-    #
-    # register Padrino::Cache
-    # enable :caching
     #
     # You can customize caching store engines:
     #

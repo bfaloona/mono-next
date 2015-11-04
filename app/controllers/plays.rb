@@ -1,6 +1,6 @@
 Monologues::App.controllers :plays do
   
-  get :index do
+  get :index, cache: true do
     @title = "Shakespeare's Monologues"
     @plays = Play.all
     @comedies = Play.where(classification: 'Comedy')
@@ -9,20 +9,15 @@ Monologues::App.controllers :plays do
     render 'plays/index'
   end
 
-  get :show, :map => "/plays/:id" do
+  get :show, :map => "/plays/:id", cache: true do
     begin
       @play = Play.find(params[:id])
       @title = @play.title
       @monologues = Monologue.where(play_id: params[:id])
       render 'plays/show'
 
-    rescue
-      if !@play
-        # requested play does not exist
-        render 'errors/404', layout: false
-      else
-        render 'errors/500', layout: false
-      end
+    rescue ActiveRecord::RecordNotFound
+      render 'errors/404', layout: false
     end
 
   end

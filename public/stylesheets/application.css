@@ -92,6 +92,7 @@ h3 {
 }
 
 .center-column-list {
+    min-height: 200px;
 /*
     vertical-align: top;
     padding-bottom: 60px;
@@ -195,6 +196,15 @@ table.categories-list td {
 
 }
 
+.empty-table-message {
+    font-size: 125%;
+    font-style: italic;
+    text-align: left;
+    padding-top: 60px;
+    padding-left: 20px;
+    vertical-align: top;
+}
+
 table.monologue-list {
     /* width: 768px; */
 }
@@ -207,6 +217,7 @@ table.monologue-list th {
     padding-right: 8px;
     padding-bottom: 6px;
 }
+
 
 table.monologue-list tr {
     vertical-align: top;
