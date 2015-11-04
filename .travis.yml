@@ -5,4 +5,4 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database mono_test;' -U postgres
-  - bundle exec padrino rake ar:schema:load -e test
+  - bundle exec padrino rake db:reset -e test

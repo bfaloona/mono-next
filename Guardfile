@@ -1,7 +1,7 @@
 
 guard :minitest do
 
-  non_prod_test_dirs = ["test/unit", "test/models"]
+  non_prod_test_dirs = ["test/unit", "test/models", "test/integration"]
 
   watch(%r{^test\/.*(?<!prod)\/?(.*)\.rb$})    {non_prod_test_dirs}
   watch(%r{^app\/.*\/?(.*)\.(rb|haml)$})    {non_prod_test_dirs}
