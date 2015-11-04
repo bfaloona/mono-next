@@ -54,17 +54,20 @@ module Monologues
     #   end
     #
 
-    ##
-    # You can manage errors like:
-    #
-    #   error 404 do
-    #     render 'errors/404'
-    #   end
-    #
-    #   error 500 do
-    #     render 'errors/500'
-    #   end
-    #
+    set :show_exceptions, false
+
+    not_found do
+      render  'errors/404', layout: false
+    end
+
+    error 500 do
+      render  'errors/500', layout: false
+    end
+
+    # TODO Remove once we're done tweaking the page
+    get '/error' do
+      render  'errors/500', layout: false
+    end
 
     get '/' do
       render :splash, layout: false
@@ -78,9 +81,8 @@ module Monologues
       redirect url :plays, :index
     end
 
-    get '/a' do
-      haml :splash
+    def nbsp
+      '&nbsp; &nbsp'.html_safe
     end
-
   end
 end
