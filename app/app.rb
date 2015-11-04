@@ -14,6 +14,22 @@ module Monologues
     # TODO Investigate ActiveRecord::QueryCache
     # use ActiveRecord::QueryCache
 
+    # Configure cache store based on our environment
+    if ENV["MEMCACHEDCLOUD_SERVERS"]
+
+      # production
+      heroku_dalli_cached = Dalli::Client.new(
+          ENV["MEMCACHEDCLOUD_SERVERS"].split(','),
+          :username => ENV["MEMCACHEDCLOUD_USERNAME"],
+          :password => ENV["MEMCACHEDCLOUD_PASSWORD"])
+      set :cache, Padrino::Cache.new(:Memcached, :backend => heroku_dalli_cached)
+
+    else
+      # development / test
+      set :cache, Padrino::Cache.new(:LRUHash)
+    end
+
+
     ##
     # Caching support.
     #

@@ -9,6 +9,9 @@ gem 'rake'
 # Padrino Stable Gem
 gem 'padrino', '0.13.0'
 
+# Memcached support
+gem 'dalli'
+
 # Component requirements
 gem 'activerecord', '>= 3.1', require: 'active_record'
 gem 'haml'

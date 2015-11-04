@@ -9,6 +9,9 @@ Bundler.require(:default, RACK_ENV)
 # use Protection against typical web attacks
 require 'rack/protection'
 
+# Memcached support
+require 'dalli'
+
 ##
 # Enable devel logging
 Padrino::Logger::Config[:development][:log_level]  = :devel
