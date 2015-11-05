@@ -82,9 +82,7 @@ module Monologues
       render  'errors/500', layout: false
     end
 
-    get '/' do
-      render :home, layout: false
-    end
+    # get '/'  is in monologues controller
 
     get '/home' do
       render :home, layout: false

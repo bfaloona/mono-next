@@ -25,7 +25,7 @@
             %p.lead Making it easier to find monologues since 1997
             %form#search-form.navbar-form{:role => "search"}
               .input-group
-                %input#search-box.form-control{:placeholder => "Search", :type => "text"}
+                %input#search-box.form-control{placeholder: "Search", type: "text", autocomplete: "off", action: "#"}
                   .input-group-btn
                     %button#search-btn.btn.btn-default{:type => "submit"}
                       %i.glyphicon.glyphicon-search

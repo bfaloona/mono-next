@@ -1,0 +1,150 @@
+
+
+body {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size:   13px;
+    line-height: 13px;
+}
+
+input#search-box {
+    font-size: 150%;
+    width: 140%;
+}
+
+div.result-summary {
+    float: right;
+    color: #999;
+    text-align: right;
+    margin-right: 0px;
+    padding-bottom: 0.5em;
+    padding-right: 25px;
+}
+
+.empty-table-message {
+    font-size: 125%;
+    font-style: italic;
+    text-align: left;
+    padding-top: 60px;
+    padding-left: 20px;
+    vertical-align: top;
+}
+
+table.monologue-list {
+    width: 100%;
+}
+
+table.monologue-list th {
+    text-align: left;
+    border-bottom: solid 1px;
+    color: #333;
+    font-weight: normal;
+}
+
+
+table.monologue-list tr {
+}
+
+table.monologue-list td {
+    padding: 6px;
+}
+
+tr.odd {
+    background-color: #FFF;
+}
+
+tr.even {
+    background-color: #EEE;
+}
+
+
+h1.monologue-firstline-heading {
+    font-size: 200%;
+    line-height: 150%;
+}
+
+h1.monologue-firstline-heading::first-letter {
+    font-size: 300%;
+    color: #777;
+}
+
+.monologue-firstline-table {
+    font-size: 125%;
+    font-style: italic;
+    line-height: 125%;
+}
+
+.monologue-firstline-table a {
+    color: #555;
+}
+
+.monologue-playname {
+    text-decoration: underline;
+}
+
+.monologue-character {
+    font-weight: bold;
+}
+
+.monologue-detail {
+}
+
+.monologue-preview {
+    /*padding: 10px;*/
+    /*font-size: 100%;*/
+    /*line-height: 1.25;*/
+    /*width: 455px;*/
+    /*margin-top: 5px;*/
+    /*margin-left: -5px;*/
+    /*border: solid gray;*/
+    /*border-width: 1px;*/
+    /*/!* background-image: url('/images/white.png'); *!/*/
+    /*background-repeat: repeat;*/
+    /*overflow: visible;*/
+    /*/!* z-index: 0; *!/*/
+}
+
+.monologue-actscene {
+    white-space: nowrap;
+}
+
+
+/*
+    Monologues show view modifies above classes
+*/
+
+.monologue-show {
+
+}
+
+.monologue-body {
+    font-size: 150%;
+    line-height: 125%;
+    width: 100%;
+}
+
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}

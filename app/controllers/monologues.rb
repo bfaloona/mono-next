@@ -1,7 +1,27 @@
 Monologues::App.controllers :monologues do
 
+  get :mobile, map: '/m', cache: true do
+    @title = "Shakespeare's Monologues"
+    display_limit = 20
+    num_found = Monologue.count
+    @monologues = Monologue.take(display_limit)
+    @result_summary = "#{num_found} found, #{@monologues.count} displayed"
 
-  get :index, cache: true do
+    render 'monologues/mobile', layout: false
+  end
+
+  get :mobileshow, map: "/mobile/:id", cache: true do
+    begin
+      @monologue = Monologue.find(params[:id])
+      @title = @monologue.first_line
+      render 'monologues/show', layout: false
+
+    rescue ActiveRecord::RecordNotFound
+      render 'errors/404', layout: false
+    end
+  end
+
+  get :index, map: '/', cache: true do
     @title = "Shakespeare's Monologues"
     display_limit = 50
     num_found = Monologue.count

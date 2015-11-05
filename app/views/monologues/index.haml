@@ -1,6 +1,6 @@
 .center-column-header
 	-# %h3= @title
-	%form#search-form.navbar-form{:role => "search"}
+	%form#search-form.navbar-form{role: ""}
 		.input-group
 			%input#search-box.form-control{:placeholder => "Search Shakespeare's Monologues", :type => "text"}
 
@@ -14,6 +14,10 @@
 	%script{type: 'text/javascript'}
 		:plain
 			$( "#search-box" ).focus();
+			$( "#search-box" ).click(function( event ) {
+				event.preventDefault();
+				return false;
+			});
 			$('#search-box').keyup(function(){
 				var query = $('#search-box').val();
 				$.ajax({

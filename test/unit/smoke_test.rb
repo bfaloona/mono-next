@@ -4,7 +4,7 @@ describe 'Monologues' do
 
   it 'root renders' do
     get '/'
-    last_response.body.must_include 'Making it easier to find monologues since 1997'
+    last_response.body.must_include 'found, '
   end
 
   it 'homepage renders' do
