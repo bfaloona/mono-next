@@ -85,7 +85,11 @@ module Monologues
     end
 
     get '/' do
-      render :splash, layout: false
+      render :home, layout: false
+    end
+
+    get '/home' do
+      render :home, layout: false
     end
 
     get '/men' do

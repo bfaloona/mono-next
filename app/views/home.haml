@@ -3,8 +3,8 @@
   %head
     %title= @title.present? ? "#{@title} | Shakespeare's Monologues" : "Shakespeare's Monologues"
     = javascript_include_tag 'jquery', '/javascripts/bootstrap.min'
-    = stylesheet_link_tag 'reset'
-    = stylesheet_link_tag 'bootstrap.min', 'splash'
+    = stylesheet_link_tag 'normalize'
+    = stylesheet_link_tag 'bootstrap.min', 'home'
     = yield_content :include
   %body
     .site-wrapper
@@ -23,12 +23,23 @@
           .inner.cover
             %h1.cover-heading
             %p.lead Making it easier to find monologues since 1997
-            %form.navbar-form{:role => "search"}
+            %form#search-form.navbar-form{:role => "search"}
               .input-group
-                %input#srch-term.form-control{:name => "srch-term", :placeholder => "Search", :type => "text"}
+                %input#search-box.form-control{:placeholder => "Search", :type => "text"}
                   .input-group-btn
-                    %button.btn.btn-default{:type => "submit"}
+                    %button#search-btn.btn.btn-default{:type => "submit"}
                       %i.glyphicon.glyphicon-search
+            %script{type: "text/javascript"}
+              :plain
+                 $("input:text:visible:first").focus();
+                 $( "#search-form" ).submit(function( event ) {
+                  var query = $("#search-box").val();
+                  window.location = '/search/' + query;
+                  event.preventDefault();
+                });
+                $( "#search-btn" ).click(function() {
+                  $( "#search-form" ).submit();
+                });
           .mastfoot
             .inner
               %p
