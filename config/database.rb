@@ -1,20 +1,3 @@
-##
-# You can use other adapters like:
-#
-#   ActiveRecord::Base.configurations[:development] = {
-#     :adapter   => 'mysql2',
-#     :encoding  => 'utf8',
-#     :reconnect => true,
-#     :database  => 'your_database',
-#     :pool      => 5,
-#     :username  => 'root',
-#     :password  => '',
-#     :host      => 'localhost',
-#     :socket    => '/tmp/mysql.sock'
-#   }
-#
-
-# Heroku creates ActiveRecord::Base configuration in production automatically
 
 ActiveRecord::Base.configurations[:development] = {
   :adapter   => 'postgresql',
@@ -23,8 +6,8 @@ ActiveRecord::Base.configurations[:development] = {
   :password  => '',
   :host      => 'localhost',
   :port      => 5432
-
 }
+
 ActiveRecord::Base.configurations[:test] = {
   :adapter   => 'postgresql',
   :database  => 'mono_test',
@@ -32,8 +15,11 @@ ActiveRecord::Base.configurations[:test] = {
   :password  => '',
   :host      => 'localhost',
   :port      => 5432
-
 }
+
+# Production configuration for ActiveRecord
+# is created by Heroku automatically using
+# their DATABASE_URL environment variable
 
 # Setup our logger
 ActiveRecord::Base.logger = logger

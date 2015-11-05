@@ -1,8 +1,32 @@
 .center-column-header
 	%h3= @title
 
+	%form#search-form.navbar-form{:role => "search"}
+		.input-group
+			%input#search-box.form-control{:placeholder => "Search", :type => "text"}
+				.input-group-btn
+					%button#search-btn.btn.btn-default{:type => "submit"}
+						%i.glyphicon.glyphicon-search
+
 .center-column-list
 
 	- # @monologues is visible to the partial, so we don't need to pass it along
 
 	=partial('monologues/list', locals: {show_play_title: true})
+
+/ DataTables
+%script{type: 'text/javascript'}
+	:plain
+		$(document).ready(function() {
+			$('#monologue-list').DataTable( {
+				"paging":   false,
+				"ordering": false,
+				"info":     false
+			});
+		});
+		$('#monologue-list').dataTable( {
+			"ajax": {
+			"url": $("#search-box").val(),
+			"dataSrc": "tableData"
+			}
+		});

@@ -12,11 +12,14 @@ gem 'padrino', '0.13.0'
 # Memcached support
 gem 'dalli'
 
+# TODO Re-enable rack protection!
+gem 'rack-protection'
+
+
 # Component requirements
 gem 'activerecord', '>= 3.1', require: 'active_record'
 gem 'haml'
 gem 'pg'
-gem 'rack-protection'
 gem 'rack-rewrite'
 gem 'bcrypt'
 

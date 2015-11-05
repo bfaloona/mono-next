@@ -1,9 +1,7 @@
 module Monologues
   class App < Padrino::Application
 
-    use Rack::Protection
     use ConnectionPoolManagement
-
     register Padrino::Mailer
     register Padrino::Helpers
     register Padrino::Cache

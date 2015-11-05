@@ -35,4 +35,30 @@ Monologues::App.controllers :monologues do
     end
   end
 
+  get '/api/monologues' do
+    binding.pry
+    render 'errors/500', layout: false
+  end
+
+  post :api, map: '/api/monlogues', cache: true do
+    begin
+
+      logger.info "Monologues /api/monologues called with: #{params[:query]}"
+
+      response = {}
+      jdata = JSON.parse(params[:data], :symbolize_names => true)
+
+      s = "%#{jdata[query].downcase}%"
+      monologues = Monologue.limit(20).where(
+          'first_line ILIKE ? OR character ILIKE ? OR body ILIKE ? OR location ILIKE ?',
+          s, s, s, s
+      )
+
+      response[:data] = monologues.to_json
+      response
+
+    end
+  end
+
+
 end

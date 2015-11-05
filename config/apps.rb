@@ -29,7 +29,7 @@ Padrino.configure_apps do
   # enable :sessions
   set :session_secret, '56e1c3a632f04f93dcb9c9d2b013e8f8996e7529ebe38f046dc7cbda185b5f86'
   set :protection, :except => :path_traversal
-  set :protect_from_csrf, true
+  set :protect_from_csrf, :except => ["/api/monologues"]
 end
 
 # Mounts the applications for this project
