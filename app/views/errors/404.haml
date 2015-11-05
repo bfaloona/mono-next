@@ -3,7 +3,10 @@
 
 	%head
 		%title 404 - File Not Found on Shakespeare's Monologues Site - Redirecting back home
-		%meta{content: "15;url=http://www.shakespeare-monologues.org", "http-equiv" => "REFRESH"}
+
+		/ Disabled for now
+		/ %meta{content: "15;url=http://www.shakespeare-monologues.org", "http-equiv": "REFRESH"}
+
 		%script{type: 'text/javascript'}
 			:plain
 				var _gaq = _gaq || [];
@@ -29,7 +32,7 @@
 				}
 		/ end clickjacking defense
 
-	%body{background: "images/parchment.jpg", bgcolor: "#F9F9DF"}
+	%body{background: "/images/parchment.jpg", bgcolor: "#F9F9DF"}
 		.container
 
 			%p

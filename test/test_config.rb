@@ -1,3 +1,5 @@
+require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
+
 RACK_ENV = 'test' unless defined?(RACK_ENV)
 
 require 'minitest/autorun'
@@ -5,11 +7,11 @@ require 'minitest/spec'
 require 'minitest/reporters'
 require 'mocha/api'
 
-Dir[File.expand_path(File.dirname(__FILE__) + "/../app/helpers/**/*.rb")].each(&method(:require))
-
-Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new]
-
 require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
+
+# Config and helper for prod tests
+PROD_WEBSITE ||= 'shakespeare-monologues.org'
+
 
 class MiniTest::Spec
   include Mocha::API
@@ -30,13 +32,8 @@ class MiniTest::Spec
   end
 end
 
-# Config and helper for prod tests
-PROD_WEBSITE ||= 'shakespeare-monologues.org'
-
-def full_url path
-  'http://' + PROD_WEBSITE + path
-end
-
-def prepend_protocol url
-  return url.match(/^https?\:\/\//) ? url : 'http://' + url
-end
+reporter_options = { color: true, slow_count: 5 }
+Minitest::Reporters.use! [
+                             Minitest::Reporters::SpecReporter.new,
+                             Minitest::Reporters::DefaultReporter.new(reporter_options)
+                         ]

@@ -84,15 +84,12 @@ h3 {
 */
 }
 
-/* Padding for spacing */
-.center-column {
-/*
-    vertical-align: top;
-*/
+.center-column-header {
 }
 
 .center-column-list {
     min-height: 200px;
+    margin-top: -15px;
 /*
     vertical-align: top;
     padding-bottom: 60px;
@@ -156,10 +153,20 @@ div.login-banner {
 }
 
 
-input.search {
-    font-size: 140%;
+input#search-box {
+    font-size: 155%;
+    width: 550px;
+    margin-left: -10px;
 }
 
+div.result-summary {
+    float: right;
+    color: #999;
+    text-align: right;
+    margin-right: 0px;
+    padding-bottom: 0.5em;
+    padding-right: 25px;
+}
 div.search-links {
     padding-left: 45px;
     margin-top: -10px;
@@ -206,16 +213,19 @@ table.categories-list td {
 }
 
 table.monologue-list {
-    /* width: 768px; */
+    width: 100%;
 }
 
 table.monologue-list th {
-    font-size: 120%;
+    font-size: 110%;
     text-align: left;
     white-space: nowrap;
     padding-left: 6px;
     padding-right: 8px;
     padding-bottom: 6px;
+    border-bottom: solid 1px;
+    color: #333;
+    font-weight: normal;
 }
 
 
@@ -264,7 +274,7 @@ h1.monologue-firstline-heading::first-letter {
 }
 
 .monologue-playname {
-    font-size: 125%;
+    font-size: 115%;
     text-decoration: underline;
 }
 
