@@ -1,9 +1,29 @@
 
 
 body {
+    background-color: #F9F9DF;
+    background-image: url("/images/parchment-mobile.jpg");
     font-family: Georgia, "Times New Roman", Times, serif;
     font-size:   13px;
     line-height: 13px;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: #111;
+}
+
+a:hover {
+    color: #5E2612;
+    text-decoration: underline;
+}
+
+a:visited { color: #666; }
+
+.back-link {
+    float: left;
+    padding: 10px;
 }
 
 input#search-box {
@@ -17,7 +37,7 @@ div.result-summary {
     text-align: right;
     margin-right: 0px;
     padding-bottom: 0.5em;
-    padding-right: 25px;
+    padding-right: 5px;
 }
 
 .empty-table-message {
@@ -49,32 +69,40 @@ table.monologue-list td {
 }
 
 tr.odd {
-    background-color: #FFF;
+    background-color: #F9F9D1;
 }
 
 tr.even {
-    background-color: #EEE;
+    background-color: #F9F9DF;
 }
 
-
-h1.monologue-firstline-heading {
-    font-size: 200%;
-    line-height: 150%;
-}
-
-h1.monologue-firstline-heading::first-letter {
-    font-size: 300%;
-    color: #777;
-}
-
-.monologue-firstline-table {
-    font-size: 125%;
-    font-style: italic;
+td.monologue-firstline-table {
+    font-size: 150%;
     line-height: 125%;
 }
 
-.monologue-firstline-table a {
-    color: #555;
+.monologue-detail {
+    color: #666;
+    margin-left: 10px;
+}
+
+
+
+h1.monologue-firstline-heading {
+    font-size: 250%;
+    line-height: 125%;
+}
+
+h1.monologue-firstline-heading::first-letter {
+    font-size: 150%;
+}
+
+/* Parent class for monologue details */
+.monologue-mobile-detail {
+    color: #666;
+    padding: 10px;
+    border: solid 1px;
+    margin-left: 10px;
 }
 
 .monologue-playname {
@@ -85,41 +113,18 @@ h1.monologue-firstline-heading::first-letter {
     font-weight: bold;
 }
 
-.monologue-detail {
-}
-
-.monologue-preview {
-    /*padding: 10px;*/
-    /*font-size: 100%;*/
-    /*line-height: 1.25;*/
-    /*width: 455px;*/
-    /*margin-top: 5px;*/
-    /*margin-left: -5px;*/
-    /*border: solid gray;*/
-    /*border-width: 1px;*/
-    /*/!* background-image: url('/images/white.png'); *!/*/
-    /*background-repeat: repeat;*/
-    /*overflow: visible;*/
-    /*/!* z-index: 0; *!/*/
-}
-
 .monologue-actscene {
     white-space: nowrap;
 }
 
-
-/*
-    Monologues show view modifies above classes
-*/
-
-.monologue-show {
-
+.monologue-intercut {
+    font-size: 80%;
 }
 
 .monologue-body {
-    font-size: 150%;
-    line-height: 125%;
-    width: 100%;
+    padding-top: 20px;
+    font-size: 125%;
+    line-height: 135%;
 }
 
 

@@ -1,23 +1,31 @@
-.center-column-header
-	%h1.monologue-firstline-heading
-		= @title
+!!! 5
+%html{lang: 'en', itemscope: '', itemtype: 'http://schema.org/CollectionPage', class: 'gr__shakespeare-monologues_org'}
+	%head
+		%title= @title.present? ? "#{@title} | Shakespeare's Monologues" : 'Shakespeare\'s Monologues'
 
-.center-column-list
+		= javascript_include_tag 'jquery.min', 'bootstrap.min'
+		= stylesheet_link_tag 'normalize', 'bootstrap.min', 'mobile'
+		= yield_content :include
+	.body
 
-	/ bootstrap column
-	.col-md-2.monologue-show
-		%div.monologue-detail
-			=@monologue.style + @monologue.intercut_label
-		%div.monologue-playname
-			=link_to(@monologue.play.title, url_for(:plays, :show, id: @monologue.play.id))
-		%div.monologue-actscene
-			=@monologue.location
-		%div.monologue-character
-			=@monologue.character
-		%div
-			%a{href: @monologue.pdf_link}
-				%img{src: '/images/pdf_file_icon_16x16.png'}
-	/ second column
-	.col-md-10
-		%div.monologue-body
+		.non-bootstrap-row
+			%span.back-link
+				%a{href: '/m'}
+					%i.glyphicon.glyphicon-hand-left
+			%span
+				%h1.monologue-firstline-heading
+					= @title
+
+		.container.row
+			.col-xs-4.monologue-mobile-detail
+				%span.monologue-character
+					=@monologue.character
+				%span
+					=link_to(@monologue.play.title, url_for(:monologues, :mobileplay, id: @monologue.play.id))
+					=surround( '(', ')') { @monologue.location }
+				%span.monologue-intercut
+					=@monologue.style + @monologue.intercut_label
+			.col-xs-8
+				/ blank
+		.container.row-fluid.monologue-body
 			=erb(@monologue.body, layout: false)

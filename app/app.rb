@@ -4,10 +4,8 @@ module Monologues
     use ConnectionPoolManagement
     register Padrino::Mailer
     register Padrino::Helpers
-    register Padrino::Cache
 
     enable :sessions
-    enable :caching
 
     # TODO Investigate ActiveRecord::QueryCache
     # use ActiveRecord::QueryCache
@@ -16,6 +14,9 @@ module Monologues
     if ENV["MEMCACHEDCLOUD_SERVERS"]
 
       # production
+      register Padrino::Cache
+      enable :caching
+
       heroku_dalli_cached = Dalli::Client.new(
           ENV["MEMCACHEDCLOUD_SERVERS"].split(','),
           :username => ENV["MEMCACHEDCLOUD_USERNAME"],
@@ -24,7 +25,8 @@ module Monologues
 
     else
       # development / test
-      set :cache, Padrino::Cache.new(:LRUHash)
+      # DISABLED FOR SANITY
+      # set :cache, Padrino::Cache.new(:LRUHash)
     end
 
 
