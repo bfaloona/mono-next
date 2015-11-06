@@ -3,19 +3,18 @@
 	%head
 		%title= @title.present? ? "#{@title} | Shakespeare's Monologues" : 'Shakespeare\'s Monologues'
 
-		= javascript_include_tag 'jquery.min', 'bootstrap.min'
+		= javascript_include_tag 'jquery.min', 'bootstrap.min', 'application'
 		= stylesheet_link_tag 'normalize', 'bootstrap.min', 'mobile'
 		= yield_content :include
 	.body
-		.center-column-header
-			-# %h3= @title
-			%form#search-form.navbar-form{role: ""}
-				.input-group
-					%input#search-box.form-control{placeholder: "Search Shakespeare's Monologues", type: "text", autocomplete: "off", action: "#"}
+
+		=partial('mobile/menu', locals: {}, layout: false)
 
 		.center-column-list
 
 			=partial('mobile/list', layout: false, locals: {show_play_title: true})
+
+			-#  // alert("Gender global " + window.globalViewGender);
 
 			%script{type: 'text/javascript'}
 				:plain
@@ -27,7 +26,7 @@
 					$('#search-box').keyup(function(){
 						var query = $('#search-box').val();
 						$.ajax({
-							url: "/search/" + query,
+							url: "/search/" + query + "/" + window.globalViewGender,
 							cache: false
 						})
 						.done(function( html ) {

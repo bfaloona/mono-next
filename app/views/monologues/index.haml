@@ -2,7 +2,7 @@
 	-# %h3= @title
 	%form#search-form.navbar-form{role: ""}
 		.input-group
-			%input#search-box.form-control{:placeholder => "Search Shakespeare's Monologues", :type => "text"}
+			%input#search-box.form-control{:placeholder => "Search Shakespeare's Monologues", :type => "text", autocomplete: "off", action: "#"}
 
 .center-column-list
 
@@ -21,7 +21,7 @@
 			$('#search-box').keyup(function(){
 				var query = $('#search-box').val();
 				$.ajax({
-					url: "/search/" + query,
+					url: "/search/" + query + "/" + window.globalViewGender,
 					cache: false
 				})
 				.done(function( html ) {

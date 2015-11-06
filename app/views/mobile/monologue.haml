@@ -8,13 +8,7 @@
 		= yield_content :include
 	.body
 
-		.non-bootstrap-row
-			%span.back-link
-				%a{href: '/m'}
-					%i.glyphicon.glyphicon-hand-left
-			%span
-				%h1.monologue-firstline-heading
-					= @title
+		=partial('mobile/menu', locals: {}, layout: false)
 
 		.container.row
 			.col-xs-4.monologue-mobile-detail

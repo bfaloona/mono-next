@@ -4,16 +4,10 @@
 		%title= @title.present? ? "#{@title} | Shakespeare's Monologues" : 'Shakespeare\'s Monologues'
 
 		= javascript_include_tag 'jquery.min', 'bootstrap.min'
+		-#  // = javascript_include_tag 'button-group'
+		= javascript_include_tag 'mobile'
 		= stylesheet_link_tag 'normalize', 'bootstrap.min', 'mobile'
+		%script{src: "https://use.fonticons.com/b2523290.js"}
 		= yield_content :include
-	.body
 
-		=partial('mobile/menu', locals: {}, layout: false)
-
-	.h2= @title
-
-		.container.row
-
-			- # @monologues is visible to the partial, so we don't need to pass it along
-
-			=partial('mobile/list', locals: {show_play_title: false}, layout: false)
+		= yield

@@ -21,21 +21,40 @@ Monologues::App.controllers :monologues do
     end
   end
 
-  get :index, map: '/search/:query', cache: true do
+  ###
+  # Search
+  ##
+
+  get :search, map: '/search', with: [ :query, '(:gender)'], cache: true do
     begin
 
-      logger.info "Monologues controller called with: #{params[:query]}"
+      gender_param = params[:gender]
+      logger.info "Monologues controller called with query '#{params[:query]}' and gender #{gender_param}"
       is_mobile = request.referer.match(/\/m$/) rescue false
 
       @show_play_title = true
-      @title = "Monologues results for: #{params[:query]}"
-
+      @title = "Monologues results for query '#{params[:query]}' and gender #{gender_param}}"
 
       s = "%#{params[:query].to_s.downcase}%"
-      found_monologues = Monologue.where(
-          'first_line ILIKE ? OR character ILIKE ? OR body ILIKE ? OR location ILIKE ?',
-          s, s, s, s
-      )
+
+        # TODO Gender state is too complicated!
+        # 'Both' and All should be the same case, but it's not.
+        case gender_param
+          when 'a', '', nil
+            found_monologues = Monologue
+                                 .where( 'first_line ILIKE ? OR character ILIKE ?
+                                          OR body ILIKE ? OR location ILIKE ?',
+                                          s, s, s, s)
+          when 'w', 'm'
+            gender_id = gender_param.match(/^w$/) ? '2' : '3'
+            found_monologues = Monologue
+                                   .where(gender: gender_id)
+                                   .where( 'first_line ILIKE ? OR character ILIKE ?
+                                        OR body ILIKE ? OR location ILIKE ?',
+                                           s, s, s, s)
+          else
+            halt 500, 'Unable to set the gender params value'
+        end
 
       display_limit = is_mobile ? 20 : 50
       num_found = found_monologues.count
@@ -47,8 +66,6 @@ Monologues::App.controllers :monologues do
       else
         render 'monologues/_list', layout: false
       end
-
-
     end
   end
 
@@ -64,7 +81,7 @@ Monologues::App.controllers :monologues do
     @monologues = Monologue.take(display_limit)
     @result_summary = "#{num_found} found, #{@monologues.count} displayed"
     @show_play_title = true
-    render 'mobile/index', layout: false
+    render 'mobile/index', layout: :mobile
   end
 
   get :mobileshow, map: "/m/:id", cache: true do

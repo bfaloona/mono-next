@@ -447,4 +447,10 @@ th.th-pad-right {
     padding-right: 50px;
 }
 
+/* Search box has too much bootstrap bling */
+.form-control:focus {
+    border-color: unset;
+    -webkit-box-shadow: none;
+    outline: -webkit-focus-ring-color auto 0px;
+}
 
