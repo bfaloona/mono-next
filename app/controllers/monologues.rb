@@ -88,7 +88,7 @@ Monologues::App.controllers :monologues do
     begin
       @monologue = Monologue.find(params[:id])
       @title = @monologue.first_line
-      render 'mobile/monologue', layout: false
+      render 'mobile/monologue', layout: :mobile
     end
   end
 
@@ -99,7 +99,7 @@ Monologues::App.controllers :monologues do
       @monologues = Monologue.where(play_id: params[:id])
       @result_summary = "#{@monologues.count} found"
       @show_play_title = false
-      render 'mobile/play', layout: false
+      render 'mobile/play', layout: :mobile
     end
   end
 

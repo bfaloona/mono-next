@@ -1,25 +1,22 @@
-.btn-group
-	%button.btn.menu-up
-		%a{href: '#'}
-			%i.icon.icon-3x.icon-search{href: '#'}
-	%button.btn.menu-gender
-		%a{href: '#'}
-			%i.icon.icon-3x.icon-genderless{href: '#'}
-			-#%i.icon.icon-3x.icon-venus{href: '#'}
-			-#%i.icon.icon-3x.icon-mars{href: '#'}
-	%button.btn.menu-book
-		%a{href: '#'}
-			%i.icon.icon-3x.icon-book{href: '#'}
-	%button.btn.menu-share
-		%a{href: '#'}
-			%i.icon.icon-3x.icon-share{href: '#'}
-	%button.btn.menu-tipjar
-		%a{href: '#'}
-			%i.icon.icon-3x.icon-gittip{href: '#'}
-	%button.btn.menu-help
-		%a{href: '#'}
-			%i.icon.icon-3x.icon-question{href: '#'}
-.search-wrapper
-	%form#search-form.navbar-form{role: ""}
-		%input#search-box.form-control.input-lg{placeholder: "Search Shakespeare's Monologues", type: "text", autocomplete: "off", action: "#"}
+.my-btn-group
 
+	%button.my-btn.menu-up
+		%a{href: '/m'}
+			%i.icon.icon-3x.icon-search
+	-#%button.my-btn.menu-gender
+	-#	%a{href: '#'}
+	-#		%i.icon.icon-3x.icon-genderless{href: '#'}
+	-#		-#%i.icon.icon-3x.icon-venus{href: '#'}
+	-#		-#%i.icon.icon-3x.icon-mars{href: '#'}
+	%button.my-btn.menu-book
+		%a{href: 'http://www.shakespeare-monologues.org/store/index.html'}
+			%i.icon.icon-3x.icon-book
+	%button.my-btn.menu-help
+		%a{href: 'http://www.shakespeare-monologues.org/faqs'}
+			%i.icon.icon-3x.icon-question
+	%button.my-btn.menu-contact
+		%a{href: 'http://shults.org/shakes/contact.php'}
+			%i.icon.icon-3x.icon-envelope
+	%button.my-btn.menu-tipjar
+		%a{href: 'https://www.everbutton.com/donate/693'}
+			%i.icon.icon-3x.icon-gittip

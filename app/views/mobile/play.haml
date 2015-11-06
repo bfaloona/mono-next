@@ -1,19 +1,8 @@
-!!! 5
-%html{lang: 'en', itemscope: '', itemtype: 'http://schema.org/CollectionPage', class: 'gr__shakespeare-monologues_org'}
-	%head
-		%title= @title.present? ? "#{@title} | Shakespeare's Monologues" : 'Shakespeare\'s Monologues'
 
-		= javascript_include_tag 'jquery.min', 'bootstrap.min'
-		= stylesheet_link_tag 'normalize', 'bootstrap.min', 'mobile'
-		= yield_content :include
-	.body
+%h1= @title
 
-		=partial('mobile/menu', locals: {}, layout: false)
+.container.row
 
-	.h2= @title
+	- # @monologues is visible to the partial, so we don't need to pass it along
 
-		.container.row
-
-			- # @monologues is visible to the partial, so we don't need to pass it along
-
-			=partial('mobile/list', locals: {show_play_title: false}, layout: false)
+	=partial('mobile/list', locals: {show_play_title: false}, layout: false)

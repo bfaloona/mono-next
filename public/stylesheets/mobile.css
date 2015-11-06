@@ -4,10 +4,23 @@ body {
     background-color: #F9F9DF;
     background-image: url("/images/parchment-mobile.jpg");
     font-family: Georgia, "Times New Roman", Times, serif;
-    font-size:   13px;
-    line-height: 13px;
+    font-size:   20px;
+    line-height: 20px;
     padding: 5px;
     width: 100%;
+}
+
+.my-btn-group {
+    font-size: 24px;
+    /*position: relative;*/
+    /*overflow: hidden;*/
+    padding: 10px;
+
+}
+
+.my-btn {
+    width: 15%;
+    display: inline-block;
 }
 
 a {
@@ -28,8 +41,12 @@ a:visited { color: #666; }
 }
 
 input#search-box {
-    font-size: 150%;
-    width: 140%;
+    font-size: 115%;
+    line-height: 115%;
+    width: 90%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /*border: 5px;*/
 }
 
 div.result-summary {
@@ -130,9 +147,9 @@ h1.monologue-firstline-heading::first-letter {
 
 /* Search box has too much bootstrap bling */
 .form-control:focus {
-    /*border-color: unset;*/
-    /*-webkit-box-shadow: none;*/
-    /*outline: -webkit-focus-ring-color auto 0px;*/
+    border-color: unset;
+    -webkit-box-shadow: none;
+    outline: -webkit-focus-ring-color auto 0px;
 }
 
 
@@ -140,27 +157,48 @@ h1.monologue-firstline-heading::first-letter {
 
 
 
-/*/!* Custom, iPhone Retina *!/*/
-/*@media only screen and (min-width : 320px) {*/
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+    .body {
+        width: 100%;
+        font-size:   20px;
+        line-height: 20px;
+    }
+}
 
-/*}*/
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+    .body {
+        width: 100%;
+        font-size:   20px;
+        line-height: 20px;
+    }
+}
 
-/*/!* Extra Small Devices, Phones *!/*/
-/*@media only screen and (min-width : 480px) {*/
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .body {
+        width: 100%;
+        font-size:   18px;
+        line-height: 18px;
+    }
+}
 
-/*}*/
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .body {
+        width: 100%;
+        font-size:   14px;
+        line-height: 14px;
+    }
 
-/*/!* Small Devices, Tablets *!/*/
-/*@media only screen and (min-width : 768px) {*/
+}
 
-/*}*/
-
-/*/!* Medium Devices, Desktops *!/*/
-/*@media only screen and (min-width : 992px) {*/
-
-/*}*/
-
-/*/!* Large Devices, Wide Screens *!/*/
-/*@media only screen and (min-width : 1200px) {*/
-
-/*}*/
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .body {
+        width: 100%;
+        font-size:   13px;
+        line-height: 13px;
+    }
+}
