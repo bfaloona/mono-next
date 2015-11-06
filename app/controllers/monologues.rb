@@ -25,7 +25,7 @@ Monologues::App.controllers :monologues do
     begin
 
       logger.info "Monologues controller called with: #{params[:query]}"
-      is_mobile = request.referer.match(/\/m$/)
+      is_mobile = request.referer.match(/\/m$/) rescue false
 
       @show_play_title = true
       @title = "Monologues results for: #{params[:query]}"
