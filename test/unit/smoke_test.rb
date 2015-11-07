@@ -2,9 +2,27 @@ require File.expand_path(File.dirname(__FILE__) + '/../test_config.rb')
 
 describe 'Monologues' do
 
-  it 'root renders' do
+  it 'root renders monologue list' do
     get '/'
-    last_response.body.must_include 'found, '
+    last_response.body.split('of 24 monologues').count.must_equal 2
+    monologues_displayed(last_response).must_equal 24
+  end
+
+  it 'root renders left column ads' do
+    get '/'
+    last_response.body.split('3862062942').count.must_equal 2
+  end
+
+  it 'root renders right column ads' do
+    get '/'
+    last_response.body.split('1016396307').count.must_equal 2
+  end
+
+  it 'root renders link menus and footers' do
+    get '/'
+    last_response.body.split('The Women').count.must_equal 3
+    last_response.body.split('Chrome App').count.must_equal 2
+    last_response.body.split('Contact').count.must_equal 3
   end
 
   it 'homepage renders' do

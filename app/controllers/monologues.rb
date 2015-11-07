@@ -5,7 +5,7 @@ Monologues::App.controllers :monologues do
     display_limit = 50
     num_found = Monologue.count
     @monologues = Monologue.take(display_limit)
-    @result_summary = "#{num_found} found, #{@monologues.count} displayed"
+    @result_summary = "#{@monologues.count} of #{num_found} monologues"
 
     render 'monologues/index'
   end
@@ -59,7 +59,7 @@ Monologues::App.controllers :monologues do
       display_limit = is_mobile ? 20 : 50
       num_found = found_monologues.count
       @monologues = found_monologues.take(display_limit)
-      @result_summary = "#{num_found} found, #{@monologues.count} displayed"
+      @result_summary = "#{@monologues.count} of #{num_found} monologues"
 
       if is_mobile
         render 'mobile/_list', layout: false
@@ -79,7 +79,7 @@ Monologues::App.controllers :monologues do
     display_limit = 20
     num_found = Monologue.count
     @monologues = Monologue.take(display_limit)
-    @result_summary = "#{num_found} found, #{@monologues.count} displayed"
+    @result_summary = "#{@monologues.count} of #{num_found} monologues"
     @show_play_title = true
     render 'mobile/index', layout: :mobile
   end
@@ -97,7 +97,7 @@ Monologues::App.controllers :monologues do
       @play = Play.find(params[:id])
       @title = @play.title
       @monologues = Monologue.where(play_id: params[:id])
-      @result_summary = "#{@monologues.count} found"
+      @result_summary = "#{@monologues.count} monologues"
       @show_play_title = false
       render 'mobile/play', layout: :mobile
     end
