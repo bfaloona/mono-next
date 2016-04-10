@@ -4,16 +4,15 @@ body {
     background-color: #F9F9DF;
     background-image: url("/images/parchment-mobile.jpg");
     font-family: Georgia, "Times New Roman", Times, serif;
-    font-size:   20px;
-    line-height: 20px;
+    font-size:   42px;
+    line-height: 42px;
     padding: 5px;
     width: 100%;
 }
 
 .my-btn-group {
-    font-size: 24px;
-    /*position: relative;*/
-    /*overflow: hidden;*/
+    position: relative;
+    overflow: hidden;
     padding: 10px;
 
 }
@@ -41,21 +40,23 @@ a:visited { color: #666; }
 }
 
 input#search-box {
-    font-size: 115%;
-    line-height: 115%;
-    width: 90%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    /*border: 5px;*/
+    font-size: 200%;
+    line-height: 100%;
+    width: 95%;
+    padding: 5px;
+    border: 30px;
 }
 
 div.result-summary {
-    float: right;
+    float: left;
     color: #999;
-    text-align: right;
+    font-family: sans-serif;
+    font-size: 80%;
+    text-align: left;
+    margin-top: 2px;
     margin-right: 0px;
     padding-bottom: 0.5em;
-    padding-right: 5px;
+    padding-left: 5px;
 }
 
 .empty-table-message {
@@ -161,8 +162,8 @@ h1.monologue-firstline-heading::first-letter {
 @media only screen and (min-width : 320px) {
     .body {
         width: 100%;
-        font-size:   20px;
-        line-height: 20px;
+        font-size:   42px;
+        line-height: 42px;
     }
 }
 
@@ -170,35 +171,35 @@ h1.monologue-firstline-heading::first-letter {
 @media only screen and (min-width : 480px) {
     .body {
         width: 100%;
-        font-size:   20px;
-        line-height: 20px;
+        font-size:   32px;
+        line-height: 32px;
     }
 }
 
-/* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
-    .body {
-        width: 100%;
-        font-size:   18px;
-        line-height: 18px;
-    }
-}
+/*/!* Small Devices, Tablets *!/*/
+/*@media only screen and (min-width : 768px) {*/
+    /*.body {*/
+        /*width: 100%;*/
+        /*font-size:   16px;*/
+        /*line-height: 16px;*/
+    /*}*/
+/*}*/
 
-/* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
-    .body {
-        width: 100%;
-        font-size:   14px;
-        line-height: 14px;
-    }
+/*/!* Medium Devices, Desktops *!/*/
+/*@media only screen and (min-width : 992px) {*/
+    /*.body {*/
+        /*width: 100%;*/
+        /*font-size:   13px;*/
+        /*line-height: 13px;*/
+    /*}*/
 
-}
+/*}*/
 
-/* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
-    .body {
-        width: 100%;
-        font-size:   13px;
-        line-height: 13px;
-    }
-}
+/*/!* Large Devices, Wide Screens *!/*/
+/*@media only screen and (min-width : 1200px) {*/
+    /*.body {*/
+        /*width: 100%;*/
+        /*font-size:   13px;*/
+        /*line-height: 13px;*/
+    /*}*/
+/*}*/
