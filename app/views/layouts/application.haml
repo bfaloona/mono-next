@@ -3,7 +3,7 @@
 	%head
 		%title= @title.present? ? "#{@title} | Shakespeare's Monologues" : 'Shakespeare\'s Monologues'
 
-		= javascript_include_tag 'jquery.min', 'bootstrap.min', 'application'
+		= javascript_include_tag 'jquery.min', 'jquery-ujs', 'bootstrap.min', 'application'
 		= stylesheet_link_tag 'normalize', 'bootstrap.min', 'application'
 		= yield_content :include
 

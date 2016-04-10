@@ -14,7 +14,12 @@ Monologues::App.controllers :monologues do
     begin
       @monologue = Monologue.find(params[:id])
       @title = @monologue.first_line
-      render 'monologues/show'
+
+      if request.xhr?
+        return @monologue.body
+      else
+        render 'monologues/show'
+      end
 
     rescue ActiveRecord::RecordNotFound
       render 'errors/404', layout: false

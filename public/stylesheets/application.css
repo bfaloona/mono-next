@@ -329,7 +329,19 @@ h1.monologue-firstline-heading::first-letter {
     width: 100%;
     margin-bottom: 60px;
 }
-
+.monologue-body-inline {
+    display: none;
+    font-size: 120%;
+    line-height: 115%;
+    padding: 15px;
+    border: #333 solid;
+    width: 100%;
+    margin-bottom: 20px;
+    min-height: 300px;
+}
+.monologue-body-loading {
+    content: url('/images/book-animated.gif');
+}
 
 
 

@@ -30,9 +30,44 @@
 									=link_to(monologue.play.title, url_for(:plays, :show, id: monologue.play.id))
 
 						%td.monologue-firstline-table
-							=link_to(monologue.first_line, url_for(:monologues, :show, id: monologue.id))
+							=link_to(monologue.first_line, url(:monologues, :show, id: monologue.id), remote: true)
+							.monologue-body-inline
+							/ .monologue-body-loading
+
 						%td.monologue-actscene=monologue.location
 						%td
 							%a{href: monologue.pdf_link, target: '_blank'}
 								%img{src: '/images/pdf_file_icon_16x16.png'}
+
+		:javascript
+			$(function($) {
+
+				$('td.monologue-firstline-table > a').on('click',  function(event, data, status, xhr) {
+					var elMonoBody = $(event.target).parent().find('.monologue-body-inline')[0];
+
+					if( $(elMonoBody).is(':hidden') ) {
+
+						$(elMonoBody).show(800);
+
+						if( !(elMonoBody.textContent) ) {
+							$(elMonoBody).addClass('monologue-body-loading');
+							$.get(
+								$(this).attr('href'),
+								function(data){
+									elMonoBody.innerHTML=data;
+								}
+							)
+							.done( function(){
+								$(elMonoBody).removeClass('monologue-body-loading');
+							});
+
+						};
+					}
+					else {
+						$(elMonoBody).hide(800);
+						// prevent default
+						event.preventDefault();
+					}
+				});
+			});
 
