@@ -47,10 +47,11 @@
 
 					if( $(elMonoBody).is(':hidden') ) {
 
-						$(elMonoBody).show(800);
+						$(elMonoBody).show(600);
 
 						if( !(elMonoBody.textContent) ) {
-							$(elMonoBody).addClass('monologue-body-loading');
+							var elLoading = $("<img src='/images/book-animated.gif' class='monologue-body-loading' />")
+							$(elMonoBody).append(elLoading);
 							$.get(
 								$(this).attr('href'),
 								function(data){
@@ -58,13 +59,13 @@
 								}
 							)
 							.done( function(){
-								$(elMonoBody).removeClass('monologue-body-loading');
+								$(elLoading).remove();
 							});
 
 						};
 					}
 					else {
-						$(elMonoBody).hide(800);
+						$(elMonoBody).hide(400);
 						// prevent default
 						event.preventDefault();
 					}

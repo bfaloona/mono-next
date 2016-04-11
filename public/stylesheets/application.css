@@ -340,7 +340,8 @@ h1.monologue-firstline-heading::first-letter {
     min-height: 300px;
 }
 .monologue-body-loading {
-    content: url('/images/book-animated.gif');
+    height: 64px;
+    width: 64px;
 }
 
 
