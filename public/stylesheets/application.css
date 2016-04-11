@@ -340,8 +340,8 @@ h1.monologue-firstline-heading::first-letter {
     min-height: 300px;
 }
 .monologue-body-loading {
-    height: 64px;
-    width: 64px;
+    height: 32px;
+    width: 32px;
 }
 
 

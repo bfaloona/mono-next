@@ -13,18 +13,3 @@
 
 	%script{type: 'text/javascript'}
 		:plain
-			$( "#search-box" ).focus();
-			$( "#search-box" ).click(function( event ) {
-				event.preventDefault();
-				return false;
-			});
-			$('#search-box').keyup(function(){
-				var query = $('#search-box').val();
-				$.ajax({
-					url: "/search/" + query + "/" + window.globalViewGender,
-					cache: false
-				})
-				.done(function( html ) {
-					$( ".jquery-search-replace" ).replaceWith( html );
-				});
-			});
