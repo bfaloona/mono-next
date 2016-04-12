@@ -7,6 +7,7 @@ class Monologue < ActiveRecord::Base
   validates_presence_of :first_line
   validates_uniqueness_of :first_line, :scope => :play_id
 
+
   validates_length_of :location, :maximum=>20, :allow_nil => true
   validates_length_of :first_line, :maximum=>255
   validates_length_of :character, :maximum=>80, :allow_nil => true
@@ -14,7 +15,35 @@ class Monologue < ActiveRecord::Base
   validates_length_of :body_link, :maximum=>255, :allow_nil => true
   validates_length_of :pdf_link, :maximum=>255, :allow_nil => true
 
+  def self.gender(gender_param=nil)
+
+    # TODO Gender state is too complicated!
+    # 'Both' and All should be the same case, but it's not.
+    case gender_param
+    when nil, 'a', ''
+      all
+    when '1', 1
+      where("gender_id = ?", 1)
+    when /^w$/,'2', 2
+      where("gender_id = ?", 2)
+    when /^m$/,'3', 3
+      where("gender_id = ?", 3)
+    else
+      raise ArgumentError, "Cannot parse gender_parameter: #{gender_parameter}"
+    end
+  end
+
+  def self.matching(term)
+    t = "%#{term.to_s.strip.downcase}%"
+    where( 'first_line ILIKE ? OR
+              character ILIKE ? OR
+              body ILIKE ? OR
+              location ILIKE ?',
+              t, t, t, t)
+  end
+
   def intercut_label
     self.intercut == 1 ? '- intercut' : ''
   end
+
 end

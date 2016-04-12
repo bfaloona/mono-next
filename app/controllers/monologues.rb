@@ -1,10 +1,11 @@
 Monologues::App.controllers :monologues do
 
+    DISPLAY_LIMIT = 50
+
   get :index, map: '/', cache: true do
     @title = "Shakespeare's Monologues"
-    display_limit = 50
     num_found = Monologue.count
-    @monologues = Monologue.take(display_limit)
+    @monologues = Monologue.take(DISPLAY_LIMIT)
     @result_summary = "#{@monologues.count} of #{num_found} monologues"
 
     render 'monologues/index'
@@ -32,45 +33,19 @@ Monologues::App.controllers :monologues do
 
   get :search, map: '/search', with: [ :query, '(:gender)'], cache: true do
     begin
-
-      gender_param = params[:gender]
-      logger.info "Monologues controller called with query '#{params[:query]}' and gender #{gender_param}"
-      is_mobile = request.referer.match(/\/m$/) rescue false
+      @title = "Monologues results for query '#{params[:query]}' and gender #{params[:gender]}}"
+      logger.info "Search controller: #{@title}"
 
       @show_play_title = true
-      @title = "Monologues results for query '#{params[:query]}' and gender #{gender_param}}"
 
-      s = "%#{params[:query].to_s.strip.downcase}%"
+      found_monologues = Monologue.gender(params[:gender]).matching(params[:query])
 
-      # TODO Gender state is too complicated!
-      # 'Both' and All should be the same case, but it's not.
-      case gender_param
-        when 'a', '', nil
-          found_monologues = Monologue
-                               .where( 'first_line ILIKE ? OR character ILIKE ?
-                                        OR body ILIKE ? OR location ILIKE ?',
-                                        s, s, s, s)
-        when 'w', 'm'
-          gender_id = gender_param.match(/^w$/) ? '2' : '3'
-          found_monologues = Monologue
-                                 .where(gender: gender_id)
-                                 .where( 'first_line ILIKE ? OR character ILIKE ?
-                                      OR body ILIKE ? OR location ILIKE ?',
-                                         s, s, s, s)
-        else
-          halt 500, 'Unable to set the gender params value'
-      end
-
-      display_limit = is_mobile ? 20 : 50
       num_found = found_monologues.count
-      @monologues = found_monologues.take(display_limit)
+
+      @monologues = found_monologues.take(DISPLAY_LIMIT)
       @result_summary = "#{@monologues.count} of #{num_found} monologues"
 
-      if is_mobile
-        render 'mobile/_list', layout: false
-      else
-        render 'monologues/_list', layout: false
-      end
+      render 'monologues/_list', layout: false
     end
   end
 
@@ -81,9 +56,8 @@ Monologues::App.controllers :monologues do
 
   get :mobile, map: '/m', cache: true do
     @title = "Shakespeare's Monologues"
-    display_limit = 20
     num_found = Monologue.count
-    @monologues = Monologue.take(display_limit)
+    @monologues = Monologue.take(DISPLAY_LIMIT)
     @result_summary = "#{@monologues.count} of #{num_found} monologues"
     @show_play_title = true
     render 'mobile/index', layout: :mobile

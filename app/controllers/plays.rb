@@ -13,8 +13,18 @@ Monologues::App.controllers :plays do
     begin
       @play = Play.find(params[:id])
       @title = @play.title
-      @monologues = Monologue.where(play_id: params[:id])
-      render 'plays/show'
+
+      display_limit = 50
+
+      query_param = "%#{params[:query].to_s.strip.downcase}%"
+
+      found_monologues = @play.monologues.gender(session[:gender]).matching(query_param)
+
+      num_found = found_monologues.count
+      @monologues = found_monologues.take(display_limit)
+      @result_summary = "#{@monologues.count} of #{num_found} monologues"
+
+      render 'monologues/index'
 
     rescue ActiveRecord::RecordNotFound
       render 'errors/404', layout: false
