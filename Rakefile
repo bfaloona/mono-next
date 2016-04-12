@@ -9,3 +9,8 @@ task default: 'test'
 
 desc 'Run all tests (including prod)'
 task :testall => [:test, :prod]
+
+desc 'Start Pry with application environment loaded'
+task "console" do
+  exec "pry -r./config/boot"
+end
