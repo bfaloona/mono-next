@@ -64,10 +64,10 @@ $(document).ready( function() {
 	$('#search-box').keyup(function(){
 
 		// Search only if text has changed
-		if( query !== $('#search-box').val() ){
+		if( query !== $('#search-box').val().trim() ){
 
 			// Get new value
-			query = $('#search-box').val();
+			query = $('#search-box').val().trim();
 
 			// Two or more characters required
 			if(query.length === 0) {
