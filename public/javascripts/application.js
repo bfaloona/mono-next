@@ -5,16 +5,27 @@
 globalViewGender = "a"; //Global variable declaration with window.
 
 function registerMonologueClick() {
+
+	// Register click event
 	$('td.monologue-firstline-table > a').on('click',  function(event, data, status, xhr) {
+
+		// Find monologue body div for this monologue
 		var elMonoBody = $(event.target).parent().find('.monologue-body-inline')[0];
 
 		if( $(elMonoBody).is(':hidden') ) {
 
+			// Show element, with animation
 			$(elMonoBody).show(400);
 
+			// If element is empty
 			if( !(elMonoBody.textContent) ) {
+
+				// Create progress image
 				var elLoading = $("<img src='/images/book-animated.gif' class='monologue-body-loading' />")
+				// Add image element
 				$(elMonoBody).append(elLoading);
+
+				// Make background search request
 				$.get(
 					$(this).attr('href'),
 					function(data){
@@ -22,23 +33,24 @@ function registerMonologueClick() {
 					}
 				)
 				.done( function(){
+					// Remove progress image
 					$(elLoading).remove();
 				});
-
 			};
 		}
 		else {
+			// Hide monologue body
 			$(elMonoBody).hide(200);
-			// Prevent link click request
-			event.preventDefault();
-			return false;
 		}
+		// In all cases, prevent link click request
+		event.preventDefault();
+		return false;
 	});
 }
 
 $(document).ready( function() {
 	$( "#search-box" ).focus();
-	$( "#search-box" ).click(function( event ) {
+	$( "#search-form" ).submit(function( event ) {
 		event.preventDefault();
 		return false;
 	});
@@ -58,26 +70,28 @@ $(document).ready( function() {
 			query = $('#search-box').val();
 
 			// Two or more characters required
-			if(query.length > 1) {
+			if(query.length === 0) {
+				document.location = location.href;
+				return false;
+			}
 
-				// Cancel pending calls
-				if(timer) { clearTimeout(timer) }
+			// Cancel pending calls
+			if(timer) { clearTimeout(timer) }
 
-				timer = setTimeout( function() {
+			timer = setTimeout( function() {
 
-					// Send ajax search request
-					$.ajax({
-						url: "/search/" + query + "/" + window.globalViewGender,
-						cache: false
-					})
-					.done(function( html ) {
-						// Replace html in div
-						$( ".jquery-search-replace" ).replaceWith( html );
-					});
-				},
-				// Keyup timeout (ms)
-				400
-			)}
-		}
+				// Send ajax search request
+				$.ajax({
+					url: "/search/" + query + "/" + window.globalViewGender,
+					cache: false
+				})
+				.done(function( html ) {
+					// Replace html in div
+					$( ".jquery-search-replace" ).replaceWith( html );
+				});
+			},
+			// Keyup timeout (ms)
+			400
+		)}
 	});
 });
