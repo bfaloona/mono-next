@@ -40,26 +40,26 @@ Monologues::App.controllers :monologues do
       @show_play_title = true
       @title = "Monologues results for query '#{params[:query]}' and gender #{gender_param}}"
 
-      s = "%#{params[:query].to_s.downcase}%"
+      s = "%#{params[:query].to_s.strip.downcase}%"
 
-        # TODO Gender state is too complicated!
-        # 'Both' and All should be the same case, but it's not.
-        case gender_param
-          when 'a', '', nil
-            found_monologues = Monologue
-                                 .where( 'first_line ILIKE ? OR character ILIKE ?
-                                          OR body ILIKE ? OR location ILIKE ?',
-                                          s, s, s, s)
-          when 'w', 'm'
-            gender_id = gender_param.match(/^w$/) ? '2' : '3'
-            found_monologues = Monologue
-                                   .where(gender: gender_id)
-                                   .where( 'first_line ILIKE ? OR character ILIKE ?
+      # TODO Gender state is too complicated!
+      # 'Both' and All should be the same case, but it's not.
+      case gender_param
+        when 'a', '', nil
+          found_monologues = Monologue
+                               .where( 'first_line ILIKE ? OR character ILIKE ?
                                         OR body ILIKE ? OR location ILIKE ?',
-                                           s, s, s, s)
-          else
-            halt 500, 'Unable to set the gender params value'
-        end
+                                        s, s, s, s)
+        when 'w', 'm'
+          gender_id = gender_param.match(/^w$/) ? '2' : '3'
+          found_monologues = Monologue
+                                 .where(gender: gender_id)
+                                 .where( 'first_line ILIKE ? OR character ILIKE ?
+                                      OR body ILIKE ? OR location ILIKE ?',
+                                         s, s, s, s)
+        else
+          halt 500, 'Unable to set the gender params value'
+      end
 
       display_limit = is_mobile ? 20 : 50
       num_found = found_monologues.count
