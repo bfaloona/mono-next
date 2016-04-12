@@ -4,7 +4,7 @@ describe 'Monologues Mobile' do
 
   it ' /m/ returns table of monologues' do
     get '/m/'
-    monologues_displayed(last_response).must_equal 20
+    monologues_displayed(last_response).must_equal 24
   end
 
   it ' /m/131 returns expected monologue' do
