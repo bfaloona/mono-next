@@ -467,3 +467,21 @@ th.th-pad-right {
     outline: -webkit-focus-ring-color auto 0px;
 }
 
+.glyphicon-refresh.searching {
+    /*display: none;*/
+    color: gray;
+    padding: 5px;
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+    font-size: 130%;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}

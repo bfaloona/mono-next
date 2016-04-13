@@ -1,5 +1,9 @@
 // Put your application scripts herevar window.
+$(document).ready( function() {
 
+	$(".searching").hide();
+
+});
 
 // Set global gender to all
 globalViewGender = "a"; //Global variable declaration with window.
@@ -69,29 +73,37 @@ $(document).ready( function() {
 			// Get new value
 			query = $('#search-box').val().trim();
 
-			// Two or more characters required
-			if(query.length === 0) {
-				document.location = location.href;
-				return false;
-			}
-
 			// Cancel pending calls
 			if(timer) { clearTimeout(timer) }
 
+			var queryPath;
+			// Handle empty search box
+			if(query.length === 0) {
+				// HACK - search for letter e to get all results
+				queryPath = "/search/e/" + window.globalViewGender
+			}
+			else{
+				queryPath = "/search/" + query + "/" + window.globalViewGender;
+			}
+
+			// Show spinner
+			$(".searching").show();
 			timer = setTimeout( function() {
 
 				// Send ajax search request
 				$.ajax({
-					url: "/search/" + query + "/" + window.globalViewGender,
+					url: queryPath,
 					cache: false
 				})
 				.done(function( html ) {
 					// Replace html in div
 					$( ".jquery-search-replace" ).replaceWith( html );
+					// Hide spinner
+					$(".searching").hide();
 				});
 			},
 			// Keyup timeout (ms)
-			400
-		)}
+			400)
+		}
 	});
 });

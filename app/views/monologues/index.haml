@@ -2,7 +2,8 @@
 	-# %h3= @title
 	%form#search-form.navbar-form{role: ""}
 		.input-group
-			%input#search-box.form-control{:placeholder => "Search Shakespeare's Monologues", :type => "text", autocomplete: "off", action: "#"}
+			%input#search-box.form-control{:placeholder => "Search #{@scope} Monologues", :type => "text", autocomplete: "off", action: "#"}
+			%i.glyphicon.glyphicon-refresh.glyphicon-refresh-animate.searching
 
 .center-column-list
 

@@ -13,6 +13,8 @@ Monologues::App.controllers :plays do
     begin
       @play = Play.find(params[:id])
       @title = @play.title
+      @scope = @play.title
+      session[:play] = @play.id
 
       display_limit = 50
 
