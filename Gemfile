@@ -28,8 +28,12 @@ group :test do
 
   gem 'minitest', require: 'minitest/autorun'
   gem 'minitest-reporters', require: false
+  gem 'minitest-capybara'
   gem 'mocha', require: false
   gem 'rack-test', require: 'rack/test'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+
 
   # rest-client for http calls
   gem 'rest-client', require: false

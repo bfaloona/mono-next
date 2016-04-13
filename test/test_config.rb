@@ -5,7 +5,12 @@ RACK_ENV = 'test' unless defined?(RACK_ENV)
 require 'minitest/autorun'
 require 'minitest/spec'
 require 'minitest/reporters'
+require 'minitest/capybara'
 require 'mocha/api'
+
+require 'rack/test'
+require 'capybara'
+require 'selenium-webdriver'
 
 require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
 
@@ -16,6 +21,14 @@ PROD_WEBSITE ||= 'shakespeare-monologues.org'
 class MiniTest::Spec
   include Mocha::API
   include Rack::Test::Methods
+
+  include Capybara::DSL
+  include WaitForAjax
+
+  def teardown
+    Capybara.reset_sessions!
+    Capybara.use_default_driver
+  end
 
   # You can use this method to custom specify a Rack app
   # you want rack-test to invoke:
@@ -30,6 +43,12 @@ class MiniTest::Spec
     @app ||= block_given? ? app.instance_eval(&blk) : app
     @app ||= Padrino.application
   end
+
+end
+
+Capybara.app = Monologues::App.new
+Capybara.register_driver :selenium_chrome do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
 
 reporter_options = { color: true, slow_count: 5 }
