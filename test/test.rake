@@ -1,7 +1,15 @@
 require 'rake/testtask'
 
 test_tasks = Dir['test/*/'].map do |d|
-  File.basename(d) if File.basename(d) != 'prod'
+  case File.basename(d)
+  when 'prod'
+    nil
+  when 'features'
+    # Don't run browser tests on travis
+    File.basename(d) unless ENV['TRAVIS'] == 'true'
+  else
+    File.basename(d)
+  end
 end
 test_tasks.compact!
 
