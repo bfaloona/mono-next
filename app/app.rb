@@ -88,19 +88,10 @@ module Monologues
       render  'errors/500', layout: false
     end
 
-    # get '/'  is in monologues controller
-
     get '/home' do
       render :home, layout: false
     end
 
-    get '/men' do
-      redirect url :plays, :index
-    end
-
-    get '/women' do
-      redirect url :plays, :index
-    end
 
   end
 end

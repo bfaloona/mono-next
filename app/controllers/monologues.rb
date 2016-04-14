@@ -6,13 +6,38 @@ Monologues::App.controllers :monologues do
     session[:gender] = 1
     @title = "#{gender_word(session[:gender])} monologues"
     num_found = Monologue.count
-    @monologues = Monologue.take(DISPLAY_LIMIT)
+    @monologues = Monologue.gender(session[:gender]).take(DISPLAY_LIMIT)
     @result_summary = "#{@monologues.count} of #{num_found} monologues"
     @scope = "Shakespeare's"
     session[:play] = nil
 
     render 'monologues/index'
   end
+
+  get :men, map: '/men' do
+    session[:gender] = 3
+    @title = "#{gender_word(session[:gender])} monologues"
+    num_found = Monologue.count
+    @monologues = Monologue.gender(session[:gender]).take(DISPLAY_LIMIT)
+    @result_summary = "#{@monologues.count} of #{num_found} monologues"
+    @scope = "Shakespeare's #{gender_word(session[:gender])}"
+    session[:play] = nil
+
+    render 'monologues/index'
+  end
+
+  get :women, map: '/women' do
+    session[:gender] = 2
+    @title = "#{gender_word(session[:gender])} monologues"
+    num_found = Monologue.count
+    @monologues = Monologue.gender(session[:gender]).take(DISPLAY_LIMIT)
+    @result_summary = "#{@monologues.count} of #{num_found} monologues"
+    @scope = "Shakespeare's #{gender_word(session[:gender])}"
+    session[:play] = nil
+
+    render 'monologues/index'
+  end
+
 
   get :show, map: "/monologues/:id", cache: true do
     begin
@@ -101,7 +126,7 @@ Monologues::App.controllers :monologues do
     render 'errors/500', layout: false
   end
 
-  post :api, map: '/api/monlogues' do
+  post :api, map: '/api/monologues' do
 
     begin
 
