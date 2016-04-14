@@ -9,7 +9,7 @@ describe 'Monologues routing' do
 
   it ' /monologues/813 returns: I cannot heave my heart' do
     get '/monologues/813'
-    last_response.body.must_include 'I cannot heave my heart'
+    last_response.body.must_include 'Return those duties back as are right fit'
   end
 
   it 'post /search with query returns results' do
