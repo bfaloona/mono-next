@@ -3,10 +3,24 @@ $(document).ready( function() {
 
 	$(".searching").hide();
 
+
 });
 
 // Set global gender to all
 globalViewGender = "a"; //Global variable declaration with window.
+
+function playFromLocation(location) {
+	var regex, matches;
+	regex = /^\/plays\/(\d+)$/;
+	matches = regex.exec(location);
+	if(matches && matches[1])
+	{
+		return parseInt(matches[1]);
+	}
+	else {
+		return "";
+	};
+}
 
 function registerMonologueClick() {
 
@@ -52,6 +66,7 @@ function registerMonologueClick() {
 	});
 }
 
+
 $(document).ready( function() {
 	$( "#search-box" ).focus();
 	$( "#search-form" ).submit(function( event ) {
@@ -76,23 +91,28 @@ $(document).ready( function() {
 			// Cancel pending calls
 			if(timer) { clearTimeout(timer) }
 
-			var queryPath;
 			// Handle empty search box
 			if(query.length === 0) {
 				// HACK - search for letter e to get all results
-				queryPath = "/search/e/" + window.globalViewGender
-			}
-			else{
-				queryPath = "/search/" + query + "/" + window.globalViewGender;
+				query = "e";
 			}
 
+			var data = '{"query": "' +
+							query +
+							'", "play": "' +
+							playFromLocation(document.location.pathname) +
+							'", "gender": "' +
+							window.globalViewGender +
+							'"}';
 			// Show spinner
 			$(".searching").show();
 			timer = setTimeout( function() {
 
 				// Send ajax search request
 				$.ajax({
-					url: queryPath,
+					method: "POST",
+					data: data,
+					url: '/search',
 					cache: false
 				})
 				.done(function( html ) {

@@ -6,6 +6,8 @@ module Monologues
     register Padrino::Helpers
 
     enable :sessions
+    set :protection, true
+    set :protect_from_csrf, false
 
     # TODO Investigate ActiveRecord::QueryCache
     # use ActiveRecord::QueryCache

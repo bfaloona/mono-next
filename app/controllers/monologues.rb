@@ -34,26 +34,28 @@ Monologues::App.controllers :monologues do
   # Search
   ##
 
-  get :search, map: '/search', with: [ :query, '(:gender)'], cache: true do
-    begin
-      @title = "Monologues results for query '#{params[:query]}' and gender #{params[:gender]}}"
-      logger.info "Search controller: #{@title}"
+  post :search, map: '/search' do
+    params = JSON.parse(request.env["rack.input"].read).symbolize_keys!
+    default_params = {query: 'e', gender: '3', play: ''}
+    params = default_params.merge(params)
 
-      @show_play_title = true
+    logger.info params.to_s
+    @title = "Monologues results for query '#{params[:query]}' and gender #{params[:gender]}}"
+    logger.info "Search controller: #{@title}"
 
-      if session[:play]
-        play = Play.find(session[:play])
-        found_monologues = play.monologues.gender(params[:gender]).matching(params[:query])
-      else
-        found_monologues = Monologue.gender(params[:gender]).matching(params[:query])
-      end
-
-      num_found = found_monologues.count
-      @monologues = found_monologues.take(DISPLAY_LIMIT)
-      @result_summary = "#{@monologues.count} of #{num_found} monologues"
-
-      render 'monologues/_list', layout: false
+    @show_play_title = true
+    if (params[:play].length > 0)
+      play = Play.find(params[:play])
+      found_monologues = play.monologues.gender(params[:gender]).matching(params[:query])
+    else
+      found_monologues = Monologue.gender(params[:gender]).matching(params[:query])
     end
+
+    num_found = found_monologues.count
+    @monologues = found_monologues.take(DISPLAY_LIMIT)
+    @result_summary = "#{@monologues.count} of #{num_found} monologues"
+
+    render 'monologues/_list', layout: false
   end
 
 
