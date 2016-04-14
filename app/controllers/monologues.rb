@@ -1,6 +1,6 @@
 Monologues::App.controllers :monologues do
 
-    DISPLAY_LIMIT = 50
+  DISPLAY_LIMIT = 50
 
   get :index, map: '/', cache: true do
     @title = "Shakespeare's Monologues"

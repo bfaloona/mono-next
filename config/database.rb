@@ -49,10 +49,5 @@ ActiveSupport.escape_html_entities_in_json = false
 # Now we can establish connection with our db.
 ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[Padrino.env])
 
-puts "##########################################"
-puts "USING Environment: #{Padrino.env}"
-puts "##########################################"
-
-
 # Timestamps are in the utc by default.
 ActiveRecord::Base.default_timezone = :utc
