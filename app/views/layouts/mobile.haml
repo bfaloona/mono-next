@@ -1,7 +1,7 @@
 !!! 5
 %html{lang: 'en', itemscope: ''}
 	%head
-		%title= @title.present? ? "#{@title} | Shakespeare's Monologues" : 'Shakespeare\'s Monologues'
+		%title= @title.present? ? "#{@title} | #{Monologues::App::SITE_TITLE}" : Monologues::App::SITE_TITLE
 
 		= javascript_include_tag 'jquery.min'
 		= javascript_include_tag 'bootstrap.min'

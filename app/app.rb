@@ -1,6 +1,8 @@
 module Monologues
   class App < Padrino::Application
 
+    SITE_TITLE = "Shakespeare's Monologues"
+
     use ConnectionPoolManagement
     register Padrino::Mailer
     register Padrino::Helpers

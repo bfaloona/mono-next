@@ -3,7 +3,8 @@ Monologues::App.controllers :monologues do
   DISPLAY_LIMIT = 50
 
   get :index, map: '/', cache: true do
-    @title = "Shakespeare's Monologues"
+    session[:gender] = 1
+    @title = "#{gender_word(session[:gender])} monologues"
     num_found = Monologue.count
     @monologues = Monologue.take(DISPLAY_LIMIT)
     @result_summary = "#{@monologues.count} of #{num_found} monologues"
@@ -16,7 +17,7 @@ Monologues::App.controllers :monologues do
   get :show, map: "/monologues/:id", cache: true do
     begin
       @monologue = Monologue.find(params[:id])
-      @title = @monologue.first_line
+      @title = "#{@monologue.first_line[0..20]}"
       session[:play] = nil
 
       if request.xhr?
