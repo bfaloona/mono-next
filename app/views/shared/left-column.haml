@@ -12,7 +12,7 @@
 	%a{href: '/home'} Home
 
 
-	- if Padrino.env == 'production'
+	- if Padrino.env == :production
 		/ left column ads
 		.left-column-ads
 			%script{async: '', src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'}
