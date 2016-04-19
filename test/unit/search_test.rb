@@ -28,7 +28,7 @@ describe 'Monologues Search Gender Men' do
   end
 
   it ' Trailing space in query returns correct match' do
-    post '/search', {query: 'my complete master ', gender: 'm'}.to_json
+    post '/search', {query: 'my complete master ', gender: 'w'}.to_json
     last_response.body.must_include 'my complete master'
   end
 
