@@ -471,6 +471,16 @@ th.th-pad-right {
     outline: -webkit-focus-ring-color auto 0px;
 }
 
+.gender-filter a {
+    color: gray;
+    background: white;
+}
+
+a.link-active {
+    color: white;
+    background: gray;
+}
+
 .glyphicon-refresh.searching {
     /*display: none;*/
     color: gray;

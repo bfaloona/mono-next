@@ -5,6 +5,7 @@ class MonologuePreviewSpec < Minitest::Capybara::Spec
   before(:each) do
     Capybara.current_driver = :selenium_chrome
     visit '/'
+    fill_in('search-box', with: 'e')
   end
 
   it 'expand works' do
@@ -12,31 +13,11 @@ class MonologuePreviewSpec < Minitest::Capybara::Spec
     page.must_have_content('Sky-planted batters all rebelling coasts')
   end
 
-  it 'expand works after search' do
-    fill_in('search-box', with: 'z')
-    click_link('Neither of either')
-    page.must_have_content('Knowing aforehand of our merriment')
-  end
-
   it 'collapse works' do
     click_link('No more you petty spirits of region low')
     page.must_have_content('Sky-planted batters all rebelling coasts')
     click_link('No more you petty spirits of region low')
     page.wont_have_content('Sky-planted batters all rebelling coasts')
-  end
-
-
-# UNSTABLE :(
-
-  it 'collapse works after search' do
-
-    skip('this selenium test is unstable')
-    
-    fill_in('search-box', with: 'z')
-    click_link('Neither of either')
-    page.must_have_content('Knowing aforehand of our merriment')
-    click_link('Neither of either')
-    page.wont_have_content('Knowing aforehand of our merriment')
   end
 
 end

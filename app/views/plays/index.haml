@@ -1,23 +1,42 @@
 .center-column-header
-	%h3= @title
+	-# %h3= @title
+	%form#search-form.navbar-form{role: ""}
+		.input-group
+			%input#search-box.form-control{:placeholder => "Search #{@scope} Monologues", :type => "text", autocomplete: "off", action: "#"}
+			%i.glyphicon.glyphicon-refresh.glyphicon-refresh-animate.searching
+		.gender-filter
+			Filter by:
+			%a.gender-a{href: 'a'} All
+			%a.gender-w{href: 'w'} Women
+			%a.gender-m{href: 'm'} Men
 
 .center-column-list
 
-	%table.categories-list
-		%tr
-			%th Comedies
-			%th.th-pad-right Histories
-			%th Tragedies
-		%tr
-			%td
-				- @comedies.sort{|a,b| a.title <=> b.title }.each do |comedy|
-					=link_to comedy.title, url_for(:plays, :show, id: comedy.id)
-					%br/
-			%td
-				- @histories.sort{|a,b| a.title <=> b.title }.each do |history|
-					=link_to history.title, url_for(:plays, :show, id: history.id)
-					%br/
-			%td
-				- @tragedies.sort{|a,b| a.title <=> b.title }.each do |tragedy|
-					=link_to tragedy.title, url_for(:plays, :show, id: tragedy.id)
-					%br/
+	.jquery-search-replace
+		/ Contents of this div replaced by key up triggered jquery ajax call
+
+		%table.categories-list
+			%tr
+				%th Comedies
+				%th.th-pad-right Histories
+				%th Tragedies
+			%tr
+				%td
+					- @comedies.sort{|a,b| a.title <=> b.title }.each do |comedy|
+						=link_to comedy.title, url_for(:plays, :show, id: comedy.id)
+						%br/
+				%td
+					- @histories.sort{|a,b| a.title <=> b.title }.each do |history|
+						=link_to history.title, url_for(:plays, :show, id: history.id)
+						%br/
+				%td
+					- @tragedies.sort{|a,b| a.title <=> b.title }.each do |tragedy|
+						=link_to tragedy.title, url_for(:plays, :show, id: tragedy.id)
+						%br/
+
+		- play_title = @play.title if @play
+		:javascript
+			globalPlayTitle = '#{play_title}';
+			globalViewGender = '#{session[:gender]}';
+			console.log(globalViewGender);
+			updateGenderLinks();

@@ -1,10 +1,3 @@
-// Put your application scripts herevar window.
-$(document).ready( function() {
-
-	$(".searching").hide();
-
-
-});
 
 // Set global gender to all
 globalViewGender = "a"; //Global variable declaration with window.
@@ -20,6 +13,21 @@ function playFromLocation(location) {
 	else {
 		return "";
 	};
+}
+
+function registerGenderClick() {
+
+	// Register click event
+	$('.gender-filter > a').on('click',  function(event, data, status, xhr) {
+		globalViewGender = $(this).attr('href');
+		var params = getSearchParams();
+		if(params) {
+			doSearch(params);
+		}
+		// In all cases, prevent link click request
+		event.preventDefault();
+		return false;
+	});
 }
 
 function registerMonologueClick() {
@@ -66,8 +74,100 @@ function registerMonologueClick() {
 	});
 }
 
+function createPlaceholderText(data) {
+	var textPrefix;
+	if(globalPlayTitle !== '') {
+		textPrefix = 'Search ' + globalPlayTitle;
+	}
+	else {
+		textPrefix = "Search Shakespeares's"
+	}
+	if(globalViewGender === 'a')
+	{
+		return textPrefix + " Monologues";
+	}
+	else if(globalViewGender === 'w') {
+		return textPrefix + " Women's Monologues";
+	}
+	else if(globalViewGender === 'm') {
+		return textPrefix + " Men's Monologues";
+	}
+}
+
+function updateDom(params, html) {
+	// search placeholdre
+	$("#search-box")[0].placeholder = createPlaceholderText(params);
+	updateGenderLinks();
+	// results
+	$( ".jquery-search-replace" ).replaceWith( html );
+}
+
+function updateGenderLinks() {
+	// gender link style
+	$(".gender-filter > a").removeClass("link-active");
+	$(".gender-filter > a.gender-" + window.globalViewGender).addClass("link-active");
+	// results
+}
+
+function doSearch(data) {
+	// Show spinner
+	$(".searching").show();
+	console.log(data);
+	timer = setTimeout( function() {
+
+		// Send ajax search request
+		$.ajax({
+			method: "POST",
+			data: data,
+			url: '/search',
+			cache: false
+		})
+		.done(function( html ) {
+			updateDom(data, html);
+			// Hide spinner
+			$(".searching").hide();
+		});
+	},
+	// Keyup timeout (ms)
+	400)
+}
+
+function getSearchParams() {
+	var timer;
+	var query;
+
+	// Search only if text has changed
+	if( query !== $('#search-box').val().trim() ){
+
+		// Get new value
+		query = $('#search-box').val().trim();
+
+		// Cancel pending calls
+		if(timer) { clearTimeout(timer) }
+
+		// Handle empty search box
+		if(query.length === 0) {
+			// HACK - search for letter e to get all results
+			query = "e";
+		}
+
+		var data = '{"query": "' +
+						query +
+						'", "play": "' +
+						playFromLocation(document.location.pathname) +
+						'", "gender": "' +
+						window.globalViewGender +
+						'"}';
+		return data;
+	}
+}
 
 $(document).ready( function() {
+
+	registerGenderClick();
+
+	$(".searching").hide();
+
 	$( "#search-box" ).focus();
 	$( "#search-form" ).submit(function( event ) {
 		event.preventDefault();
@@ -78,52 +178,10 @@ $(document).ready( function() {
 	// Live search ajax with delay 
 	//   to prevent searching every keystroke
 	// ---
-	var timer;
-	var query;
 	$('#search-box').keyup(function(){
-
-		// Search only if text has changed
-		if( query !== $('#search-box').val().trim() ){
-
-			// Get new value
-			query = $('#search-box').val().trim();
-
-			// Cancel pending calls
-			if(timer) { clearTimeout(timer) }
-
-			// Handle empty search box
-			if(query.length === 0) {
-				// HACK - search for letter e to get all results
-				query = "e";
-			}
-
-			var data = '{"query": "' +
-							query +
-							'", "play": "' +
-							playFromLocation(document.location.pathname) +
-							'", "gender": "' +
-							window.globalViewGender +
-							'"}';
-			// Show spinner
-			$(".searching").show();
-			timer = setTimeout( function() {
-
-				// Send ajax search request
-				$.ajax({
-					method: "POST",
-					data: data,
-					url: '/search',
-					cache: false
-				})
-				.done(function( html ) {
-					// Replace html in div
-					$( ".jquery-search-replace" ).replaceWith( html );
-					// Hide spinner
-					$(".searching").hide();
-				});
-			},
-			// Keyup timeout (ms)
-			400)
+		var params = getSearchParams();
+		if(params) {
+			doSearch(params);
 		}
 	});
 });

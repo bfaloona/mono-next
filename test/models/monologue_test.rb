@@ -7,7 +7,7 @@ describe "Monologue Model" do
   end
 
   it 'matching and gender scopes can be combined' do
-    @monologues = Monologue.gender(3).matching('z')
+    @monologues = Monologue.gender('m').matching('z')
     @monologues.length.must_equal 4
   end
 

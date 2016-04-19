@@ -4,7 +4,23 @@
 		.input-group
 			%input#search-box.form-control{:placeholder => "Search #{@scope} Monologues", :type => "text", autocomplete: "off", action: "#"}
 			%i.glyphicon.glyphicon-refresh.glyphicon-refresh-animate.searching
+		.gender-filter
+			Filter by:
+			%a.gender-a{href: 'a'} All
+			%a.gender-w{href: 'w'} Women
+			%a.gender-m{href: 'm'} Men
 
 .center-column-list
+	.jquery-search-replace
+		/ Contents of this div replaced by key up triggered jquery ajax call
 
-	=partial('monologues/list', locals: {show_play_title: true})
+		.result-summary
+			=@result_summary
+
+		- play_title = @play.title if @play
+		=partial('monologues/list', locals: {show_play_title: true, play_title: play_title})
+
+		:javascript
+			globalPlayTitle = '#{play_title}';
+			globalViewGender = '#{session[:gender]}';
+			updateGenderLinks();

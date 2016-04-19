@@ -7,13 +7,14 @@ Monologues::App.controllers :plays do
     @comedies = Play.where(classification: 'Comedy')
     @histories = Play.where(classification: 'History')
     @tragedies = Play.where(classification: 'Tragedy')
+    session[:gender] = 'a'
     render 'plays/index'
   end
 
   get :show, :map => "/plays/:id", cache: true do
     begin
       @play = Play.find(params[:id])
-      gender = session[:gender] || 'a'
+      gender = session[:gender] ||= 'a'
       @title = "#{@play.title} - #{gender_word(gender)} monologues"
       @scope = @play.title
       session[:play] = @play.id

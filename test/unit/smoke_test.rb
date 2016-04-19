@@ -2,10 +2,9 @@ require File.expand_path(File.dirname(__FILE__) + '/../test_config.rb')
 
 describe 'Monologues' do
 
-  it 'root renders monologue list' do
+  it 'root renders plays list' do
     get '/'
-    last_response.body.split('of 24 monologues').count.must_equal 2
-    monologues_displayed(last_response).must_equal 24
+    last_response.body.must_include 'Tragedies'
   end
 
   it 'root renders left column ads' do

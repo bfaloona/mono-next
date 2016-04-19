@@ -13,7 +13,7 @@ describe 'Monologues routing' do
   end
 
   it 'post /search with query returns results' do
-    post '/search', '{"query": "when", "gender": "3", "play": "3"}'
+    post '/search', '{"query": "when", "gender": "m", "play": "3"}'
     last_response.body.must_include '1 of 1 monologues'
     last_response.body.must_include 'No blame be to you'
   end

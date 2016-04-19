@@ -3,19 +3,22 @@ Monologues::App.controllers :monologues do
   DISPLAY_LIMIT = 50
 
   get :index, map: '/', cache: true do
-    session[:gender] = 1
+    session[:gender] = 'a'
     @title = "#{gender_word(session[:gender])} monologues"
     num_found = Monologue.count
-    @monologues = Monologue.gender(session[:gender]).take(DISPLAY_LIMIT)
-    @result_summary = "#{@monologues.count} of #{num_found} monologues"
+    @plays = Play.all
+    session[:play] = nil
+    @comedies = Play.where(classification: 'Comedy')
+    @histories = Play.where(classification: 'History')
+    @tragedies = Play.where(classification: 'Tragedy')
     @scope = "Shakespeare's"
     session[:play] = nil
 
-    render 'monologues/index'
+    render 'plays/index'
   end
 
   get :men, map: '/men' do
-    session[:gender] = 3
+    session[:gender] = 'm'
     @title = "#{gender_word(session[:gender])} monologues"
     num_found = Monologue.count
     @monologues = Monologue.gender(session[:gender]).take(DISPLAY_LIMIT)
@@ -27,7 +30,7 @@ Monologues::App.controllers :monologues do
   end
 
   get :women, map: '/women' do
-    session[:gender] = 2
+    session[:gender] = 'w'
     @title = "#{gender_word(session[:gender])} monologues"
     num_found = Monologue.count
     @monologues = Monologue.gender(session[:gender]).take(DISPLAY_LIMIT)
