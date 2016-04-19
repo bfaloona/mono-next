@@ -34,7 +34,9 @@
 							.monologue-body-inline
 							/ .monologue-body-loading
 
-						%td.monologue-actscene=monologue.location
+						%td.monologue-actscene
+							%a.location{href: monologue.body_link} 
+								=monologue.location
 						%td
 							%a{href: monologue.pdf_link, target: '_blank'}
 								%img{src: '/images/pdf_file_icon_16x16.png'}
