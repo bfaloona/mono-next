@@ -15,4 +15,16 @@ Monologues::App.helpers do
 		"Men's"
 	end
   end
+
+  def gender_letter(id)
+	case id
+	when 1, '1'
+		'a'
+	when 2, '2'
+		'w'
+	when 3, '3'
+		'm'
+	end
+  end
+
 end

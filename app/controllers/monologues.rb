@@ -65,10 +65,9 @@ Monologues::App.controllers :monologues do
 
   post :search, map: '/search' do
     params = JSON.parse(request.env["rack.input"].read).symbolize_keys!
-    default_params = {query: 'e', gender: '3', play: ''}
+    default_params = {query: 'e', gender: 'a', play: ''}
     params = default_params.merge(params)
 
-    logger.info params.to_s
     @title = "Monologues results for query '#{params[:query]}' and gender #{params[:gender]}}"
     logger.info "Search controller: #{@title}"
 

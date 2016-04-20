@@ -14,17 +14,13 @@ Monologues::App.controllers :plays do
   get :show, :map => "/plays/:id", cache: true do
     begin
       @play = Play.find(params[:id])
-      gender = session[:gender] ||= 'a'
-      @title = "#{@play.title} - #{gender_word(gender)} monologues"
+      session[:gender] = gender_letter(params[:g])
+      @title = "#{@play.title} - #{gender_word(session[:gender])} monologues"
       @scope = @play.title
       session[:play] = @play.id
-
       display_limit = 50
-
       query_param = "%#{params[:query].to_s.strip.downcase}%"
-
       found_monologues = @play.monologues.gender(session[:gender]).matching(query_param)
-
       num_found = found_monologues.count
       @monologues = found_monologues.take(display_limit)
       @result_summary = "#{@monologues.count} of #{num_found} monologues"

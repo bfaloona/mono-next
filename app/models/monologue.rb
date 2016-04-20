@@ -20,14 +20,14 @@ class Monologue < ActiveRecord::Base
     # TODO Gender state is too complicated!
     # 'Both' and All should be the same case, but it's not.
     case gender_param
-    when nil, 'a'
+    when nil, '', 'a', 1, '1'
       all
-    when 'w'
+    when 'w', 2, '2'
       where("gender_id = ? OR gender_id = ?", 2, 1)
-    when 'm'
+    when 'm', 3, '3'
       where("gender_id = ? OR gender_id = ?", 3, 1)
     else
-      raise ArgumentError, "Cannot parse gender_parameter: #{gender_param}"
+      all
     end
   end
 
