@@ -9,7 +9,8 @@ class PlaySearchSpec < Minitest::Capybara::Spec
 
   it 'show scoped search works' do
     fill_in('search-box', with: 'lost')
-    page.must_have_content('1 of 1 monologue')
+    page.wont_have_content('Most welcome, bondage')
+    monologues_displayed(page).must_equal 1
   end
 
 end
