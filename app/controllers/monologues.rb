@@ -2,7 +2,7 @@ Monologues::App.controllers :monologues do
 
   DISPLAY_LIMIT = 50
 
-  get :index, map: '/', cache: true do
+  monologue_index = lambda do
     session[:gender] = 'a'
     @title = "#{gender_word(session[:gender])} monologues"
     num_found = Monologue.count
@@ -16,6 +16,8 @@ Monologues::App.controllers :monologues do
 
     render 'plays/index'
   end
+  get :index, map: '/', cache: true, &monologue_index
+  get :index, map: '/monologues', cache: true, &monologue_index
 
   get :men, map: '/men' do
     session[:gender] = 'm'
