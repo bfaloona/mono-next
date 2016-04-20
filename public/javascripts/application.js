@@ -1,6 +1,8 @@
 
 // Set global gender to all
 globalViewGender = "a"; //Global variable declaration with window.
+query = '';
+
 
 function playFromLocation(location) {
 	var regex, matches;
@@ -20,7 +22,7 @@ function registerGenderClick() {
 	// Register click event
 	$('.gender-filter > a').on('click',  function(event, data, status, xhr) {
 		globalViewGender = $(this).attr('href');
-		var params = getSearchParams();
+		var params = getSearchParams(true);
 		if(params) {
 			doSearch(params);
 		}
@@ -77,7 +79,7 @@ function registerMonologueClick() {
 function createPlaceholderText(data) {
 	var textPrefix;
 	if(globalPlayTitle !== '') {
-		textPrefix = 'Search ' + globalPlayTitle;
+		return textPrefix = 'Search ' + globalPlayTitle + ' Monologues';
 	}
 	else {
 		textPrefix = "Search Shakespeares's"
@@ -132,12 +134,11 @@ function doSearch(data) {
 	400)
 }
 
-function getSearchParams() {
+function getSearchParams(searchFlag = false) {
 	var timer;
-	var query;
 
-	// Search only if text has changed
-	if( query !== $('#search-box').val().trim() ){
+	// Search only if text has changed or searchFlag is true
+	if( (query !== $('#search-box').val().trim()) || searchFlag == true ){
 
 		// Get new value
 		query = $('#search-box').val().trim();
