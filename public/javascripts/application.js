@@ -21,8 +21,8 @@ function playFromLocation(location) {
 function registerGenderClick() {
 
 	// Register click event
-	$('.gender-filter > a').on('click',  function(event, data, status, xhr) {
-		globalViewGender = $(this).attr('href');
+	$('.search-action-items > a.filter-gender').on('click',  function(event, data, status, xhr) {
+		globalViewGender = $(this).attr('data_action');
 		var params = getSearchParams(true);
 		if(params) {
 			doSearch(params);

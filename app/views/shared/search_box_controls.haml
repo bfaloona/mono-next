@@ -1,0 +1,13 @@
+%form#search-form.navbar-form{role: ""}
+	.input-group
+		%input#search-box.form-control{:placeholder => "Search #{@scope} Monologues", :type => "text", autocomplete: "off", action: "#", tabindex: 1}
+		%i.glyphicon.glyphicon-refresh.glyphicon-refresh-animate.searching
+	.search-action-items
+		Filter by:
+		- if @play
+			%span=@play.title
+		%a.filter-gender{href: '#', data_action: 'w'} Women
+		%a.filter-gender{href: '#', data_action: 'm'} Men
+		%a.filter-gender{href: '#', data_action: 'a'} All
+		%a.toggle-mono.mono-expand{href: '#', data_action: 'expand'} Expand All
+		%a.toggle-mono.mono-collapse.display-hide{href: '#', data_action: 'collapse'} Collapse All

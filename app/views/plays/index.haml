@@ -1,14 +1,6 @@
 .center-column-header
-	-# %h3= @title
-	%form#search-form.navbar-form{role: ""}
-		.input-group
-			%input#search-box.form-control{:placeholder => "Search #{@scope} Monologues", :type => "text", autocomplete: "off", action: "#", tabindex: 1}
-			%i.glyphicon.glyphicon-refresh.glyphicon-refresh-animate.searching
-		.gender-filter
-			Filter by:
-			%a.gender-a{href: 'a'} All
-			%a.gender-w{href: 'w'} Women
-			%a.gender-m{href: 'm'} Men
+
+	=render 'shared/search_box_controls', layout: false
 
 .center-column-list
 

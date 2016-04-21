@@ -475,9 +475,14 @@ th.th-pad-right {
     outline: -webkit-focus-ring-color auto 0px;
 }
 
-.gender-filter a {
+.search-action-items {
     color: gray;
     background: white;
+}
+
+a.filter-gender {
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 a.link-active {
