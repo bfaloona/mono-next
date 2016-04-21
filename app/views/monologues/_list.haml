@@ -31,8 +31,11 @@
 
 						%td.monologue-firstline-table
 							=link_to(monologue.first_line, url(:monologues, :show, id: monologue.id), remote: true)
-							.monologue-body-inline
-							/ .monologue-body-loading
+							- if toggle && (toggle == 'expand')
+								.monologue-body-inline
+									!=monologue.body
+							- else
+								.monologue-body-inline.display-hide
 
 						%td.monologue-actscene
 							%a.location{href: monologue.body_link} 

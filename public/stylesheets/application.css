@@ -334,7 +334,6 @@ h1.monologue-firstline-heading::first-letter {
     margin-bottom: 60px;
 }
 .monologue-body-inline {
-    display: none;
     padding: 10px;
     font-size: 100%;
     line-height: 1.25;
@@ -343,6 +342,11 @@ h1.monologue-firstline-heading::first-letter {
     margin-bottom: 20px;
     min-height: 300px;
 }
+
+.display-hide {
+    display: none;
+}
+
 .monologue-body-loading {
     height: 32px;
     width: 32px;

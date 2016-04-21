@@ -15,9 +15,12 @@
 		/ Contents of this div replaced by key up triggered jquery ajax call
 
 		- play_title = @play.title if @play
-		=partial('monologues/list', locals: {show_play_title: true, play_title: play_title})
+		=partial('monologues/list', locals: {show_play_title: true, play_title: play_title, toggle: "collapse"})
 
 		:javascript
 			globalPlayTitle = '#{play_title}';
 			globalViewGender = '#{session[:gender]}';
 			updateGenderLinks();
+			registerGenderClick();
+			registerToggleClick();
+			

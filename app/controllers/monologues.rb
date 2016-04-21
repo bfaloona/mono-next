@@ -67,7 +67,7 @@ Monologues::App.controllers :monologues do
 
   post :search, map: '/search' do
     params = JSON.parse(request.env["rack.input"].read).symbolize_keys!
-    default_params = {query: 'e', gender: 'a', play: ''}
+    default_params = {query: 'e', gender: 'a', play: '', toggle: 'collapse'}
     params = default_params.merge(params)
 
     @title = "Monologues results for query '#{params[:query]}' and gender #{params[:gender]}}"
@@ -85,7 +85,7 @@ Monologues::App.controllers :monologues do
     @monologues = found_monologues.take(DISPLAY_LIMIT)
     @result_summary = "#{@monologues.count} of #{num_found} monologues"
 
-    render 'monologues/_list', layout: false
+    render 'monologues/_list', layout: false, locals: {toggle: params[:toggle]}
   end
 
 

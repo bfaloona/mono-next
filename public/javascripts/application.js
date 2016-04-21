@@ -1,6 +1,7 @@
 
 // Set global gender to all
 globalViewGender = "a"; //Global variable declaration with window.
+globalViewToggle = "collapse";
 query = '';
 
 
@@ -32,6 +33,24 @@ function registerGenderClick() {
 	});
 }
 
+function registerToggleClick() {
+
+	// Register click event
+	$('.search-action-items > a.toggle-mono').on('click',  function(event, data, status, xhr) {
+		globalViewToggle = $(this).attr('data_action');
+		var params = getSearchParams(true);
+		if(params) {
+			doSearch(params);
+		}
+		// In all cases, prevent link click request
+		event.preventDefault();
+		$('.toggle-mono').each(function() {
+			$(this).toggle();
+		})
+		return false;
+	});
+}
+
 function registerMonologueClick() {
 
 	// Register click event
@@ -46,7 +65,7 @@ function registerMonologueClick() {
 			$(elMonoBody).show(400);
 
 			// If element is empty
-			if( !(elMonoBody.textContent) ) {
+			if( !(elMonoBody.textContent.trim()) ) {
 
 				// Create progress image
 				var elLoading = $("<img src='/images/book-animated.gif' class='monologue-body-loading' />")
@@ -158,7 +177,7 @@ function getSearchParams(searchFlag = false) {
 						playFromLocation(document.location.pathname) +
 						'", "gender": "' +
 						window.globalViewGender +
-						'"}';
+						'", "toggle": "' + globalViewToggle + '"}';
 		return data;
 	}
 }
