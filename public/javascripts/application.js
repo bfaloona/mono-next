@@ -101,7 +101,7 @@ function createPlaceholderText(data) {
 		return textPrefix = 'Search ' + globalPlayTitle + ' Monologues';
 	}
 	else {
-		textPrefix = "Search Shakespeares's"
+		textPrefix = "Search Shakespeare's"
 	}
 	if(globalViewGender === 'a')
 	{
