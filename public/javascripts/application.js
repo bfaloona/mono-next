@@ -125,8 +125,8 @@ function updateDom(params, html) {
 
 function updateGenderLinks() {
 	// gender link style
-	$(".gender-filter > a").removeClass("link-active");
-	$(".gender-filter > a.gender-" + window.globalViewGender).addClass("link-active");
+	$("a.filter-gender").removeClass("link-active");
+	$("a.filter-gender[data_action='" + window.globalViewGender + "']").addClass("link-active");
 	// results
 }
 
