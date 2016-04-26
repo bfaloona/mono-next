@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 # Padrino supports Ruby version 1.9 and later
-ruby '2.2.1'
+ruby '2.3.1'
 
 # Project requirements
 gem 'rake'
 
 # Padrino Stable Gem
-gem 'padrino', '0.13.0'
+gem 'padrino', '~> 0.13'
 
 # Memcached support
 gem 'dalli'
