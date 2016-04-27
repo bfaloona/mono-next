@@ -1,9 +1,5 @@
 source 'https://rubygems.org'
-
-# Padrino supports Ruby version 1.9 and later
-ruby '2.3.1'
-
-# Project requirements
+ruby '2.3.0'
 gem 'rake'
 
 # Padrino Stable Gem
