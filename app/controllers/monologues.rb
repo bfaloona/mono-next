@@ -3,7 +3,8 @@ Monologues::App.controllers :monologues do
   DISPLAY_LIMIT = 50
 
   monologue_index = lambda do
-    session[:gender] = 'a'
+    gender = request.path_info[1]
+    session[:gender] = gender_letter(gender)
     @title = "#{gender_word(session[:gender])} monologues"
     num_found = Monologue.count
     @plays = Play.all
@@ -11,38 +12,16 @@ Monologues::App.controllers :monologues do
     @comedies = Play.where(classification: 'Comedy')
     @histories = Play.where(classification: 'History')
     @tragedies = Play.where(classification: 'Tragedy')
-    @scope = "Shakespeare's"
+    @scope = "Shakespeare's #{gender_word(session[:gender])}"
     session[:play] = nil
 
     render 'plays/index'
   end
+
   get :index, map: '/', cache: true, &monologue_index
   get :index, map: '/monologues', cache: true, &monologue_index
-
-  get :men, map: '/men' do
-    session[:gender] = 'm'
-    @title = "#{gender_word(session[:gender])} monologues"
-    num_found = Monologue.count
-    @monologues = Monologue.gender(session[:gender]).take(DISPLAY_LIMIT)
-    @result_summary = "#{@monologues.count} of #{num_found} monologues"
-    @scope = "Shakespeare's #{gender_word(session[:gender])}"
-    session[:play] = nil
-
-    render 'monologues/index'
-  end
-
-  get :women, map: '/women' do
-    session[:gender] = 'w'
-    @title = "#{gender_word(session[:gender])} monologues"
-    num_found = Monologue.count
-    @monologues = Monologue.gender(session[:gender]).take(DISPLAY_LIMIT)
-    @result_summary = "#{@monologues.count} of #{num_found} monologues"
-    @scope = "Shakespeare's #{gender_word(session[:gender])}"
-    session[:play] = nil
-
-    render 'monologues/index'
-  end
-
+  get :men, map: '/men', cache: true, &monologue_index
+  get :women, map: '/women', cache: true, &monologue_index
 
   get :show, map: "/monologues/:id", cache: true do
     begin
