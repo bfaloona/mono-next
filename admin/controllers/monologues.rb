@@ -6,14 +6,20 @@ Monologues::Admin.controllers :monologues do
   end
 
   get :men do
-    @title = 'Men\'s Monologues'
+    @title = 'Only Men\'s Monologues'
     @monologues = Monologue.where(gender: 3)
     render 'monologues/index'
   end
 
   get :women do
-    @title = 'Women\'s Monologues'
+    @title = 'Only Women\'s Monologues'
     @monologues = Monologue.where(gender: 2)
+    render 'monologues/index'
+  end
+
+  get :both do
+    @title = 'Only Both Gender Monologues'
+    @monologues = Monologue.where(gender: 1)
     render 'monologues/index'
   end
 

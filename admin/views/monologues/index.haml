@@ -3,8 +3,7 @@
   %li=link_to tag_icon(:plus, pat(:new)), url(:monologues, :new)
 
 .tabs-content
-  %p
-    %strong First 20 Monologes ...
+  %strong= "#{@monologues.count} Monologues"
   %table#list.table.table-striped.table-hover.table-condensed
     %thead
       %tr
