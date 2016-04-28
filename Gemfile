@@ -11,9 +11,8 @@ gem 'dalli'
 # TODO Re-enable rack protection!
 gem 'rack-protection'
 
-
 # Component requirements
-gem 'activerecord', '>= 3.1', require: 'active_record'
+gem 'activerecord', '~> 4.2', require: 'active_record'
 gem 'haml'
 gem 'pg'
 gem 'rack-rewrite'
@@ -21,7 +20,6 @@ gem 'bcrypt'
 
 # Test requirements
 group :test do
-
   gem 'minitest', require: 'minitest/autorun'
   gem 'minitest-reporters', require: false
   gem 'minitest-capybara'
@@ -30,13 +28,13 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 
-
-  # rest-client for http calls
+  # rest-client for making http calls
   gem 'rest-client', require: false
+end
 
-  #gem 'autotest', require: false
-
-  # guard runs tests
+# Local development requirements
+group :development do
+  # guard runs tests automatically
   gem 'guard'
   gem 'guard-minitest', require: false
   gem 'terminal-notifier-guard', require: false
@@ -45,6 +43,5 @@ group :test do
   # pry for debugging
   gem 'pry', require: false
   gem 'pry-padrino', require: false
-
 end
 

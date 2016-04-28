@@ -6,14 +6,14 @@ Monologues Next
 Synopsis
 --------
 
-Prototype of updated Shakespeare's Monologues site
+Updated Shakespeare's Monologues site
 
 Development
 ----------
 
 ### Prerequisites
    - git, heroku toolbelt
-   - ruby 2.2.1, bundler
+   - ruby 2.3.0, bundler
    - postgres
 
 ### Setup
@@ -22,7 +22,8 @@ Development
 ### Workflow
  - `bundle` to configure
  - `bundle exec rake` to test
- - `heroku local web` to run
+ - `bundle exec rake` to run
+ - `heroku local web` to run with heroku. incompatible with pry, it seems.
  - make changes / run tests
  - `git push origin master` (or push to a branch)
  - travis ci runs:  [![Build Status](https://travis-ci.org/bfaloona/mono-next.svg?branch=master)](https://travis-ci.org/bfaloona/mono-next)
