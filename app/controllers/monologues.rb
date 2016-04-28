@@ -3,16 +3,15 @@ Monologues::App.controllers :monologues do
   DISPLAY_LIMIT = 50
 
   monologue_index = lambda do
-    gender = request.path_info[1]
-    session[:gender] = gender_letter(gender)
-    @title = "#{gender_word(session[:gender])} monologues"
+    session[:gender] = request.path_info[1]
+    @title = "#{gender_word(session[:gender])} Monologues in Shakespeare"
     num_found = Monologue.count
     @plays = Play.all
     session[:play] = nil
     @comedies = Play.where(classification: 'Comedy')
     @histories = Play.where(classification: 'History')
     @tragedies = Play.where(classification: 'Tragedy')
-    @scope = "Shakespeare's #{gender_word(session[:gender])}"
+    @scope = "#{gender_word(session[:gender])}"
     session[:play] = nil
 
     render 'plays/index'

@@ -1,7 +1,7 @@
 Monologues::App.controllers :plays do
   
   get :index, cache: true do
-    @title = "Plays"
+    @title = Monologues::App::SITE_TITLE
     @plays = Play.all
     session[:play] = nil
     @comedies = Play.where(classification: 'Comedy')
@@ -15,7 +15,7 @@ Monologues::App.controllers :plays do
     begin
       @play = Play.find(params[:id])
       session[:gender] = gender_letter(params[:g])
-      @title = "#{@play.title} - #{gender_word(session[:gender])} monologues"
+      @title = "#{gender_word(session[:gender])} Monologues in #{@play.title}"
       @scope = @play.title
       session[:play] = @play.id
       display_limit = 50

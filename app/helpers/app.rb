@@ -8,7 +8,7 @@ Monologues::App.helpers do
   def gender_word(param)
 	case param
 	when 'a'
-		"All"
+		""
 	when 'w'
 		"Women's"
 	when 'm'
