@@ -41,7 +41,8 @@
             =check_box_tag 'play_ids[]', :value => play.id, :class => 'list-selectable-checkbox'
           %td.list-column=play.id
           %td.list-column=play.author_id
-          %td.list-column=play.title
+          %td.list-column
+            =link_to play.title, href: url(:plays, :show, id: play.id)
           %td.list-column=time_ago_in_words play.created_at
           %td.list-column=time_ago_in_words play.updated_at
           %td.list-column=play.classification
