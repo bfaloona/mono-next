@@ -18,6 +18,11 @@ gem 'pg'
 gem 'rack-rewrite'
 gem 'bcrypt'
 
+# pry for debugging. Useful inproduction via:
+#   $ heroku run bundle exec padrino console
+gem 'pry', require: false
+gem 'pry-padrino', require: false
+
 # Test requirements
 group :test do
   gem 'minitest', require: 'minitest/autorun'
@@ -39,9 +44,5 @@ group :development do
   gem 'guard-minitest', require: false
   gem 'terminal-notifier-guard', require: false
   gem 'rb-fsevent', require: false
-
-  # pry for debugging
-  gem 'pry', require: false
-  gem 'pry-padrino', require: false
 end
 
