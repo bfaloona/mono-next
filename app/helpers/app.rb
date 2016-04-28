@@ -8,23 +8,33 @@ Monologues::App.helpers do
   def gender_word(param)
 	case param
 	when 'a'
-		""
+	  ""
 	when 'w'
-		"Women's"
+	  "Women's"
 	when 'm'
-		"Men's"
+	  "Men's"
 	end
   end
 
   def gender_letter(id)
 	case id
 	when 1, '1'
-		'a'
+	  'a'
 	when 2, '2'
-		'w'
+	  'w'
 	when 3, '3'
-		'm'
+	  'm'
 	end
+  end
+
+  def gender_from_path
+    case request.path_info[1]
+    when 'p'
+      # treat /plays route as all, but return nil
+      nil
+    else
+      request.path_info[1]
+    end
   end
 
 end

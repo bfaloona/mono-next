@@ -2,26 +2,6 @@ Monologues::App.controllers :monologues do
 
   DISPLAY_LIMIT = 50
 
-  monologue_index = lambda do
-    session[:gender] = request.path_info[1]
-    @title = "#{gender_word(session[:gender])} Monologues in Shakespeare"
-    num_found = Monologue.count
-    @plays = Play.all
-    session[:play] = nil
-    @comedies = Play.where(classification: 'Comedy')
-    @histories = Play.where(classification: 'History')
-    @tragedies = Play.where(classification: 'Tragedy')
-    @scope = "#{gender_word(session[:gender])}"
-    session[:play] = nil
-
-    render 'plays/index'
-  end
-
-  get :index, map: '/', cache: true, &monologue_index
-  get :index, map: '/monologues', cache: true, &monologue_index
-  get :men, map: '/men', cache: true, &monologue_index
-  get :women, map: '/women', cache: true, &monologue_index
-
   get :show, map: "/monologues/:id", cache: true do
     begin
       @monologue = Monologue.find(params[:id])
@@ -47,6 +27,7 @@ Monologues::App.controllers :monologues do
     params = JSON.parse(request.env["rack.input"].read).symbolize_keys!
     default_params = {query: 'e', gender: 'a', play: '', toggle: 'collapse'}
     params = default_params.merge(params)
+    session[:gender] = params[:gender]
 
     @title = "Monologues results for query '#{params[:query]}' and gender #{params[:gender]}}"
     logger.info "Search controller: #{@title}"
