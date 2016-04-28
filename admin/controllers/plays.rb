@@ -5,6 +5,13 @@ Monologues::Admin.controllers :plays do
     render 'plays/index'
   end
 
+  get :show, with: :id do
+    @play = Play.find(params[:id])
+    @title = "Monologues in #{@play.title}"
+    @monologues = @play.monologues
+    render 'monologues/index'
+  end
+
   get :new do
     @title = pat(:new_title, :model => 'play')
     @play = Play.new
