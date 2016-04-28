@@ -13,8 +13,20 @@ describe 'Monologues routing' do
     last_response.body.must_include 'My Lord of Suffolk'
   end
 
+  it ' /women/plays/23 returns women filtered play' do
+    get '/women/plays/23'
+    monologues_displayed(last_response).must_equal 1
+    last_response.body.must_include 'My Lord of Suffolk'
+  end
+
   it ' /plays/23?g=3 returns men filtered play' do
     get '/plays/23?g=3'
+    monologues_displayed(last_response).must_equal 2
+    last_response.body.must_include 'Is Cade the son of Henry the Fifth'
+  end
+
+  it ' /men/plays/23 returns men filtered play' do
+    get '/men/plays/23'
     monologues_displayed(last_response).must_equal 2
     last_response.body.must_include 'Is Cade the son of Henry the Fifth'
   end
