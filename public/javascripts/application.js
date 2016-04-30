@@ -1,8 +1,8 @@
 
-// Set global gender to all
-globalViewGender = "a"; //Global variable declaration with window.
+// Track user filter / query state
+globalViewGender = "a";
 globalViewToggle = "collapse";
-query = '';
+globalViewQuery = '';
 
 
 function playFromLocation(location) {
@@ -155,6 +155,9 @@ function doSearch(data) {
 
 function getSearchParams(searchFlag = false) {
 	var timer;
+	var query;
+	// use global
+	query = globalViewQuery;
 
 	// Search only if text has changed or searchFlag is true
 	if( (query !== $('#search-box').val().trim()) || searchFlag == true ){
@@ -171,6 +174,8 @@ function getSearchParams(searchFlag = false) {
 			query = "e";
 		}
 
+		// update global
+		globalViewQuery = query;
 		var data = '{"query": "' +
 						query +
 						'", "play": "' +
