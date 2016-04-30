@@ -5,7 +5,7 @@ Monologues::App.controllers :monologues do
   get :show, map: "/monologues/:id", cache: true do
     begin
       @monologue = Monologue.find(params[:id])
-      @title = "#{@monologue.first_line[0..20]}"
+      @title = "#{@monologue.character}'s \"#{@monologue.first_line}\" in #{@monologue.play.title}"
       session[:play] = nil
 
       if request.xhr?
