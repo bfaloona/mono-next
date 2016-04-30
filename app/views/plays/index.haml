@@ -15,15 +15,15 @@
 			%tr
 				%td
 					- @comedies.sort{|a,b| a.title <=> b.title }.each do |comedy|
-						=link_to comedy.title, url_for(:plays, :show, id: comedy.id)
+						=gendered_play_link(comedy)
 						%br/
 				%td
 					- @histories.sort{|a,b| a.title <=> b.title }.each do |history|
-						=link_to history.title, url_for(:plays, :show, id: history.id)
+						=gendered_play_link(history)
 						%br/
 				%td
 					- @tragedies.sort{|a,b| a.title <=> b.title }.each do |tragedy|
-						=link_to tragedy.title, url_for(:plays, :show, id: tragedy.id)
+						=gendered_play_link(tragedy)
 						%br/
 
 		- play_title = @play.title if @play

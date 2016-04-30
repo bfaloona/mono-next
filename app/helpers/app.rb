@@ -37,4 +37,15 @@ Monologues::App.helpers do
     end
   end
 
+  def gendered_play_link(play)
+    case session[:gender]
+    when 'a', nil, ''
+      link_to(play.title, url_for(:plays, :show, id: play.id))
+    when 'w'
+      link_to(play.title, url_for(:plays, :showwomen, id: play.id))
+    when 'm'
+      link_to(play.title, url_for(:plays, :showmen, id: play.id))
+    end
+  end
+
 end

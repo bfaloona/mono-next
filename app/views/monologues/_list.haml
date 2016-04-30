@@ -27,7 +27,7 @@
 							.monologue-detail
 								=monologue.style + monologue.intercut_label
 								.monologue-playname
-									=link_to(monologue.play.title, url_for(:plays, :show, id: monologue.play.id))
+									=gendered_play_link(monologue.play)
 
 						%td.monologue-firstline-table
 							=link_to(monologue.first_line, url(:monologues, :show, id: monologue.id), remote: true)
