@@ -289,7 +289,7 @@ h1.monologue-firstline-heading::first-letter {
 }
 
 .monologue-detail {
-    font-size: 80%;
+    font-size: 100%;
     padding-top: 3px;
 }
 
@@ -326,10 +326,9 @@ h1.monologue-firstline-heading::first-letter {
 }
 
 .monologue-body {
-    font-size: 150%;
+    font-size: 170%;
     line-height: 125%;
     padding: 15px;
-    border: #333 solid;
     width: 100%;
     margin-bottom: 60px;
 }
