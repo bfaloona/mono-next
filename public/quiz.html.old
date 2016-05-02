@@ -1,0 +1,211 @@
+<meta NAME="Description" itemprop="description" CONTENT="A complete database of Shakespeare's Monologues. All of them. The monologues are organized by play, then categorized by comedy, history and tragedy. You can browse and/or search. Each monologue entry includes the character's name, the first line of the speech, whether it is verse or prose, and shows the act, scene & line number. Each entry provides a link to the full text of the scene. You can download each monologue for printing, already double-spaced for scansion and transcription.">
+<html itemscope itemtype="http://schema.org/CollectionPage">
+<head>
+<title>Quiz: Which Shakespeare Monologue Are You?</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name=viewport content="width=device-width, initial-scale=0.75">
+<!-- BASE href="http://www.shakesepare-monologues.org/" target="_top" -->
+
+
+<meta NAME="Description" CONTENT="Making it easier to find monologues since 1997. A complete database of Shakespeare's Monologues. All of them. The monologues are organized by play, then categorized by comedy, history and tragedy. You can browse and/or search. Each monologue entry includes the character's name, the first line of the speech, whether it is verse or prose, and shows the act, scene & line number. Each entry provides a link to the full text of the scene. You can download each monologue for printing, already double-spaced for scansion and transcription.">
+
+<meta name="KEYWORDS" content="William Shakespeare, shakespeare, monologues, shakespeare monologues, shakespeare's monologues, shakespearean, monologue, speech, speeches, soliloquy, soliloquies, database, find, search, browse, index, quotes, quotations, Comedies, Histories, Tragedies, A Midsummer Night's Dream, All's Well That Ends Well, As You Like It, Cymbeline, Love's Labour's Lost, Measure for Measure, Merry Wives of Windsor, Much Ado About Nothing, Pericles, Prince of Tyre, The Comedy of Errors, The Merchant of Venice, The Taming of the Shrew, The Tempest, The Winter's Tale, Troilus and Cressida, Twelfth Night Or What You Will, 12th Night, TWelfth Night, Two Gentlemen of Verona, Henry IV i, Henry IV ii, Henry V, Henry VI i, Henry VI ii, Henry VI iii, Henry VIII, King John, Richard II, Richard III, Antony & Cleopatra, Coriolanus, Hamlet, Julius Caesar, King Lear, Macbeth, Othello, Romeo and Juliet, Timon of Athens, Titus Andronicus">
+<meta name="verify-v1" 
+content="43Tfyc84pBq4LxJ6S3NHue3NJt2M+oKCcoiN41SEKB8=">
+<style fprolloverstyle="">A:hover {color: #5E2612; text-decoration: underline; font-weight: bold}
+</style>
+<style>A {text-decoration: none; color: #696969; font-style: none  }
+</style>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-600620-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- begin G+ mobile content rec stuff -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+    po.src = "https://apis.google.com/js/plusone.js?publisherid=106045313819632308693";
+    var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<!-- end G+ mobile content rec stuff --><link rel="search" type="application/opensearchdescription+xml" title="Search Shakespare's Monologues" href="http://www.shakespeare-monologues.org/opensearch.xml" />
+
+<!-- start open graph stuff -->
+<style fprolloverstyle="">A:hover {color: #5E2612; text-decoration: underline; font-weight: bold}
+</style>
+<style>A {text-decoration: none; color: #696969; font-style: italic  }
+</style>
+<meta property="og:url" content="http://www.shakespeare-monologues.org/quiz.html" />
+<meta property="og:title" content="Quiz: Which Shakespeare Monologue Are You?" />
+<meta property="og:type" content="website">
+<meta property="og:description" content="Which of Shakespeare's Monologues best reflects your personality?" />
+<meta property="og:image" content="http://www.shakespeare-monologues.org/images/foliocover.gif" />
+
+<!-- end open graph stuff -->
+
+</HEAD>
+<BODY BGCOLOR="#F9F9DF" background="images/parchment.jpg">
+<!-- Begin FB Like button script -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=38794938300";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- End FB Like button script -->
+
+<table align="center" width="90%">
+<tr>
+<td align="center" width="90%">
+
+
+<table align="center" valign="top" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+            <td colspan="" cellpadding="0" cellspacing="0" align="center" valign="top" width="100%">
+    <b><font face="verdana" size="+3" itemprop="name">Shakespeare's Monologues</font><b><br>
+		                      
+         <font face="verdana" size="-1"><i>Making it easier to find monologues since 1997</i>
+    </font>
+</td>
+</tr>
+</table>
+<table align="center" valign="middle" height="" width="90%">
+<tr>
+<td width="90%"><br>
+<font face="verdana" size="-1">
+This quiz is not meant to help you <a href="http://www.shakespeare-monologues.org/plays" target="_blank">pick a monologue to perform.</a><br/><br/>
+It's just a fun way to kill two minutes.  Enjoy it, then share it:
+</font>
+</td>
+</tr>
+
+<tr>
+<td width="80%"><br>
+<link rel="stylesheet" type="text/css" https://www.tryinteract.com/css/interact.css>
+<iframe src="https://www.tryinteract.com/quiz/shakesmonos/1" width="100%" height="2045" frameborder="0"></iframe>
+<span style="float: left;" class="interact-p"><a href="https://www.tryinteract.com/blog/how-to-make-a-buzzfeed-style-quiz/" class="interact-link" target="_blank">Powered by Interact</a></span>
+<span style="float: right;"><a href="http://www.shakespeare-monologues.org/plays">Find a monologue</a></span>
+</td></tr>
+</table>
+
+<table align="center" valign="bottom" height="90" width="80%">
+<tr>
+<td align="center" valign="bottom" height="90" width="100%">
+<font face="verdana" size="1px"><br>
+<a href="/">[Home]</a>
+
+<a href="women/">[Women's Monologues]</a>
+
+<a href="men/">[Men's Monologues]</a>
+
+<a href="http://shakespeare-monologues.org/store/index.html">[Books]</a>
+
+<a href="http://twitter.com/ShakesMonos/" target="_blank">[Twitter]</a>
+
+<a href="https://www.facebook.com/ShakespearesMonologues" target="_blank">[FB]</a>
+
+<a href="https://plus.google.com/106045313819632308693" rel="publisher" target="_blank">[G+]</a>
+
+<A href="faqs">[FAQ]</a>
+
+<a href="http://shults.org/shakes/contact.php">[Contact]</a> </font>
+<p>
+<a id="everbutton-693-1398040059-85" class="everbutton everbutton-693-1398040059-85 everbutton-blue" href="https://www.everbutton.com/donate/693">Donate</a>
+<div><script type="text/javascript">
+var EB = EB || {};
+EB.button_stack = EB.button_stack || [];
+EB.button_stack.push( {
+anchor_id: "everbutton-693-1398040059-85",
+button_id: 693,
+button_type: "donate",
+button_options: {
+donor_chooses: false,
+allow_cover_fee: false,
+enable_recurring: false,
+allow_anonymous: true,
+reference_id: "",
+redirect_uri: ""
+}
+});
+if (!EB.script) {
+EB.script = document.createElement('script');
+EB.script.type = 'text/javascript';
+EB.script.async = true;
+EB.script.src = 'https://www.everbutton.com/assets/everbutton.v1.js?button_id=693';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(EB.script, s);
+} else if (EB.load_buttons) {
+EB.load_buttons();
+}
+</script></div>
+<!-- begin social media buttons -->
+     <!-- begin facebook button -->
+<div class="fb-like" data-href="http://www.facebook.com/ShakespearesMonologues" data-width="100" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+     <!-- end facebook button -->
+     <!-- begin twitter follow button -->
+<a href="http://twitter.com/ShakesMonos" class="twitter-follow-button" data-show-count="false">Follow @ShakesMonos</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+     <!-- end twitter follow button -->
+     <!-- begin G+ button -->
+
+<!-- Place this tag where you want the widget to render. -->
+<div class="g-follow" data-annotation="bubble" data-height="15" data-href="//plus.google.com/106045313819632308693" data-rel="publisher"></div>
+
+<!-- Place this tag after the last widget tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+     <!-- end G+ button -->
+</div>
+<!-- end social media buttons -->
+</td></tr></table>
+
+
+<table align="right">
+<tr>
+<td  align="left" valign="bottom" height="200" width="200">
+<p>
+<font style="font-size:60%">The texts of Shakespeare's plays is public domain.  Contact linked sites regarding intellectual property rights of those sites.</font><br>
+
+<!-- Creative Commons License -->
+<a rel="license" 
+href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img 
+alt="Creative Commons License" src="images/somerights20.gif" 
+border="0"></a><br>
+
+<!-- /Creative Commons License -->
+
+
+<font style="font-size:60%">This site is licensed under<br>
+a <a rel="license" 
+href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative 
+Commons License</a>.<br>
+
+&copy; 1997-2013 Steven Shults & Brandon Faloona
+</font><br>
+
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+</body></html>
