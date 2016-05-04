@@ -7,9 +7,14 @@ describe 'Monologues' do
     last_response.body.must_include 'Tragedies'
   end
 
+  it '/plays renders plays list' do
+    get '/plays'
+    last_response.body.must_include 'Comedies'
+  end
+
   it '/monologues renders plays list' do
     get '/monologues'
-    last_response.body.must_include 'Tragedies'
+    last_response.body.must_include 'Histories'
   end
 
   it 'root renders left column ads' do
