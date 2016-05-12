@@ -25,6 +25,16 @@ describe 'Monologues routing' do
     last_response.body.must_include 'Is Cade the son of Henry the Fifth'
   end
 
+  it ' /men/plays/3?expand=0 displays monologues collapsed' do
+    get '/men/plays/3?expand=0'
+    last_response.body.wont_include "I'll speak to thee in silence."
+  end
+
+  it ' /men/plays/3?expand=1 displays monologues expanded' do
+    get '/men/plays/3?expand=1'
+    last_response.body.must_include "I'll speak to thee in silence."
+  end
+
   it ' /men/plays/23 returns men filtered play' do
     get '/men/plays/23'
     monologues_displayed(last_response).must_equal 2
@@ -36,10 +46,20 @@ describe 'Monologues routing' do
     last_response.body.must_include 'Return those duties back as are right fit'
   end
 
-  it 'post /search with query returns results' do
+  it 'post /search with play, gender and query' do
     post '/search', '{"query": "when", "gender": "m", "play": "3"}'
     monologues_displayed(last_response).must_equal 1
     last_response.body.must_include 'No blame be to you'
+  end
+
+  it 'post /search with query e' do
+    post '/search', '{"query": "e", "gender": "a", "play": ""}'
+    monologues_displayed(last_response).must_equal 24
+  end
+
+  it 'post /search with no params' do
+    post '/search', '{}'
+    monologues_displayed(last_response).must_equal 24
   end
 
 end

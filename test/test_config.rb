@@ -23,7 +23,6 @@ class MiniTest::Spec
   include Rack::Test::Methods
 
   include Capybara::DSL
-  include WaitForAjax
 
   def teardown
     Capybara.reset_sessions!

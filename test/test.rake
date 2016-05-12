@@ -29,7 +29,7 @@ end
 desc "Run application test suite"
 task 'test' => test_tasks.map { |f| "test:#{f}" }
 
-desc "POST json to /api/monologues"
-task :curl_post do
-  `curl -v -X POST -d '{"username":"xyz","password":"xyz"}' http://localhost:3000/api/monologues`
+desc "POST json to /search"
+task :test_post do
+  `curl -v -X POST -d '{"query":"z"}' -H "Accept: text/html" http://localhost:3000/search`
 end
