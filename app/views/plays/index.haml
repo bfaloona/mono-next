@@ -1,6 +1,6 @@
 .center-column-header
 
-	=render 'shared/search_box_controls', layout: false
+	=render 'shared/search_box_controls', layout: false, locals: {monologue_controls: false}
 
 .center-column-list
 
@@ -25,11 +25,3 @@
 					- @tragedies.sort{|a,b| a.title <=> b.title }.each do |tragedy|
 						=gendered_play_link(tragedy)
 						%br/
-
-		- play_title = @play.title if @play
-		:javascript
-			globalPlayTitle = '#{play_title}';
-			globalViewGender = '#{session[:gender]}';
-			updateGenderLinks();
-			registerGenderClick();
-			registerToggleClick();

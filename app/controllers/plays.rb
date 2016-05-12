@@ -26,7 +26,8 @@ Monologues::App.controllers :plays do
     session[:play] = @play.id
     @monologues = @play.monologues.gender(session[:gender])
     @result_summary = "#{@monologues.count} of #{@monologues.count} monologues"
-    render 'monologues/index'
+    toggle_state = (params[:expand] == '1') ? 'expand' : 'collapse'
+    render 'monologues/index', locals: {toggle: toggle_state}
   end
 
   get :show, map: "/plays/:id", cache: true, &monologues_index

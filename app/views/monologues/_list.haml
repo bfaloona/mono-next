@@ -31,7 +31,7 @@
 
 						%td.monologue-firstline-table
 							=link_to(monologue.first_line, url(:monologues, :show, id: monologue.id), remote: true)
-							- if toggle && (toggle == 'expand')
+							- if defined?(toggle) && (toggle == 'expand')
 								.monologue-body-inline
 									!=monologue.body
 							- else
@@ -45,4 +45,9 @@
 								%img{src: '/images/pdf_file_icon_16x16.png'}
 
 		:javascript
+			#{js_set_global_params}
+			updateDom();
+			$(".monologue-controls").show();
+			registerGenderClick();
+			registerToggleClick();
 			registerMonologueClick();

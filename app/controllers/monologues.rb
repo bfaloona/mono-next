@@ -25,15 +25,15 @@ Monologues::App.controllers :monologues do
 
   post :search, map: '/search' do
     params = JSON.parse(request.env["rack.input"].read).symbolize_keys!
-    default_params = {query: 'e', gender: 'a', play: '', toggle: 'collapse'}
+    default_params = {query: 'e', gender: 'a', play: 0, toggle: 'collapse'}
     params = default_params.merge(params)
+
     session[:gender] = params[:gender]
 
     @title = "Monologues results for query '#{params[:query]}' and gender #{params[:gender]}}"
     logger.info "Search controller: #{@title}"
-
     @show_play_title = true
-    if (params[:play].length > 0)
+    if params[:play].to_i > 0
       play = Play.find(params[:play])
       found_monologues = play.monologues.gender(params[:gender]).matching(params[:query])
     else

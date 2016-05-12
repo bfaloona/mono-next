@@ -67,22 +67,12 @@ h3 {
 .left-column {
     padding-top: 30px;
     width: 218px;
-/*
-    vertical-align: top;
-    margin-top: 0;
-    padding: 10px;
-*/
 }
 
 .right-column {
     padding: 10px;
     padding-top: 80px;
     width: 314px;
-/*
-    vertical-align: top;
-    text-align: center;
-    line-height: 100%;
-*/
 }
 
 .center-column-header {
@@ -90,12 +80,7 @@ h3 {
 
 .center-column-list {
     min-height: 300px;
-    margin-top: -15px;
     padding-bottom: 40px;
-/*
-    vertical-align: top;
-    padding-bottom: 60px;
-*/
 }
 
 .link-menu-left, .link-menu-right {
@@ -214,6 +199,14 @@ table.categories-list td {
     padding-top: 60px;
     padding-left: 20px;
     vertical-align: top;
+}
+
+table.categories-list th {
+    width: 33%;
+}
+
+table.categories-list th {
+    width: 33%;
 }
 
 table.monologue-list {
@@ -474,7 +467,9 @@ th.th-pad-right {
     outline: -webkit-focus-ring-color auto 0px;
 }
 
-.search-action-items {
+.monologue-controls {
+    margin-top: 10px;
+    padding: 10px;
     color: gray;
     background: white;
 }

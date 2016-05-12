@@ -1,32 +1,15 @@
 
-// Track user filter / query state
-globalViewGender = "a";
-globalViewToggle = "collapse";
-globalViewQuery = '';
-
-
-function playFromLocation(location) {
-	var regex, matches;
-	regex = /^\/plays\/(\d+)$/;
-	matches = regex.exec(location);
-	if(matches && matches[1])
-	{
-		return parseInt(matches[1]);
-	}
-	else {
-		return "";
-	};
+gParams = {
+	"gender": "a",
+	"toggle": "collapse",
+	"query": "",
+	"play": ""
 }
 
 function registerGenderClick() {
-
-	// Register click event
-	$('.search-action-items > a.filter-gender').on('click',  function(event, data, status, xhr) {
-		globalViewGender = $(this).attr('data_action');
-		var params = getSearchParams(true);
-		if(params) {
-			doSearch(params);
-		}
+	$('.monologue-controls > a.filter-gender').on('click',  function(event, data, status, xhr) {
+		gParams['gender'] = $(this).attr('data_action');
+		doSearch(gParams);
 		// In all cases, prevent link click request
 		event.preventDefault();
 		return false;
@@ -34,21 +17,26 @@ function registerGenderClick() {
 }
 
 function registerToggleClick() {
-
-	// Register click event
-	$('.search-action-items > a.toggle-mono').on('click',  function(event, data, status, xhr) {
-		globalViewToggle = $(this).attr('data_action');
-		var params = getSearchParams(true);
-		if(params) {
-			doSearch(params);
-		}
+	$('.monologue-controls > a.toggle-mono').on('click',  function(event, data, status, xhr) {
+		gParams['toggle'] = $(this).attr('data_action');
+		doSearch(gParams);
 		// In all cases, prevent link click request
 		event.preventDefault();
-		$('.toggle-mono').each(function() {
-			$(this).toggle();
-		})
+		updateToggleLinks();
 		return false;
 	});
+}
+
+function updateToggleLinks(toggle) {
+	if(gParams["toggle"] == 'collapse') {
+		$('.toggle-mono.mono-collapse').hide();
+		$('.toggle-mono.mono-expand').show();
+	}
+	else
+	{
+		$('.toggle-mono.mono-collapse').show();
+		$('.toggle-mono.mono-expand').hide();
+	}
 }
 
 function registerMonologueClick() {
@@ -97,28 +85,38 @@ function registerMonologueClick() {
 
 function createPlaceholderText(data) {
 	var textPrefix;
-	if(globalPlayTitle !== '') {
-		return textPrefix = 'Search ' + globalPlayTitle + ' Monologues';
+	if(gParams['playTitle'] !== '') {
+		textPrefix = 'Search ' + gParams['playTitle'];
 	}
 	else {
 		textPrefix = "Search Shakespeare's"
 	}
-	if(globalViewGender === 'a')
+	if(gParams['gender'] === 'a')
 	{
 		return textPrefix + " Monologues";
 	}
-	else if(globalViewGender === 'w') {
+	else if(gParams['gender'] === 'w') {
 		return textPrefix + " Women's Monologues";
 	}
-	else if(globalViewGender === 'm') {
+	else if(gParams['gender'] === 'm') {
 		return textPrefix + " Men's Monologues";
 	}
 }
 
 function updateDom(params, html) {
 	// search placeholdre
-	$("#search-box")[0].placeholder = createPlaceholderText(params);
+	$("#search-box")[0].placeholder = gParams['placeholder'];
 	updateGenderLinks();
+	if(gParams["toggle"] == 'collapse')
+	{
+		$("a.mono-expand").show();
+		$("a.mono-collapse").hide();
+	}
+	else
+	{
+		$("a.mono-collapse").show();
+		$("a.mono-expand").hide();
+	}
 	// results
 	$( ".jquery-search-replace" ).replaceWith( html );
 }
@@ -126,20 +124,25 @@ function updateDom(params, html) {
 function updateGenderLinks() {
 	// gender link style
 	$("a.filter-gender").removeClass("link-active");
-	$("a.filter-gender[data_action='" + window.globalViewGender + "']").addClass("link-active");
+	$("a.filter-gender[data_action='" + gParams['gender'] + "']").addClass("link-active");
 	// results
 }
 
 function doSearch(data) {
 	// Show spinner
 	$(".searching").show();
-	console.log(data);
+
+	var params = data;
+	if(params['query'] === '') {
+		params['query'] = 'e';
+	}
+	console.log("doSearch(): " + JSON.stringify(params));
 	timer = setTimeout( function() {
 
 		// Send ajax search request
 		$.ajax({
 			method: "POST",
-			data: data,
+			data: JSON.stringify(params),
 			url: '/search',
 			cache: false
 		})
@@ -153,60 +156,31 @@ function doSearch(data) {
 	400)
 }
 
-function getSearchParams(searchFlag = false) {
+function searchNeeded() {
 	var timer;
 	var query;
-	// use global
-	query = globalViewQuery;
-
+	query = $('#search-box').val().trim();
 	// Search only if text has changed or searchFlag is true
-	if( (query !== $('#search-box').val().trim()) || searchFlag == true ){
-
-		// Get new value
-		query = $('#search-box').val().trim();
-
+	if(query !== gParams['query']) {
+		gParams['query'] = query;
 		// Cancel pending calls
 		if(timer) { clearTimeout(timer) }
-
-		// Handle empty search box
-		if(query.length === 0) {
-			// HACK - search for letter e to get all results
-			query = "e";
-		}
-
-		// update global
-		globalViewQuery = query;
-		var data = '{"query": "' +
-						query +
-						'", "play": "' +
-						playFromLocation(document.location.pathname) +
-						'", "gender": "' +
-						window.globalViewGender +
-						'", "toggle": "' + globalViewToggle + '"}';
-		return data;
+		return true;
 	}
 }
 
 $(document).ready( function() {
 
-	registerGenderClick();
-
 	$(".searching").hide();
-
 	$( "#search-box" ).focus();
 	$( "#search-form" ).submit(function( event ) {
 		event.preventDefault();
 		return false;
 	});
 
-	// ---
-	// Live search ajax with delay 
-	//   to prevent searching every keystroke
-	// ---
 	$('#search-box').keyup(function(){
-		var params = getSearchParams();
-		if(params) {
-			doSearch(params);
+		if(searchNeeded()) {
+			doSearch(gParams);
 		}
 	});
 });
