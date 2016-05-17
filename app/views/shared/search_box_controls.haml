@@ -1,27 +1,25 @@
 %form#search-form.navbar-form{role: ""}
-	.input-group
+	.input-group.accent-font
 		%input#search-box.form-control{placeholder: searchbox_placeholder_text, type: "text", autocomplete: "off", action: "#", tabindex: 1}
 		%i.glyphicon.glyphicon-refresh.glyphicon-refresh-animate.searching
-	- if monologue_controls
-		.monologue-controls
-			Filter by:
-			- if @play
-				%span=@play.title
-			%a.filter-gender{href: '#', data_action: 'w'} Women
-			%a.filter-gender{href: '#', data_action: 'm'} Men
-			%a.filter-gender{href: '#', data_action: 'a'} All
+	%div{class: monologue_controls ? "monologue-controls" : "monologue-controls display-hide"}
+		%span.monologue-control-label.accent-font Filter by:
+		- if @play
+			%span.play-control
+				&nbsp;
+				%a.filter-play-remove.accent-font{href: '#', title: 'Remove play filter'} × 
+				%span.monologue-label=@play.title
+		%span.gender-control
+			%a.filter-gender.monologue-label{href: '#', data_action: 'w'} Women
+			%span.accent-font /
+			%a.filter-gender.monologue-label{href: '#', data_action: 'm'} Men
+			%span.accent-font /
+			%a.filter-gender.monologue-label{href: '#', data_action: 'a'} All
+		%span.toggle-control
 			%a.toggle-mono.mono-expand.display-hide{href: '#', data_action: 'expand'} Expand All
 			%a.toggle-mono.mono-collapse.display-hide{href: '#', data_action: 'collapse'} Collapse All
-	- else
-		.monologue-controls.display-hide
-			Filter by:
-			- if @play
-				%span=@play.title
-			%a.filter-gender{href: '#', data_action: 'w'} Women
-			%a.filter-gender{href: '#', data_action: 'm'} Men
-			%a.filter-gender{href: '#', data_action: 'a'} All
-			%a.toggle-mono.mono-expand.display-hide{href: '#', data_action: 'expand'} Expand All
-			%a.toggle-mono.mono-collapse.display-hide{href: '#', data_action: 'collapse'} Collapse All
+
 	:javascript
+		registerRemovePlayFilterClick();
 		registerGenderClick();
 		registerToggleClick();

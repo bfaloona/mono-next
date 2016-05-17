@@ -55,6 +55,10 @@ body {
     line-height: 13px;
 }
 
+body .accent-font {
+    font-family: 'IM Fell English', "Times New Roman", Times, serif;
+}
+
 .container{
     max-width: none !important;
     width: 1270px;
@@ -64,12 +68,12 @@ h3 {
     padding-left: 7px;
 }
 
-.left-column {
+.link-menu-left {
     padding-top: 30px;
     width: 218px;
 }
 
-.right-column {
+.link-menu-right {
     padding: 10px;
     padding-top: 80px;
     width: 314px;
@@ -141,7 +145,7 @@ div.login-banner {
 
 
 input#search-box {
-    font-size: 155%;
+    font-size: 175%;
     width: 565px;
     margin-left: -10px;
     border-top-right-radius: 5px;
@@ -149,6 +153,7 @@ input#search-box {
 }
 
 div.result-summary {
+    font-size: 115%;
     float: right;
     color: #999;
     text-align: right;
@@ -474,14 +479,40 @@ th.th-pad-right {
     background: white;
 }
 
-a.filter-gender {
-    padding-right: 10px;
+.monologue-label {
+
+}
+
+.filter-play-remove {
+    font-size: 135%;
+    font-weight: bold;
+}
+
+.play-control {
+    background-color: white;
     padding-left: 10px;
+    padding-right: 10px;
+}
+
+.gender-control {
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.toggle-control {
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+a.filter-gender {
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 a.link-active {
-    color: white;
-    background: gray;
+    font-weight: bolder;
 }
 
 .glyphicon-refresh.searching {

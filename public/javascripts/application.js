@@ -7,7 +7,7 @@ gParams = {
 }
 
 function registerGenderClick() {
-	$('.monologue-controls > a.filter-gender').on('click',  function(event, data, status, xhr) {
+	$('.monologue-controls a.filter-gender').on('click',  function(event, data, status, xhr) {
 		gParams['gender'] = $(this).attr('data_action');
 		doSearch(gParams);
 		event.preventDefault();
@@ -15,8 +15,19 @@ function registerGenderClick() {
 	});
 }
 
+function registerRemovePlayFilterClick() {
+	$('.monologue-controls a.filter-play-remove').on('click',  function(event, data, status, xhr) {
+		gParams['play'] = 0;
+		gParams['playTitle'] = '';
+		$("span.play-control").hide()
+		doSearch(gParams);
+		event.preventDefault();
+		return false;
+	});
+}
+
 function registerToggleClick() {
-	$('.monologue-controls > a.toggle-mono').on('click',  function(event, data, status, xhr) {
+	$('.monologue-controls a.toggle-mono').on('click',  function(event, data, status, xhr) {
 		gParams['toggle'] = $(this).attr('data_action');
 		doSearch(gParams);
 		event.preventDefault();
