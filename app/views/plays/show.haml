@@ -7,7 +7,8 @@
 
 	=partial('monologues/list', locals: {show_play_title: false, play_name: @play&.name})
 
-	:javascript
-		gParams["playTitle"] = '#{@play&.title}';
-		gParams["gender'] = '#{session[:gender]}';
-		updateGenderLinks();
+  :javascript
+    #{js_set_global_params}
+    updateDom();
+
+

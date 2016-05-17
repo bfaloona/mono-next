@@ -49,7 +49,7 @@ Monologues::App.helpers do
   end
 
   def js_set_global_params
-    params = {gender: 'a', toggle: 'collapse', query: 'e', play: 0, placeholder: "Search Shakespeare's Monologues"}
+    params = {gender: 'a', toggle: 'collapse', query: nil, play: 0, placeholder: "Search Shakespeare's Monologues"}
     play = Play.find(session[:play]) rescue nil
     play_title = play&.title || ''
     params[:gender] = session[:gender] if session[:gender]
@@ -59,7 +59,8 @@ Monologues::App.helpers do
     params[:toggle] = session[:toggle] if session[:toggle]
     params[:placeholder] = searchbox_placeholder_text
 
-    return 'gParams = ' +  JSON.pretty_generate(params) + ';'
+    output = "gParams = #{JSON.pretty_generate(params)};\ngParams['query'] = $('#search-box').val().trim();\n"
+    return output
   end
 
   def searchbox_placeholder_text

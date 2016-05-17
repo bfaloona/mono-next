@@ -2,7 +2,7 @@
 gParams = {
 	"gender": "a",
 	"toggle": "collapse",
-	"query": "",
+	"query": null,
 	"play": ""
 }
 
@@ -22,21 +22,8 @@ function registerToggleClick() {
 		doSearch(gParams);
 		// In all cases, prevent link click request
 		event.preventDefault();
-		updateToggleLinks();
 		return false;
 	});
-}
-
-function updateToggleLinks(toggle) {
-	if(gParams["toggle"] == 'collapse') {
-		$('.toggle-mono.mono-collapse').hide();
-		$('.toggle-mono.mono-expand').show();
-	}
-	else
-	{
-		$('.toggle-mono.mono-collapse').show();
-		$('.toggle-mono.mono-expand').hide();
-	}
 }
 
 function registerMonologueClick() {
@@ -83,7 +70,7 @@ function registerMonologueClick() {
 	});
 }
 
-function createPlaceholderText(data) {
+function createPlaceholderText() {
 	var textPrefix;
 	if(gParams['playTitle'] !== '') {
 		textPrefix = 'Search ' + gParams['playTitle'];
@@ -104,9 +91,13 @@ function createPlaceholderText(data) {
 }
 
 function updateDom(params, html) {
-	// search placeholdre
-	$("#search-box")[0].placeholder = gParams['placeholder'];
+	$("#search-box")[0].placeholder = createPlaceholderText();
 	updateGenderLinks();
+	updateToggleLink();
+	$( ".jquery-search-replace" ).replaceWith( html );
+}
+
+function updateToggleLink() {
 	if(gParams["toggle"] == 'collapse')
 	{
 		$("a.mono-expand").show();
@@ -117,38 +108,27 @@ function updateDom(params, html) {
 		$("a.mono-collapse").show();
 		$("a.mono-expand").hide();
 	}
-	// results
-	$( ".jquery-search-replace" ).replaceWith( html );
 }
 
 function updateGenderLinks() {
-	// gender link style
 	$("a.filter-gender").removeClass("link-active");
 	$("a.filter-gender[data_action='" + gParams['gender'] + "']").addClass("link-active");
-	// results
 }
 
 function doSearch(data) {
-	// Show spinner
 	$(".searching").show();
 
-	var params = data;
-	if(params['query'] === '') {
-		params['query'] = 'e';
-	}
-	console.log("doSearch(): " + JSON.stringify(params));
+	console.log("doSearch(): " + JSON.stringify(data));
 	timer = setTimeout( function() {
-
 		// Send ajax search request
 		$.ajax({
 			method: "POST",
-			data: JSON.stringify(params),
+			data: JSON.stringify(data),
 			url: '/search',
 			cache: false
 		})
 		.done(function( html ) {
 			updateDom(data, html);
-			// Hide spinner
 			$(".searching").hide();
 		});
 	},
@@ -156,7 +136,7 @@ function doSearch(data) {
 	400)
 }
 
-function searchNeeded() {
+function queryChanged() {
 	var timer;
 	var query;
 	query = $('#search-box').val().trim();
@@ -179,7 +159,7 @@ $(document).ready( function() {
 	});
 
 	$('#search-box').keyup(function(){
-		if(searchNeeded()) {
+		if(queryChanged()) {
 			doSearch(gParams);
 		}
 	});

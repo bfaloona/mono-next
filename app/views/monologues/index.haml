@@ -8,3 +8,6 @@
 
 		- play_title = @play.title if @play
 		=partial('monologues/list', locals: {show_play_title: true, play_title: play_title, toggle: toggle})
+:javascript
+	#{js_set_global_params}
+	updateDom();
