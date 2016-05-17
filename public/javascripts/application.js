@@ -10,7 +10,6 @@ function registerGenderClick() {
 	$('.monologue-controls > a.filter-gender').on('click',  function(event, data, status, xhr) {
 		gParams['gender'] = $(this).attr('data_action');
 		doSearch(gParams);
-		// In all cases, prevent link click request
 		event.preventDefault();
 		return false;
 	});
@@ -20,7 +19,6 @@ function registerToggleClick() {
 	$('.monologue-controls > a.toggle-mono').on('click',  function(event, data, status, xhr) {
 		gParams['toggle'] = $(this).attr('data_action');
 		doSearch(gParams);
-		// In all cases, prevent link click request
 		event.preventDefault();
 		return false;
 	});
