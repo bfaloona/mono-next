@@ -88,8 +88,28 @@ module Monologues
       render  'errors/500', layout: false
     end
 
+    get '/aboutus' do
+      send_file 'static/aboutus.html'
+    end
+
+    get '/faqs' do
+      send_file 'static/faqs.html'
+    end
+
     get '/home' do
-      render :home, layout: false
+      send_file 'static/home.html'
+    end
+
+    get '/links' do
+      send_file 'static/links.html'
+    end
+
+    get '/privacy' do
+      send_file 'static/privacy.html'
+    end
+
+    get '/sandbox' do
+      send_file 'static/sandbox.html'
     end
 
 
