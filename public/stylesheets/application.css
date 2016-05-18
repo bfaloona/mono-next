@@ -488,22 +488,21 @@ th.th-pad-right {
     font-weight: bold;
 }
 
+.control-seperator {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .play-control {
     background-color: white;
-    padding-left: 10px;
-    padding-right: 20px;
 }
 
 .gender-control {
     background-color: white;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .toggle-control {
     background-color: white;
-    padding-left: 20px;
-    padding-right: 10px;
 }
 
 a.filter-gender {
