@@ -1,34 +1,141 @@
-!!! 5
-%html{lang: 'en', itemscope: '', itemtype: 'http://schema.org/CollectionPage', class: 'gr__shakespeare-monologues_org'}
-	%head
-		%title= @title.present? ? @title : Monologues::App::SITE_TITLE
+!!!
+%html{:itemscope => "", :itemtype => "http://schema.org/CollectionPage"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-type"}/
+    %title= @title.present? ? @title : Monologues::App::SITE_TITLE
+    = javascript_include_tag 'jquery.min', 'jquery-ujs', 'bootstrap.min', 'application'
+    = stylesheet_link_tag 'normalize', 'bootstrap.min', 'application'
+    %link{href: 'https://fonts.googleapis.com/css?family=IM+Fell+English', rel: 'stylesheet', type:'text/css'}
+    :javascript
+      (function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
+    / Mobile OS add to homescreen and web app goodies
+    %meta{:content => "width=device-width, initial-scale=0.65", :name => "viewport"}/
+    %meta{:content => "yes", :name => "mobile-web-app-capable"}/
+    %link{:href => "/favicon.ico", :rel => "icon"}/
+    %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
+    %link{:href => "/img/icon-196x196.png", :rel => "icon", :sizes => "196x196"}/
+    %link{:href => "/img/icon-196x196.png", :rel => "apple-touch-icon", :sizes => "196x196"}/
+    %link{:href => "/img/icon-196x196.png", :rel => "shortcut icon", :sizes => "196x196"}/
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
+    %meta{:content => "black", :name => "apple-mobile-web-app-status-bar-style"}/
+    %meta{:content => "ShakesMonos", :name => "apple-mobile-web-app-title"}/
+    %meta{:content => "no", :name => "msapplication-tap-highlight"}/
+    %meta{:content => "black-translucent", :name => "apple-mobile-web-app-status-bar-style"}/
+    %link{:href => "/img/icon-144x144.png", :rel => "apple-touch-icon", :sizes => "144x144"}/
+    %link{:href => "/img/icon-120x120.png", :rel => "apple-touch-icon", :sizes => "120x120"}/
+    %link{:href => "/img/icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
+    %link{:href => "/img/icon-76x76.png", :rel => "apple-touch-icon", :sizes => "76x76"}/
+    %link{:href => "/img/icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
+    / for the landscape tip
+    %link{:href => "/img/landscape-icon-196x157.png", :rel => "apple-touched-icon", :sizes => "152x152"}/
+    %link{:href => "/img/landscape-icon-196x157.png", :rel => "landscape icon", :sizes => "152x152"}/
+    / iPhone Splash Screen
+    %link{:href => "/img/apple-touch-startup-image-320x460.png", :media => "(device-width: 320px)", :rel => "apple-touch-startup-image"}/
+    / iPhone (Retina) Splash Screen
+    %link{:href => "/img/apple-touch-startup-image-640x920.png", :media => "(device-width: 320px) and (-webkit-device-pixel-ratio: 2)", :rel => "apple-touch-startup-image"}/
+    / iPhone (5) Splash Screen
+    %link{:href => "/img/Default-568h@2x.png", :media => "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)", :rel => "apple-touch-startup-image", :sizes => "640x1096"}/
+    / iPad (portrait) Splash Screen
+    %link{:href => "/img/apple-touch-startup-image-768x1004.png", :media => "(device-width: 768px) and (orientation: portrait)", :rel => "apple-touch-startup-image"}/
+    / iPad (landscape) Splash Screen
+    %link{:href => "/img/apple-touch-startup-image-1024x1024.png", :media => "(device-width: 768px) and (orientation: landscape)", :rel => "apple-touch-startup-image"}/
+    / iPad (Retina, portrait) Splash Screen
+    %link{:href => "/img/apple-touch-startup-image-1536x2008.png", :media => "(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)", :rel => "apple-touch-startup-image"}/
+    / iPad (Retina, landscape) Splash Screen
+    %link{:href => "/img/apple-touch-startup-image-2048x1496.png", :media => "(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)", :rel => "apple-touch-startup-image"}/
+    %link{:href => "/img/icon-152x152.png", :rel => "apple-touch-icon-precomposed"}/
+    / use landscape mode
+    %link{:href => "/stylesheets/usethelandscapeluke.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "/javascripts/usethelandscapeluke.js"}
+    :javascript
+      addToHomescreen({
+         maxDisplayCount: 2,
+         lifespan: 15,
+         });
+    / add to homescreen
+    %link{:href => "/stylesheets/addtohomescreen.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "/javascripts/addtohomescreen.js"}
+    :javascript
+      addToHomescreen({
+         maxDisplayCount: 3,
+         lifespan: 20,
+         });
+    %link{:href => "/img/icon-196x196.png", :rel => "icon", :sizes => "196x196"}/
+    %link{:href => "/img/icon-196x196.png", :rel => "apple-touch-icon", :sizes => "196x196"}/
+    %link{:href => "/img/icon-196x196.png", :rel => "shortcut icon", :sizes => "196x196"}/
+    / end Mobile OS add to homescreen and web app goodies
+    / clickjacking defense from https://www.codemagi.com/blog/post/194
+    %style#antiClickjack
+      :cdata
+        body{display:none !important;}
+    :javascript
+      if (self === top) {
+          var antiClickjack = document.getElementById("antiClickjack");
+          antiClickjack.parentNode.removeChild(antiClickjack);
+      } else {
+          top.location = self.location;
+      }
+    / end clickjacking defense
+    %meta{:content => "Making it easier to find monologues since 1997. A complete database of Shakespeare's Monologues. The monologues are organized by play, then categorized by comedy, history and tragedy. You can browse and/or search so you can find a monologue whether you know which one you want, or you're looking for monologue ideas. Each monologue entry includes the character's name, the first line of the speech, whether it is verse or prose, and shows the act, scene & line number. Each entry provides a link to the full text of the scene. You can download each monologue for printing, already double-spaced for scansion and transcription.", :itemprop => "description", :name => "Description"}/
+    %meta{:content => "43Tfyc84pBq4LxJ6S3NHue3NJt2M+oKCcoiN41SEKB8=", :name => "verify-v1"}/
+    %meta{:content => "William Shakespeare, shakespeare, monologues, shakespeare monologues, shakespeare's monologues, shakespearean, monologue, speech, speeches, soliloquy, soliloquies, database, find, search, browse, index, quotes, quotations, Comedies, Histories, Tragedies, A Midsummer Night's Dream, All's Well That Ends Well, As You Like It, Cymbeline, Love's Labour's Lost, Measure for Measure, Merry Wives of Windsor, Much Ado About Nothing, Pericles, Prince of Tyre, The Comedy of Errors, The Merchant of Venice, The Taming of the Shrew, The Tempest, The Winter's Tale, Troilus and Cressida, Twelfth Night Or What You Will, 12th Night, TWelfth Night, Two Gentlemen of Verona, Henry IV i, Henry IV ii, Henry V, Henry VI i, Henry VI ii, Henry VI iii, Henry VIII, King John, Richard II, Richard III, Antony & Cleopatra, Coriolanus, Hamlet, Julius Caesar, King Lear, Macbeth, Othello, Romeo and Juliet, Timon of Athens, Titus Andronicus", :name => "KEYWORDS"}/
 
-		= javascript_include_tag 'jquery.min', 'jquery-ujs', 'bootstrap.min', 'application'
-		= stylesheet_link_tag 'normalize', 'bootstrap.min', 'application'
-		%link{href: 'https://fonts.googleapis.com/css?family=IM+Fell+English', rel: 'stylesheet', type:'text/css'}
-		= yield_content :include
+    / Start Facebook Open Graph stuff
+    %meta{:content => "Shakespeare's Monologues", :property => "og:title"}/
+    %meta{:content => "Making it easier to find monologues since 1997. \nBuilt for actors. Used by everyone.", :property => "og:description"}/
+    %meta{:content => "http://www.shakespeare-monologues.org/images/foliocover.gif", :property => "og:image"}/
+    / End Facebook Open Graph stuff
 
-		- # REMOVE everbutton tip jar script?
-		- # Replaced with .tip-jar css. Is this Javascript needed?
-		- # %script{type: 'text/javascript', async: '', src: 'https://www.everbutton.com/assets/everbutton.v1.js?button_id=693'}
+    / Start Google Analytics stuff
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-600620-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    / End Google Analytics stuff
+
+    %link{:href => "http://www.shakespeare-monologues.org/opensearch.xml", :rel => "search", :title => "Search Shakespeare's Monologues", :type => "application/opensearchdescription+xml"}/
+    / when the rest of the page has loaded, load the social.js-one-script-to-rule-them-all
+    :javascript
+      (function($) {
+        $(window).bind("load", function() {
+        $.getScript('/javascripts/social.js', function() {});
+        });
+      })(jQuery);
+
+  %body
+    .container
+
+      .left-column.col-xs-2
+
+        =render 'shared/left-column', layout: false
+
+      .center-column.col-xs-8
+
+        / Page views should contain .center-column-header and .center-column-list
+        = yield
+
+        / Footer contains .center-column-footer
+        =render 'shared/center-footer', layout: false
 
 
-	%body
-		.container
+      .right-column.col-xs-2
 
-			.left-column.col-xs-2
+        =render 'shared/right-column', layout: false
 
-				=render 'shared/left-column', layout: false
+  :javascript
+    var adblock = true;
+  %script{:src => "/javascripts/ad/adframe.js", :type => "text/javascript"}
+  :javascript
+    if(adblock) {
+      document.getElementById("a1").innerHTML = 'It looks like you&#39;re using an AdBlocker. It&#39;s Ok, we use them too.<br/><br/>The ads here bring in much less than you&#39;d guess.<br/><br/> Consider dropping something in the Tip Jar to help keep this site alive&quest;<br/><br/><center><a id="everbutton-693-1398040059-85" class="everbutton everbutton-693-1398040059-85 everbutton-blue" href="https://www.everbutton.com/donate/693" style="height:20px;width:49px;min-width:45px;padding:0px;">Tip Jar</a></center>';
 
-			.center-column.col-xs-8
+      document.getElementById("a2").innerHTML = 'It looks like you&#39;re using an AdBlocker.<br/>It&#39;s cool, we use them too.<br/><br/>The ads here bring in much less than you&#39;d guess.<br/><br/> Consider dropping something in the Tip Jar to help keep this site alive&quest;<br/><br/><center><a id="everbutton-693-1398040059-85" class="everbutton everbutton-693-1398040059-85 everbutton-blue" href="https://www.everbutton.com/donate/693" style="height:20px;width:49px;min-width:45px;padding:0px;">Tip Jar</a></center>';
+    }
 
-				/ Page views should contain .center-column-header and .center-column-list
-				= yield
-
-				/ Footer contains .center-column-footer
-				=render 'shared/center-footer', layout: false
-
-
-			.right-column.col-xs-2
-
-				=render 'shared/right-column', layout: false
+    // http://detect-ad-blocking-software.webconrad.com/

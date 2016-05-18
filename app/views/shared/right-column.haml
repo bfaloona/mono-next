@@ -1,64 +1,31 @@
-- if Padrino.env == :production
-	.wrapper_for_addthis
-		%br/
-
-		- # TODO Remove linked css and javascript for this button?
-		- # Replaced with .tip-jar
-		- # %a#everbutton-693-1398040059-85.everbutton.everbutton-693-1398040059-85.everbutton-blue{href: 'https://www.everbutton.com/donate/693'} Tip Jar
-
-		%a.tip-jar{href: 'https://www.everbutton.com/donate/693'} Tip Jar
-		%br/
-		%br/
-		%br/
-
-		/ AddThis Button BEGIN
-		.addthis_toolbox.addthis_default_style.addthis_16x16_style
-			%a.addthis_button_facebook.at300b{href: '#', title: 'Facebook'}
-				%span.at4-icon-left.at4-icon.aticon-facebook{style: 'background-color: rgb(48, 88, 145);'}
-					%span.at_a11y Share on facebook
-			%a.addthis_button_twitter.at300b{href: '#', title: 'Tweet'}
-				%span.at4-icon-left.at4-icon.aticon-twitter{style: 'background-color: rgb(44, 168, 210);'}
-					%span.at_a11y Share on twitter
-			%a.addthis_button_google_plusone_share.at300b{href: '#', target: '_blank', title: 'Google+'}
-				%span.at4-icon-left.at4-icon.aticon-google_plusone_share{style: 'background-color: rgb(220, 78, 65);'}
-					%span.at_a11y Share on google_plusone_share
-			%a.addthis_button_compact.at300m{href: '#'}
-				%span.at4-icon-left.at4-icon.aticon-compact{style: 'background-color: rgb(252, 109, 76);'}
-					%span.at_a11y More Sharing Services
-			/ .atclear{tabindex: '1000'}
-			%script{src: '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-532e2d3068288ec1', type: 'text/javascript'}
-		/ AddThis Button END
-
-	.link-menu-right.accent-font
-		%a{href: 'https://www.facebook.com/ShakespearesMonologues', target: '_blank'} FB
-		%a{href: 'https://plus.google.com/106045313819632308693', rel: 'publisher', target: '_blank'} G+
-		%a{href: 'http://twitter.com/ShakesMonos', target: '_blank'} Twitter
-		%br/
-		%br/
-		%a{href: 'http://www.shakespeare-monologues.org/quiz.html'} Quiz
-		%br/
-		%br/
-		%a{href: 'https://play.google.com/store/apps/details?id=com.ShakespearesMonologues.app', target: '_blank'} Android App
-		%br/
-		%br/
-		%a{href: 'https://chrome.google.com/webstore/detail/ejfdmafokffchogjkmfjdhalghlfemno', target: '_blank'} Chrome App
-		%br/
-	%br/
-	%hr{noshade: 'noshade', size: '1', width: '75'}/
-	%br/
-	%p
-
-		/ OSC ad run ended, commented out, hopefully they'll want another run next year. a href='http://shakespeareclass.org/Shakespeare_Class/Shakespeare_Class.html' target='_blank'><img src='http://www.shakespeare-monologues.org/images/OSC300x250AdFor2015.2.jpg' border='0' width='300' height='250' alt='Oxford Shakespeare Company' title='Oxford Shakespeare Company' /></a
-
-		/ begin rightcol google graphic ad
-		%script{async: '', src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'}
-		/ rightcolgraphic
-		%ins.adsbygoogle{'data-ad-client': 'ca-pub-5236095389905910', 'data-ad-slot': '1016396307', style: 'display:inline-block;width:300px;height:250px'}
-		%script{type: 'javascript'}
-			(adsbygoogle = window.adsbygoogle || []).push({});
-		/ end rightcol google graphic ad
-		%script{async: '', src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'}
-		/ rightcoltext
-		%ins.adsbygoogle{'data-ad-client': 'ca-pub-5236095389905910', 'data-ad-slot': '9566106364', style: 'display:inline-block;width:120px;height:600px'}
-		%script{type: 'javascript'}
-			(adsbygoogle = window.adsbygoogle || []).push({});
+- if true # TODO: Revert override. was: if Padrino.env == :production
+  / begin right column
+  %div#right_column{:align => "center"}
+    = render 'shared/tip_jar', layout: false
+    %br/
+    %p
+      / OSC ad run ended, commented out, hopefully they'll want another run next year. a href="http://shakespeareclass.org/Shakespeare_Class/Shakespeare_Class.html" target="_blank"><img src="http://www.shakespeare-monologues.org/images/OSC300x250AdFor2015.2.jpg" border="0" width="300" height="250" alt="Oxford Shakespeare Company" title="Oxford Shakespeare Company" /></a
+    #a2{:style => "line-height: 15px;"}
+      / begin rightcol backstage.com ad
+      %a{:href => "http://www.dpbolvw.net/click-8014993-11147694-1453433915000", :target => "_blank"}
+        %img{:alt => "Backstage - Casting You Can Trust", :border => "0", :height => "250", :src => "http://www.tqlkg.com/image-8014993-11147694-1453433915000", :width => "300"}/
+      %br/
+      %br/
+      / end rightcol backstage.com ad
+      / begin rightcol google graphic ad
+      #google_afmc
+      %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+      / rightcolgraphic
+      %ins.adsbygoogle{"data-ad-client" => "ca-pub-5236095389905910", "data-ad-slot" => "1016396307", :style => "display:inline-block;width:300px;height:250px"}
+      #google_afmc
+      :javascript
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    / end rightcol google graphic ad
+    #google_afmc
+    %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+    / rightcoltext
+    %ins.adsbygoogle{"data-ad-client" => "ca-pub-5236095389905910", "data-ad-slot" => "9566106364", :style => "display:inline-block;width:120px;height:600px"}
+    #google_afmc
+    :javascript
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  / end right column
