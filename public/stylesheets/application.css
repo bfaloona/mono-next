@@ -128,6 +128,14 @@ h3 {
     text-align: center;
 }
 
+.center-column-copyright {
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    font-size: 70%;
+    text-align: center;
+}
+
 
 
 
