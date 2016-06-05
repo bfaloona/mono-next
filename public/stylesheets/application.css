@@ -347,6 +347,7 @@ h1.monologue-firstline-heading::first-letter {
 .monologue-body-inline {
     padding: 10px;
     font-size: 100%;
+    font-style: normal;
     line-height: 1.25;
     width: 455px;
     border: #333 solid;
