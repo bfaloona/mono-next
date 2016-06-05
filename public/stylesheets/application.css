@@ -177,31 +177,34 @@ div.search-links {
 }
 
 table.categories-list {
-    /* width: 768px; */
+    width: 768px;
     border-collapse:collapse;
-    /*border: 1px solid black;*/
+    border: 1px solid black;
 }
 
 table.categories-list th {
-    width: 100%;
+    /*width: 100%;*/
     font-size: 150%;
-    line-height: 150%;
+    line-height: 110%;
     font-weight: bold;
     text-align: left;
-    padding-left: 10px;
-    padding-bottom: 5px;
-    /*border: 1px solid black;*/
+    padding-left: 15px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 1px solid black;
 }
 
 table.categories-list td {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-bottom: 5px;
     line-height: 150%;
-    font-size: 130%;
+    font-size: 135%;
+    font-style: italic;
     text-align: left;
     white-space: nowrap;
     vertical-align: top;
-    /*border: 1px solid black;*/
+    border: 1px solid black;
 }
 
 .empty-table-message {
@@ -214,11 +217,15 @@ table.categories-list td {
 }
 
 table.categories-list th {
-    width: 33%;
+    width: 300px;
 }
 
 table.categories-list th {
-    width: 33%;
+    width: 135px;
+}
+
+table.categories-list th {
+    width: 333px;
 }
 
 table.monologue-list {
@@ -343,6 +350,7 @@ h1.monologue-firstline-heading::first-letter {
     line-height: 1.25;
     width: 455px;
     border: #333 solid;
+    border-width: 1px;
     margin-bottom: 20px;
     min-height: 300px;
 }
