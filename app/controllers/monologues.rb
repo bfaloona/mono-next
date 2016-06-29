@@ -1,6 +1,6 @@
 Monologues::App.controllers :monologues do
 
-  DISPLAY_LIMIT = 50
+  DISPLAY_LIMIT = 100
 
   get :show, map: "/monologues/:id", cache: true do
     begin
@@ -34,8 +34,8 @@ Monologues::App.controllers :monologues do
     logger.info "Search controller: #{@title}"
     @show_play_title = true
     if params[:play].to_i > 0
-      play = Play.find(params[:play])
-      found_monologues = play.monologues.gender(params[:gender]).matching(params[:query])
+      @play = Play.find(params[:play])
+      found_monologues = @play.monologues.gender(params[:gender]).matching(params[:query])
     else
       found_monologues = Monologue.gender(params[:gender]).matching(params[:query])
     end

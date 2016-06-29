@@ -1,4 +1,4 @@
-.link-menu-left.accent-font
+.link-menu-left.accent-font{style: 'display: inline;'}
 
   / left column menu
   %a{href: '/men'} The Men
@@ -12,21 +12,27 @@
   %a{href: '/home'} Home
 
 
-  - if true # TODO: Revert override. was: if Padrino.env == :production
-    #left_column_ads
-      %p  
+- if true # TODO: Revert override. was: if Padrino.env == :production
+  #left_column_ads
+    %p  
+    #google_afmc
+    %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+    / leftcol1
+    %ins.adsbygoogle{"data-ad-client" => "ca-pub-5236095389905910", "data-ad-slot" => "3862062942", :style => "display:inline-block;width:120px;height:90px"}
+    #google_afmc
+    :javascript
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    %br/
+    %br/
+    %a{:href => "http://www.kqzyfj.com/click-8014993-11090215-1453435310000", :target => "_blank"} Get CAST Today
+    %img{:border => "0", :height => "1", :src => "http://www.ftjcfx.com/image-8014993-11090215-1453435310000", :width => "1"}/
+    %br/
+    %br/
+    #adblock1
       #google_afmc
       %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
-      / leftcol1
-      %ins.adsbygoogle{"data-ad-client" => "ca-pub-5236095389905910", "data-ad-slot" => "3862062942", :style => "display:inline-block;width:120px;height:90px"}
+      / leftcol2
+      %ins.adsbygoogle{"data-ad-client" => "ca-pub-5236095389905910", "data-ad-slot" => "8729942714", :style => "display:inline-block;width:120px;height:600px"}
       #google_afmc
       :javascript
         (adsbygoogle = window.adsbygoogle || []).push({});
-      #a1{:style => "line-height: 15px;"}
-        #google_afmc
-        %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
-        / leftcol2
-        %ins.adsbygoogle{"data-ad-client" => "ca-pub-5236095389905910", "data-ad-slot" => "8729942714", :style => "display:inline-block;width:120px;height:600px"}
-        #google_afmc
-        :javascript
-          (adsbygoogle = window.adsbygoogle || []).push({});

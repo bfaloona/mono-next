@@ -56,7 +56,10 @@ body {
 }
 
 body .accent-font {
-    font-family: 'IM Fell English', "Times New Roman", Times, serif;
+    font-family: 'IM Fell DW Pica', serif;
+    font-weight: 400;
+    /*font-style: italic;*/
+    /*font-family: 'IM Fell English', "Times New Roman", Times, serif;*/
 }
 
 .container{
@@ -87,6 +90,17 @@ h3 {
     padding-bottom: 40px;
 }
 
+#adblock1 {
+    line-height: 15px;
+    /*display: inline;*/
+    width: 80%;
+    background-color: white;
+}
+
+#adblock2 {
+    line-height: 15px;
+    display: inline;
+}
 .link-menu-left, .link-menu-right {
     text-align: center;
     vertical-align: top;
@@ -97,8 +111,9 @@ h3 {
 }
 
 .link-menu-left {
+    padding-top: 8px;
+    padding-bottom: 40px;
     text-align: left;
-    padding-bottom: 60px;
 }
 .link-menu-bottom {
     font-size: 150%;
@@ -488,8 +503,14 @@ th.th-pad-right {
     outline: -webkit-focus-ring-color auto 0px;
 }
 
+.monologue-result-info {
+    display: inline-block;
+    float: right;
+}
 .monologue-controls {
-    margin-top: 6px;
+    display: inline-block;
+    /*margin-top: 6px;*/
+    line-height: 300%;
     padding: 2px;
     color: gray;
     background: white;
@@ -500,9 +521,16 @@ th.th-pad-right {
     color: #444;
 }
 
-.filter-play-remove {
-    font-size: 135%;
-    font-weight: bold;
+.icon-font {
+    font-size: 300%;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.huge-font {
+    font-size: 175%;
+    font-style: italic;
+    font-weight: 400;
 }
 
 .control-seperator {

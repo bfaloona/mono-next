@@ -1,10 +1,11 @@
+.link-menu-right
 - if true # TODO: Revert override. was: if Padrino.env == :production
   / begin right column
   %div#right_column{:align => "center"}
     = render 'shared/tip_jar', layout: false
     %br/
     / OSC ad run ended, commented out, hopefully they'll want another run next year. a href="http://shakespeareclass.org/Shakespeare_Class/Shakespeare_Class.html" target="_blank"><img src="http://www.shakespeare-monologues.org/images/OSC300x250AdFor2015.2.jpg" border="0" width="300" height="250" alt="Oxford Shakespeare Company" title="Oxford Shakespeare Company" /></a
-    #a2{:style => "line-height: 15px;"}
+    #adblock2
       / begin rightcol google graphic ad
       #google_afmc
       %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
@@ -13,7 +14,7 @@
       #google_afmc
       :javascript
         (adsbygoogle = window.adsbygoogle || []).push({});
-    / end rightcol google graphic ad
+      / end rightcol google graphic ad
     #google_afmc
     %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
     / rightcoltext

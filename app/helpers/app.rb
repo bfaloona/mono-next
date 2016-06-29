@@ -56,10 +56,10 @@ Monologues::App.helpers do
     params[:query] = session[:query] if session[:query]
     params[:play] = play.id if play
     params[:playTitle] = play_title if play_title
-    params[:toggle] = session[:toggle] if session[:toggle]
+    # params[:toggle] = session[:toggle] if session[:toggle]
     params[:placeholder] = searchbox_placeholder_text
 
-    output = "gParams = #{JSON.pretty_generate(params)};\ngParams['query'] = $('#search-box').val().trim();\n"
+    output = "// js_set_global_params\ngParams = #{JSON.pretty_generate(params)};\ngParams['query'] = $('#search-box').val().trim();\n"
     return output
   end
 

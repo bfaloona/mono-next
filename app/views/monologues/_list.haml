@@ -1,8 +1,31 @@
 .jquery-search-replace
 	/ Contents of this div replaced by key up triggered jquery ajax call
 
-	.result-summary.accent-font
-		=@result_summary
+	.monologue-controls
+		%span.icon-font.accent-font {
+		- if @play
+			%span.play-control
+				&nbsp;
+				%a.remove-play.icon-font.accent-font{href: '#', title: 'Remove play filter'} × 
+				%span.monologue-label=@play.title
+				%span.huge-font.accent-font
+					|
+		%span.gender-control
+			%a.filter-gender.monologue-label{href: '#', data_action: 'w'} Women
+			%span.huge-font.accent-font /
+			%a.filter-gender.monologue-label{href: '#', data_action: 'm'} Men
+			%span.huge-font.accent-font /
+			%a.filter-gender.monologue-label{href: '#', data_action: 'a'} All
+		%span.icon-font.accent-font }
+
+
+	.monologue-result-info.accent-font
+		.toggle-control
+			%a.toggle-mono.mono-expand.display-hide{href: '#', data_action: 'expand'} Expand All
+			%a.toggle-mono.mono-collapse.display-hide{href: '#', data_action: 'collapse'} Collapse All
+		.result-summary.accent-font
+
+			=@result_summary
 
 
 	- if @monologues.empty?
@@ -44,6 +67,5 @@
 							%a{href: monologue.pdf_link, target: '_blank'}
 								%img{src: '/images/pdf_file_icon_16x16.png'}
 
-		:javascript
-			#{js_set_global_params}
-			registerMonologueClick();
+	%script{:src => "/javascripts/mono_page_refresh.js", :type => "text/javascript"}
+

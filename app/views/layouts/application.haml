@@ -6,6 +6,7 @@
     = javascript_include_tag 'jquery.min', 'jquery-ujs', 'bootstrap.min', 'application'
     = stylesheet_link_tag 'normalize', 'bootstrap.min', 'application'
     %link{href: 'https://fonts.googleapis.com/css?family=IM+Fell+English', rel: 'stylesheet', type:'text/css'}
+    %link{href: 'https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica:400,400italic', rel: 'stylesheet', type:'text/css'}
     :javascript
       (function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
     / Mobile OS add to homescreen and web app goodies
@@ -133,9 +134,10 @@
   %script{:src => "/javascripts/ad/adframe.js", :type => "text/javascript"}
   :javascript
     if(adblock) {
-      document.getElementById("a1").innerHTML = '<center><img src="/images/scrollthing.gif" width="134" height="348" align="center" /><br/><a id="everbutton-693-1398040059-85" class="everbutton everbutton-693-1398040059-85 everbutton-blue" href="https://www.everbutton.com/donate/693" style="height:20px;width:49px;min-width:45px;padding:0px;">Tip Jar</a></center>';
+      document.getElementById("adblock1").innerHTML = '<center><img src="/images/scrollthing.gif" width="134" height="348" align="center" /><br/><a id="everbutton-693-1398040059-85" class="everbutton everbutton-693-1398040059-85 everbutton-blue" href="https://www.everbutton.com/donate/693" style="height:20px;width:49px;min-width:45px;padding:0px;">Tip Jar</a></center>';
 
-      document.getElementById("a2").innerHTML = '<center><img src="/images/scrollthing.gif" width="134" height="348" align="center" /><br/><a id="everbutton-693-1398040059-85" class="everbutton everbutton-693-1398040059-85 everbutton-blue" href="https://www.everbutton.com/donate/693" style="height:20px;width:49px;min-width:45px;padding:0px;">Tip Jar</a></center>';
+      document.getElementById("adblock2").innerHTML = '<center><img src="/images/scrollthing.gif" width="134" height="348" align="center" /><br/><a id="everbutton-693-1398040059-85" class="everbutton everbutton-693-1398040059-85 everbutton-blue" href="https://www.everbutton.com/donate/693" style="height:20px;width:49px;min-width:45px;padding:0px;">Tip Jar</a></center>';
+
     }
 
     // http://detect-ad-blocking-software.webconrad.com/

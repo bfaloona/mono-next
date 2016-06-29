@@ -7,7 +7,7 @@ gParams = {
 }
 
 function registerGenderClick() {
-	$('.monologue-controls a.filter-gender').on('click',  function(event, data, status, xhr) {
+	$('span.gender-control a.filter-gender').on('click',  function(event, data, status, xhr) {
 		gParams['gender'] = $(this).attr('data_action');
 		doSearch(gParams);
 		event.preventDefault();
@@ -16,10 +16,10 @@ function registerGenderClick() {
 }
 
 function registerRemovePlayFilterClick() {
-	$('.monologue-controls a.filter-play-remove').on('click',  function(event, data, status, xhr) {
+	$('.monologue-controls a.remove-play').on('click',  function(event, data, status, xhr) {
 		gParams['play'] = 0;
 		gParams['playTitle'] = '';
-		$("span.play-control").hide()
+		// $("span.play-control").hide()
 		doSearch(gParams);
 		event.preventDefault();
 		return false;
@@ -27,7 +27,7 @@ function registerRemovePlayFilterClick() {
 }
 
 function registerToggleClick() {
-	$('.monologue-controls a.toggle-mono').on('click',  function(event, data, status, xhr) {
+	$('.monologue-result-info a.toggle-mono').on('click',  function(event, data, status, xhr) {
 		gParams['toggle'] = $(this).attr('data_action');
 		doSearch(gParams);
 		event.preventDefault();
@@ -81,7 +81,8 @@ function registerMonologueClick() {
 
 function createPlaceholderText() {
 	var textPrefix;
-	if(gParams['playTitle'] !== '') {
+	console.log(gParams['playTitle']);
+	if(gParams['playTitle']) {
 		textPrefix = 'Search ' + gParams['playTitle'];
 	}
 	else {
@@ -101,9 +102,10 @@ function createPlaceholderText() {
 
 function updateDom(params, html) {
 	$("#search-box")[0].placeholder = createPlaceholderText();
+	$( ".jquery-search-replace" ).replaceWith( html );
 	updateGenderLinks();
 	updateToggleLink();
-	$( ".jquery-search-replace" ).replaceWith( html );
+	registerControls();
 }
 
 function updateToggleLink() {
@@ -143,6 +145,13 @@ function doSearch(data) {
 	},
 	// Keyup timeout (ms)
 	400)
+}
+
+function registerControls() {  
+  registerMonologueClick();
+  registerRemovePlayFilterClick();
+  registerGenderClick();
+  registerToggleClick();
 }
 
 function queryChanged() {
