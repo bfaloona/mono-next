@@ -24,8 +24,10 @@ Monologues::App.controllers :plays do
     session[:gender] = gender_from_path || gender_letter(params[:g]) || 'a'
     @title = "#{gender_word(session[:gender])} Monologues in #{@play.title}"
     @monologues = @play.monologues.gender(session[:gender])
-    @result_summary = "#{@monologues.count} of #{@monologues.count} monologues"
     session[:toggle] = (params[:expand] == '1') ? 'expand' : 'collapse'
+
+    #  TODO Remove if not used
+    @result_summary = "#{@monologues.count} of #{@monologues.count}"
 
     render 'monologues/index', locals: {toggle: session[:toggle]}
   end

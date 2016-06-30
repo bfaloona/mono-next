@@ -42,9 +42,11 @@ Monologues::App.controllers :monologues do
       found_monologues = Monologue.gender(params[:gender]).matching(params[:query])
     end
 
-    num_found = found_monologues.count
     @monologues = found_monologues.take(DISPLAY_LIMIT)
-    @result_summary = "#{@monologues.count} of #{num_found} monologues"
+
+    # TODO: Remove if not needed.
+    num_found = found_monologues.count
+    @result_summary = "#{@monologues.count} of #{num_found}"
 
     render 'monologues/_list', layout: false, locals: {toggle: session[:toggle]}
   end

@@ -18,14 +18,15 @@
 			%a.filter-gender.monologue-label{href: '#', data_action: 'a'} All
 		%span.icon-font.accent-font }
 
+		/ TODO Remove if not needed
+		- if Padrino.env == :development
+			%span.debug-text
+				=@result_summary
 
 	.monologue-result-info.accent-font
 		.toggle-control
 			%a.toggle-mono.mono-expand.display-hide{href: '#', data_action: 'expand'} Expand All
 			%a.toggle-mono.mono-collapse.display-hide{href: '#', data_action: 'collapse'} Collapse All
-		.result-summary.accent-font
-
-			=@result_summary
 
 
 	- if @monologues.empty?
