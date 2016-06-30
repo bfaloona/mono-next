@@ -66,13 +66,4 @@ Monologues::App.helpers do
     return output
   end
 
-  def searchbox_placeholder_text
-    [ "Search",
-      "Shakespeare's",
-      @play&.title,
-      gender_word(session[:gender]),
-      "Monologues"
-    ].compact.join(' ')
-  end
-
 end
