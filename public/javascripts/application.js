@@ -103,8 +103,6 @@ function createPlaceholderText() {
 function updateDom(params, html) {
 	$("#search-box")[0].placeholder = createPlaceholderText();
 	$( ".jquery-search-replace" ).replaceWith( html );
-	updateGenderLinks();
-	updateToggleLink();
 	registerControls();
 }
 
@@ -148,10 +146,12 @@ function doSearch(data) {
 }
 
 function registerControls() {  
-  registerMonologueClick();
-  registerRemovePlayFilterClick();
-  registerGenderClick();
-  registerToggleClick();
+	updateGenderLinks();
+	updateToggleLink();
+	registerMonologueClick();
+	registerRemovePlayFilterClick();
+	registerGenderClick();
+	registerToggleClick();
 }
 
 function queryChanged() {

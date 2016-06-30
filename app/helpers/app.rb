@@ -28,12 +28,11 @@ Monologues::App.helpers do
   end
 
   def gender_from_path
-    case request.path_info[1]
-    when 'p'
-      # treat /plays route as all, but return nil
-      nil
-    else
+    case request.path_info
+    when /^\/men/, /^\/women/
       request.path_info[1]
+    else
+      nil
     end
   end
 
@@ -49,15 +48,19 @@ Monologues::App.helpers do
   end
 
   def js_set_global_params
-    params = {gender: 'a', toggle: 'collapse', query: nil, play: 0, placeholder: "Search Shakespeare's Monologues"}
+    # return javascript string to set gParam object
+
+    # defaults
+    params = {gender: 'a', toggle: 'collapse', query: nil, play: 0}
+
+    # override defaults
     play = Play.find(session[:play]) rescue nil
     play_title = play&.title || ''
     params[:gender] = session[:gender] if session[:gender]
     params[:query] = session[:query] if session[:query]
     params[:play] = play.id if play
     params[:playTitle] = play_title if play_title
-    # params[:toggle] = session[:toggle] if session[:toggle]
-    params[:placeholder] = searchbox_placeholder_text
+    params[:toggle] = session[:toggle] if session[:toggle]
 
     output = "// js_set_global_params\ngParams = #{JSON.pretty_generate(params)};\ngParams['query'] = $('#search-box').val().trim();\n"
     return output

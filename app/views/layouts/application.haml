@@ -130,6 +130,11 @@
         =render 'shared/right-column', layout: false
 
   :javascript
+    #{js_set_global_params}
+    $("#search-box")[0].placeholder = createPlaceholderText();
+    registerControls();
+
+  :javascript
     var adblock = true;
   %script{:src => "/javascripts/ad/adframe.js", :type => "text/javascript"}
   :javascript

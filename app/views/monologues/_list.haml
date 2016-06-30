@@ -67,5 +67,6 @@
 							%a{href: monologue.pdf_link, target: '_blank'}
 								%img{src: '/images/pdf_file_icon_16x16.png'}
 
-	%script{:src => "/javascripts/mono_page_refresh.js", :type => "text/javascript"}
-
+	:javascript
+		#{js_set_global_params}
+		registerControls();
