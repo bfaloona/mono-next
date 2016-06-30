@@ -13,33 +13,33 @@
 	.monologue-controls
 		&nbsp;
 		- if @play
-			%span.play-control
+			%span.play-control.accent-font
 				&nbsp;
-				%a.remove-play.huge-font.accent-font{href: '#', title: 'Remove play filter'} × 
-				%span.monologue-label=@play.title
-				%span.huge-font.accent-font
-					&nbsp;
-					|
-					&nbsp;
-		%span.gender-control
-			%a.filter-gender.monologue-label{href: '#', data_action: 'w'} Women
-			%span.huge-font.accent-font /
-			%a.filter-gender.monologue-label{href: '#', data_action: 'm'} Men
-			%span.huge-font.accent-font /
-			%a.filter-gender.monologue-label{href: '#', data_action: 'a'} All
+				%a.remove-play{href: '#', title: 'Remove play filter'}
+					%span.huge-font × 
+					%span.big-font=@play.title
+			%span.huge-font
+				&nbsp;
+				|
+				&nbsp;
+		%span.gender-control.accent-font
+			%a.filter-gender.big-font{href: '#', data_action: 'w'} Women
+			%span.huge-font /
+			%a.filter-gender.big-font{href: '#', data_action: 'm'} Men
+			%span.huge-font /
+			%a.filter-gender.big-font{href: '#', data_action: 'a'} All
 
-		/ TODO Remove if not needed
-		- if Padrino.env == :development
-			%span.debug-text
-				=@result_summary
+		%span.huge-font
+			&nbsp;
+			|
+			&nbsp;
 
-	.monologue-result-info.accent-font
-		.toggle-control
-			%a.toggle-mono.mono-expand.display-hide{href: '#', data_action: 'expand'} Expand All
-			%a.toggle-mono.mono-collapse.display-hide{href: '#', data_action: 'collapse'} Collapse All
+		%span.toggle-control.big-font.accent-font.float-right
+			%a.toggle-mono.mono-expand.display-hide{href: '#', data_action: 'expand'} expand text
+			%a.toggle-mono.mono-collapse.display-hide{href: '#', data_action: 'collapse'} collapse text 
 
 	- if @monologues.empty?
-		.empty-table-message
+		.empty-table-message.accent-font
 			Alas, we didn't find a monologue containing exactly what you typed.
 	- else
 

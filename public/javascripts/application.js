@@ -27,7 +27,7 @@ function registerRemovePlayFilterClick() {
 }
 
 function registerToggleClick() {
-	$('.monologue-result-info a.toggle-mono').on('click',  function(event, data, status, xhr) {
+	$('.toggle-control a.toggle-mono').on('click',  function(event, data, status, xhr) {
 		gParams['toggle'] = $(this).attr('data_action');
 		doSearch(gParams);
 		event.preventDefault();
@@ -118,8 +118,8 @@ function updateToggleLink() {
 }
 
 function updateGenderLinks() {
-	$("a.filter-gender").removeClass("link-active");
-	$("a.filter-gender[data_action='" + gParams['gender'] + "']").addClass("link-active");
+	$("a.filter-gender").removeClass("control-active");
+	$("a.filter-gender[data_action='" + gParams['gender'] + "']").addClass("control-active");
 }
 
 function doSearch(data) {

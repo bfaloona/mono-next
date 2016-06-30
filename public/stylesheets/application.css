@@ -58,8 +58,6 @@ body {
 body .accent-font {
     font-family: 'IM Fell DW Pica', serif;
     font-weight: 400;
-    /*font-style: italic;*/
-    /*font-family: 'IM Fell English', "Times New Roman", Times, serif;*/
 }
 
 .container{
@@ -69,17 +67,6 @@ body .accent-font {
 
 h3 {
     padding-left: 7px;
-}
-
-.link-menu-left {
-    padding-top: 30px;
-    width: 218px;
-}
-
-.link-menu-right {
-    padding: 10px;
-    padding-top: 80px;
-    width: 314px;
 }
 
 .center-column-header {
@@ -110,11 +97,6 @@ h3 {
     padding-bottom: 8px;
 }
 
-.link-menu-left {
-    padding-top: 8px;
-    padding-bottom: 40px;
-    text-align: left;
-}
 .link-menu-bottom {
     font-size: 150%;
     text-align: center;
@@ -213,8 +195,8 @@ table.categories-list td {
 }
 
 .empty-table-message {
-    font-size: 125%;
-    font-style: italic;
+    font-size: 150%;
+    /*font-style: italic;*/
     text-align: left;
     padding-top: 60px;
     padding-left: 20px;
@@ -243,6 +225,7 @@ table.monologue-list th {
     white-space: nowrap;
     padding-left: 6px;
     padding-right: 8px;
+    padding-top: 6px;
     padding-bottom: 6px;
     border-bottom: solid 1px;
     color: #333;
@@ -493,31 +476,39 @@ th.th-pad-right {
     outline: -webkit-focus-ring-color auto 0px;
 }
 
-}
 .monologue-controls {
+    margin-top: -5px;
+    margin-bottom: 10px;
     display: inline-block;
     line-height: 200%;
     padding: 2px;
     width: 535px;
+    color: gray;
 }
 
-.monologue-label {
-    color: #444;
-}
-
-.huge-font {
-    font-size: 175%;
-    font-style: italic;
+.big-font {
+    font-size: 140%;
     font-weight: 400;
 }
 
-a.filter-gender {
-    padding-right: 5px;
-    padding-left: 5px;
+.huge-font {
+    font-size: 250%;
+    font-style: italic;
+    font-weight: 600;
+    padding-right: 4px;
+    padding-left: 4px;
 }
 
-a.link-active {
-    font-weight: bolder;
+a.filter-gender {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+a.control-active {
+    font-size: 150%;
+    font-weight: 900;
+    border-bottom: 1px solid;
+    /*padding-bottom: 1px;*/
 }
 
 .glyphicon-refresh.searching {
