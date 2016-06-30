@@ -508,11 +508,8 @@ th.th-pad-right {
 }
 .monologue-controls {
     display: inline-block;
-    /*margin-top: 6px;*/
-    line-height: 300%;
+    line-height: 200%;
     padding: 2px;
-    color: gray;
-    background: white;
     width: 535px;
 }
 
@@ -520,33 +517,10 @@ th.th-pad-right {
     color: #444;
 }
 
-.icon-font {
-    font-size: 300%;
-    font-style: italic;
-    font-weight: 400;
-}
-
 .huge-font {
     font-size: 175%;
     font-style: italic;
     font-weight: 400;
-}
-
-.control-seperator {
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.play-control {
-    background-color: white;
-}
-
-.gender-control {
-    background-color: white;
-}
-
-.toggle-control {
-    background-color: white;
 }
 
 a.filter-gender {
@@ -575,4 +549,15 @@ a.link-active {
 @-webkit-keyframes spin2 {
     from { -webkit-transform: rotate(0deg); }
     to { -webkit-transform: rotate(360deg); }
+}
+
+.debug-text {
+    position: fixed;
+    top: 40px;
+    right: 10px;
+    font-size: 85%;
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    font-family: Arial;
 }
