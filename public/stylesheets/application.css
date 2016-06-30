@@ -174,15 +174,6 @@ input#search-box {
     border-bottom-right-radius: 5px;
 }
 
-div.result-summary {
-    font-size: 115%;
-    float: right;
-    color: #999;
-    text-align: right;
-    margin-right: 0px;
-    padding-bottom: 0.5em;
-    padding-right: 25px;
-}
 div.search-links {
     padding-left: 45px;
     margin-top: -10px;
@@ -502,9 +493,6 @@ th.th-pad-right {
     outline: -webkit-focus-ring-color auto 0px;
 }
 
-.monologue-result-info {
-    display: inline-block;
-    float: right;
 }
 .monologue-controls {
     display: inline-block;
@@ -553,11 +541,12 @@ a.link-active {
 
 .debug-text {
     position: fixed;
-    top: 40px;
+    top: 10px;
     right: 10px;
-    font-size: 85%;
+    font-size: 90%;
     background-color: orange;
-    color: white;
+    color: inherit;
     padding: 5px;
     font-family: Arial;
+    z-index: 0;
 }

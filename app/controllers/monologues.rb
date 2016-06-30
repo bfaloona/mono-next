@@ -44,9 +44,16 @@ Monologues::App.controllers :monologues do
 
     @monologues = found_monologues.take(DISPLAY_LIMIT)
 
-    # TODO: Remove if not needed.
-    num_found = found_monologues.count
-    @result_summary = "#{@monologues.count} of #{num_found}"
+    # Debug ouput, displayed in development env
+    @debug_output = <<~DEBUGOUT
+    play: #{session[:play]}<br/>
+    gender: #{session[:gender]}<br/>
+    toggle: #{session[:toggle]}<br/>
+    title: #{@title}<br/>
+    query: #{session[:query]}<br/>
+    found: #{found_monologues.count}<br/>
+    displayed: #{@monologues.count}
+    DEBUGOUT
 
     render 'monologues/_list', layout: false, locals: {toggle: session[:toggle]}
   end

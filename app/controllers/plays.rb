@@ -26,8 +26,16 @@ Monologues::App.controllers :plays do
     @monologues = @play.monologues.gender(session[:gender])
     session[:toggle] = (params[:expand] == '1') ? 'expand' : 'collapse'
 
-    #  TODO Remove if not used
-    @result_summary = "#{@monologues.count} of #{@monologues.count}"
+    # Debug ouput, displayed in development env
+    @debug_output = <<~DEBUGOUT
+    play: #{session[:play]}<br/>
+    gender: #{session[:gender]}<br/>
+    toggle: #{session[:toggle]}<br/>
+    title: #{@title}<br/>
+    query: #{session[:query]}<br/>
+    found: #{@monologues.count}<br/>
+    displayed: #{@monologues.count}
+    DEBUGOUT
 
     render 'monologues/index', locals: {toggle: session[:toggle]}
   end

@@ -1,6 +1,15 @@
 .jquery-search-replace
 	/ Contents of this div replaced by key up triggered jquery ajax call
 
+	/ TODO Consider removing
+	- if Padrino.env == :development
+		%span.debug-text
+			!=@debug_output
+			%button.remove-debug.pull-right remove
+			:javascript
+				$("button.remove-debug").click(function(){
+				    $("span.debug-text").remove();
+				});
 	.monologue-controls
 		&nbsp;
 		- if @play
