@@ -82,11 +82,9 @@ function registerMonologueClick() {
 function createPlaceholderText() {
 	var textPrefix;
 	console.log(gParams['playTitle']);
+	textPrefix = "Search Shakespeare's";
 	if(gParams['playTitle']) {
-		textPrefix = 'Search ' + gParams['playTitle'];
-	}
-	else {
-		textPrefix = "Search Shakespeare's"
+		textPrefix = textPrefix + ' ' + gParams['playTitle'];
 	}
 	if(gParams['gender'] === 'a')
 	{
