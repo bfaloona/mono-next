@@ -16,27 +16,24 @@
 			%span.play-control.accent-font
 				&nbsp;
 				%a.remove-play{href: '#', title: 'Remove play filter'}
-					%span.huge-font × 
-					%span.big-font=@play.title
-			%span.huge-font
-				&nbsp;
-				|
-				&nbsp;
+					%span.huge-font ×
+				%span.big-font=@play.title
+			%span.huge-font &#124;
 		%span.gender-control.accent-font
-			%a.filter-gender.big-font{href: '#', data_action: 'w'} Women
-			%span.huge-font /
+			%a.filter-gender.big-font{href: '#', data_action: 'w'}Women
+			%span.huge-font &#124;
 			%a.filter-gender.big-font{href: '#', data_action: 'm'} Men
-			%span.huge-font /
+			%span.huge-font &#124;
 			%a.filter-gender.big-font{href: '#', data_action: 'a'} All
 
 		%span.huge-font
-			&nbsp;
-			|
-			&nbsp;
+			&#124;
 
 		%span.toggle-control.big-font.accent-font.float-right
-			%a.toggle-mono.mono-expand.display-hide{href: '#', data_action: 'expand'} expand text
-			%a.toggle-mono.mono-collapse.display-hide{href: '#', data_action: 'collapse'} collapse text 
+			%a.toggle-mono.mono-expand.display-hide{href: '#', data_action: 'expand'}
+				%img{alt: 'expand text', title: 'expand text', border: '0', width: '23', height: '20', src: '/img/ExpandAll.png'}/
+			%a.toggle-mono.mono-collapse.display-hide{href: '#', data_action: 'collapse'}
+				%img{alt: 'collapse text', title: 'collapse text', border: '0', width: '23', height: '20', src: '/img/CollapseAll_icon.png'}/
 
 	- if @monologues.empty?
 		.empty-table-message.accent-font
@@ -71,7 +68,7 @@
 								.monologue-body-inline.display-hide
 
 						%td.monologue-actscene
-							%a.location{href: monologue.body_link} 
+							%a.location{href: monologue.body_link}
 								=monologue.location
 						%td
 							%a{href: monologue.pdf_link, target: '_blank'}
