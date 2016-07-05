@@ -6,7 +6,7 @@
 	.col-md-2.monologue-show
 
 		&nbsp;
-		%h2=@monologue.character
+		%h3=@monologue.character
 		%div.monologue-detail
 			=@monologue.style + @monologue.intercut_label
 		%div.monologue-playname
@@ -20,6 +20,9 @@
 				%img{src: '/images/pdf_file_icon_16x16.png'}
 	/ second column
 	.col-md-10
+		%br
+		&nbsp;
+		%br
 		&nbsp;
 		%div.monologue-body
 			!= @monologue.body
