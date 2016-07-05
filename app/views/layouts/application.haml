@@ -133,15 +133,17 @@
     #{js_set_global_params}
     $("#search-box")[0].placeholder = createPlaceholderText();
     registerControls();
-
+    /
+    / In the adblock detection below, do not change the element IDs. The IDs refer to div names in the left and right column haml files.  I have only been able to make it work with these div names. If you change the div names, please do not commit your changes without first testing and confirming that the script remains functional
+    /
   :javascript
     var adblock = true;
   %script{:src => "/javascripts/ad/adframe.js", :type => "text/javascript"}
   :javascript
     if(adblock) {
-      document.getElementById("adblock1").innerHTML = '<center><img src="/images/scrollthing.gif" width="134" height="348" align="center" /><br/><a id="everbutton-693-1398040059-85" class="everbutton everbutton-693-1398040059-85 everbutton-blue" href="https://www.everbutton.com/donate/693" style="height:20px;width:49px;min-width:45px;padding:0px;">Tip Jar</a></center>';
+      document.getElementById("a1").innerHTML = '<center><img src="/images/scrollthing.gif" width="134" height="348" align="center" /><br/><a id="everbutton-693-1398040059-85" class="everbutton everbutton-693-1398040059-85 everbutton-blue" href="https://www.everbutton.com/donate/693" style="height:20px;width:49px;min-width:45px;padding:0px;">Tip Jar</a></center>';
 
-      document.getElementById("adblock2").innerHTML = '<center><img src="/images/scrollthing.gif" width="134" height="348" align="center" /><br/><a id="everbutton-693-1398040059-85" class="everbutton everbutton-693-1398040059-85 everbutton-blue" href="https://www.everbutton.com/donate/693" style="height:20px;width:49px;min-width:45px;padding:0px;">Tip Jar</a></center>';
+      document.getElementById("a2").innerHTML = '<center><img src="/images/scrollthing.gif" width="134" height="348" align="center" /><br/><a id="everbutton-693-1398040059-85" class="everbutton everbutton-693-1398040059-85 everbutton-blue" href="https://www.everbutton.com/donate/693" style="height:20px;width:49px;min-width:45px;padding:0px;">Tip Jar</a></center>';
 
     }
 

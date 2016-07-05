@@ -77,17 +77,6 @@ h3 {
     padding-bottom: 40px;
 }
 
-#adblock1 {
-    line-height: 15px;
-    /*display: inline;*/
-    width: 80%;
-    background-color: white;
-}
-
-#adblock2 {
-    line-height: 15px;
-    display: inline;
-}
 .link-menu-left, .link-menu-right {
     text-align: center;
     vertical-align: top;
