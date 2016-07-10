@@ -65,5 +65,7 @@ Monologues::App.helpers do
     output = "// js_set_global_params\ngParams = #{JSON.pretty_generate(params)};\ngParams['query'] = $('#search-box').val().trim();\n"
     return output
   end
-
+  use Rack::Rewrite do
+    r301 %r{^/plays/9\?g=2(\?.*)?$}, '/women/plays/9$1'
+  end
 end

@@ -9,6 +9,9 @@ Bundler.require(:default, RACK_ENV)
 # use Protection against typical web attacks
 require 'rack/protection'
 
+# allow redirection of old URLs to new
+require 'rack/rewrite'
+
 # Memcached support
 require 'dalli'
 
