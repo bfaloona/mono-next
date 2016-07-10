@@ -8,7 +8,7 @@ describe 'Monologues routing' do
   end
 
   it ' /plays/23?g=2 returns women filtered play' do
-    get '/plays/23?g=2'
+    get 'women/plays/23'
     monologues_displayed(last_response).must_equal 1
     last_response.body.must_include 'My Lord of Suffolk'
   end
@@ -20,7 +20,7 @@ describe 'Monologues routing' do
   end
 
   it ' /plays/23?g=3 returns men filtered play' do
-    get '/plays/23?g=3'
+    get 'men/plays/23'
     monologues_displayed(last_response).must_equal 2
     last_response.body.must_include 'Is Cade the son of Henry the Fifth'
   end
@@ -63,4 +63,3 @@ describe 'Monologues routing' do
   end
 
 end
-
