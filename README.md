@@ -27,7 +27,7 @@ Development
  - make changes / run tests
  - `git push origin master` (or push to a branch)
  - travis ci runs:  [![Build Status](https://travis-ci.org/bfaloona/mono-next.svg?branch=master)](https://travis-ci.org/bfaloona/mono-next)
- - [staging site](https://mono-next.herokuapp.com/) auto-deploys if build passes
+ - [staging site](https://mono-next.herokuapp.com/) auto-deploys if build passes.
  
 
 
