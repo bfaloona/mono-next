@@ -85,19 +85,22 @@ function registerMonologueClick() {
 function createPlaceholderText() {
 	var textPrefix;
 	console.log(gParams['playTitle']);
-	textPrefix = "Search Shakespeare's";
+	textPrefix = "Search";
 	if(gParams['playTitle']) {
 		textPrefix = textPrefix + ' ' + gParams['playTitle'];
 	}
+	// else {
+	// 	textPrefix = textPrefix + " Shakespeare's"
+	// }
 	if(gParams['gender'] === 'a')
 	{
-		return textPrefix + " Monologues";
+		return textPrefix + " for Monologues";
 	}
 	else if(gParams['gender'] === 'w') {
-		return textPrefix + " Women's Monologues";
+		return textPrefix + " for Women's Monologues";
 	}
 	else if(gParams['gender'] === 'm') {
-		return textPrefix + " Men's Monologues";
+		return textPrefix + " for Men's Monologues";
 	}
 }
 
