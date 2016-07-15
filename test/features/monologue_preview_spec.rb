@@ -4,7 +4,7 @@ class MonologuePreviewSpec < Minitest::Capybara::Spec
 
   before(:each) do
     Capybara.current_driver = :selenium_chrome
-    visit '/'
+    visit '/plays'
     fill_in('search-box', with: 'e')
   end
 
