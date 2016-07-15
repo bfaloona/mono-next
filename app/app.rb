@@ -90,6 +90,10 @@ module Monologues
       render  'errors/500', layout: false
     end
 
+    get '/' do
+      redirect '/home'
+    end
+
     get '/aboutus' do
       send_file 'static/aboutus.html'
     end

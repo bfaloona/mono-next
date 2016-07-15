@@ -12,7 +12,6 @@ Monologues::App.controllers :plays do
     render 'plays/index'
   end
 
-  get :root, map: '/', cache: true, &play_index
   get :index, map: '/plays', cache: true, &play_index
   get :monologues, map: '/monologues', cache: true, &play_index
   get :men, map: '/men', cache: true, &play_index
