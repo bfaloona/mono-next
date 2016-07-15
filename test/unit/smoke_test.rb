@@ -2,9 +2,10 @@ require File.expand_path(File.dirname(__FILE__) + '/../test_config.rb')
 
 describe 'Monologues' do
 
-  it 'root renders plays list' do
+  it 'root redirects to /home' do
     get '/'
-    last_response.body.must_include 'Tragedies'
+    follow_redirect!
+    last_response.body.must_include 'Making it easier to find monologues since 1997'
   end
 
   it '/plays renders plays list' do
