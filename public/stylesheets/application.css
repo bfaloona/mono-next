@@ -472,7 +472,6 @@ th.th-pad-right {
     line-height: 200%;
     padding: 2px;
     width: 620px;
-    color: gray;
 }
 
 .big-font {
@@ -486,6 +485,7 @@ th.th-pad-right {
     font-weight: 600;
     padding-right: 4px;
     padding-left: 4px;
+    color: gray;
 }
 
 a.filter-gender {
@@ -495,11 +495,15 @@ a.filter-gender {
     font-weight: 400;
 }
 
+a.remove-play span.huge-font{
+    color: black;
+}
+
 .filter-play {
-    padding-right: 8px;
-    padding-left: 8px;
+    margin-right: 18px;
+    padding-left: 6px;
     font-size: 150%;
-    font-weight: 900;
+    font-weight: 600;
     border-bottom: 1px solid;
 }
 
@@ -507,6 +511,13 @@ a.control-active {
     font-size: 150%;
     font-weight: 900;
     border-bottom: 1px solid;
+}
+
+span.toggle-control > a.toggle-mono > img {
+    width: 34px;
+    height: 34px;
+    margin-left: 12px;
+    padding-bottom: 6px;
 }
 
 .glyphicon-refresh.searching {
