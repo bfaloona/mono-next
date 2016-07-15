@@ -491,13 +491,22 @@ th.th-pad-right {
 a.filter-gender {
     padding-right: 8px;
     padding-left: 8px;
+    font-size: 140%;
+    font-weight: 400;
+}
+
+.filter-play {
+    padding-right: 8px;
+    padding-left: 8px;
+    font-size: 150%;
+    font-weight: 900;
+    border-bottom: 1px solid;
 }
 
 a.control-active {
     font-size: 150%;
     font-weight: 900;
     border-bottom: 1px solid;
-    /*padding-bottom: 1px;*/
 }
 
 .glyphicon-refresh.searching {
