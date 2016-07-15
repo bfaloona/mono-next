@@ -118,6 +118,10 @@ module Monologues
       send_file 'static/sandbox.html'
     end
 
+    use Rack::Rewrite do
+      r301 %r{^/plays/(\d\d?)\?g=3(\?.*)?$}, '/men/plays/$1$2'
+      r301 %r{^/plays/(\d\d?)\?g=2(\?.*)?$}, '/women/plays/$1$2'
+    end
 
   end
 end
