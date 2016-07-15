@@ -60,7 +60,7 @@
 									=gendered_play_link(monologue.play)
 
 						%td.monologue-firstline-table
-							=link_to(monologue.first_line, url(:monologues, :show, id: monologue.id), remote: true)
+							=link_to(monologue.first_line, url(:monologues, :show, id: monologue.id))
 							- if defined?(toggle) && (toggle == 'expand')
 								.monologue-body-inline
 									!=monologue.body

@@ -37,6 +37,9 @@ function registerToggleClick() {
 
 function registerMonologueClick() {
 
+	// Unregister click event
+	$('td.monologue-firstline-table > a').off('click');
+
 	// Register click event
 	$('td.monologue-firstline-table > a').on('click',  function(event, data, status, xhr) {
 
