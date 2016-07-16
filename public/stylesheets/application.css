@@ -139,7 +139,7 @@ div.login-banner {
 
 input#search-box {
     font-size: 175%;
-    width: 565px;
+    width: 700px;
     margin-left: -10px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -471,7 +471,7 @@ th.th-pad-right {
     display: inline-block;
     line-height: 200%;
     padding: 2px;
-    width: 620px;
+    width: 700px;
 }
 
 .big-font {
