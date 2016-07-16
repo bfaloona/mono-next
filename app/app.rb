@@ -124,59 +124,5 @@ module Monologues
       r301 %r{^/plays/(\d\d?)\?g=2(\?.*)?$}, '/women/plays/$1$2'
     end
 
-    ###
-    # Generate three case insensitive routes
-    # for each entry in play_routes hash.
-    # For example:
-    #   /asyoulikeit
-    #   /men/asyoulikeit
-    #   /women/asyoulikeit
-    #
-    men = Gender.find_by_name('Men')
-    women = Gender.find_by_name('Women')
-
-    # key is play route symbol
-    # value is play id
-    play_routes = {
-      # As You Like It
-      asyoulikeit: 1,
-      # The Comedy of Errors
-      errors: 2,
-      # Cymbeline
-      cymbeline: 3,
-      # Love's Labour's Lost
-      lll: 4,
-      # The Merchant of Venice
-      merchant: 5,
-      # Much Ado About Nothing
-      muchado: 6,
-      # Twelfth Night, Or What You Will
-      '12thnight': 8,
-      # All's Well That Ends Well
-      allswell: 9,
-      # A Midsummer Night's Dream
-      midsummer: 13,
-      # Henry IV, Part 1
-      henryivi: 19,
-      # Antony and Cleopatra
-      aandc: 29,
-      # Hamlet
-      hamlet: 31,
-      # Lear
-      kinglear: 32,
-      # Macbeth
-      macbeth: 33,
-      # Othello
-      othello: 34,
-      # Romeo and Juliet
-      randj: 35
-    }
-    play_routes.each do |play_key, play_id|
-      play_path = "/#{play_key}"
-      get(Regexp.new("#{play_path}", true)) { do_play(play_id)}
-      get(Regexp.new("/men#{play_path}", true)) { do_play(play_id, men.id)}
-      get(Regexp.new("/women#{play_path}", true)) { do_play(play_id, women.id)}
-    end
-
   end
 end
