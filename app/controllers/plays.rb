@@ -51,41 +51,49 @@ Monologues::App.controllers :plays do
   #   /men/asyoulikeit
   #   /women/asyoulikeit
 
+  # play_routes hash
   # key: play route symbol
   # value: play id
+  # comment: title
   play_routes = {
-    # As You Like It
-    asyoulikeit: 1,
-    # The Comedy of Errors
-    errors: 2,
-    # Cymbeline
-    cymbeline: 3,
-    # Love's Labour's Lost
-    lll: 4,
-    # The Merchant of Venice
-    merchant: 5,
-    # Much Ado About Nothing
-    muchado: 6,
-    # Twelfth Night, Or What You Will
-    '12thnight': 8,
-    # All's Well That Ends Well
-    allswell: 9,
-    # A Midsummer Night's Dream
-    midsummer: 13,
-    # Henry IV, Part 1
-    henryivi: 19,
-    # Antony and Cleopatra
-    aandc: 29,
-    # Hamlet
-    hamlet: 31,
-    # Lear
-    kinglear: 32,
-    # Macbeth
-    macbeth: 33,
-    # Othello
-    othello: 34,
-    # Romeo and Juliet
-    randj: 35
+    asyoulikeit:    1,  # As You Like It
+    coe:         2,  # The Comedy of Errors
+    cymbeline:      3,  # Cymbeline
+    lll:            4,  # Love's Labour's Lost
+    merchant:       5,  # The Merchant of Venice
+    muchado:        6,  # Much Ado About Nothing
+    shrew:          7,  # The Taming of the Shrew 
+    '12thnight':    8,  # Twelfth Night, Or What You Will
+    allswell:       9,  # All's Well That Ends Well
+    measure:       10,  # Measure for Measure
+    merrywives:    11,  # Merry Wives of Windsor
+    merchent:      12,  # Merchant of Venice
+    midsummer:     13,  # A Midsummer Night's Dream
+    tempest:       14,  # The Tempest
+    troilus:       15,  # Troilus and Cressida 
+    twogents:      16,  # Two Gentlemen of Verona 
+    winterstale:   17,  # The Winter's Tale
+    pericles:      18,  # Pericles Prince of Tyre
+    'henryiv-i':   19,  # Henry IV, Part 1
+    'henryiv-ii':  20,  # Henry IV, Part 2
+    henryv:        21,  # Henry V
+    'henryvi-i':   22,  # Henry VI, Part 1
+    'henryvi-ii':  23,  # Henry VI, Part 2
+    'henryvi-iii': 24,  # Henry VI, Part 3
+    henryviii:     25,  # Henry VIII
+    kingjohn:      26,  # King John
+    richardii:     27,  # Richard II
+    richardiii:    28,  # Richard III
+    aandc:         29,  # Antony and Cleopatra
+    coriolanus:    30,  # Coriolanus
+    hamlet:        31,  # Hamlet
+    lear:          32,  # Lear
+    macbeth:       33,  # Macbeth
+    othello:       34,  # Othello
+    randj:         35,  # Romeo and Juliet
+    timon:         36,  # Timon of Athens
+    titus:         37,  # Titus Andronicus
+    caesar:        38   # Julius Caesar
   }
   play_routes.each do |play_key, play_id|
     play_path = "/#{play_key}"
