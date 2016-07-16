@@ -52,7 +52,7 @@ Monologues::App.controllers :monologues do
     displayed: #{@monologues.count}
     DEBUGOUT
 
-    render 'monologues/_list', layout: false, locals: {toggle: session[:toggle]}
+    render 'monologues/_list2', layout: false, locals: {toggle: session[:toggle]}
   end
 
 end

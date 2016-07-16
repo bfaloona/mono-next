@@ -42,38 +42,30 @@
 	- else
 
 		%table.monologue-list
-			%thead.accent-font
-				%tr
-					%th.header Character
-					%th.header First Line
-					%th.header Act/Scene
-					%th.header PDF
-
 			%tbody
 				- @monologues.each_with_index do |monologue, index|
 
 					%tr{class: (index.even? ? 'even' : 'odd')}
 						%td
-							.monologue-character=monologue.character
+							.monologue-firstline
+								=link_to(monologue.first_line, url(:monologues, :show, id: monologue.id))
+								- if defined?(toggle) && (toggle == 'expand')
+									.monologue-body-inline
+										!=monologue.body
+								- else
+									.monologue-body-inline.display-hide
 							.monologue-detail
-								=monologue.style + monologue.intercut_label
-								.monologue-playname
+								%span.monologue-character=monologue.character
+								%span.monologue-playname
 									=gendered_play_link(monologue.play)
-
-						%td.monologue-firstline-table
-							=link_to(monologue.first_line, url(:monologues, :show, id: monologue.id))
-							- if defined?(toggle) && (toggle == 'expand')
-								.monologue-body-inline
-									!=monologue.body
-							- else
-								.monologue-body-inline.display-hide
-
-						%td.monologue-actscene
-							%a.location{href: monologue.body_link}
-								=monologue.location
-						%td
-							%a{href: monologue.pdf_link, target: '_blank'}
-								%img{src: '/images/pdf_file_icon_16x16.png'}
+								%span.monologue-actscene
+									%a.location{href: monologue.body_link}
+										=monologue.location
+								%span.monologue-pdf
+									%a{href: monologue.pdf_link, target: '_blank'}
+										%img{src: '/images/pdf_file_icon_16x16.png'}
+								%span.monologue-style
+									=monologue.style + monologue.intercut_label
 
 	:javascript
 		#{js_set_global_params}
