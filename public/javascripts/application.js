@@ -107,6 +107,7 @@ function createPlaceholderText() {
 function updateDom(params, html) {
 	$("#search-box")[0].placeholder = createPlaceholderText();
 	$( ".jquery-search-replace" ).replaceWith( html );
+	
 	registerControls();
 }
 

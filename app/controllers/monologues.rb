@@ -32,7 +32,6 @@ Monologues::App.controllers :monologues do
     session[:query] = params[:query]
     session[:toggle] = params[:toggle]
 
-    @title = "Monologues results for query '#{session[:query]}' and gender #{session[:gender]}}"
     logger.info "Search controller: #{@title}"
     @show_play_title = true
     if session[:play] > 0
@@ -41,7 +40,6 @@ Monologues::App.controllers :monologues do
     else
       found_monologues = Monologue.gender(params[:gender]).matching(params[:query])
     end
-
     @monologues = found_monologues.take(DISPLAY_LIMIT)
 
     # Debug ouput, displayed in development env
@@ -49,7 +47,6 @@ Monologues::App.controllers :monologues do
     play: #{session[:play]}<br/>
     gender: #{session[:gender]}<br/>
     toggle: #{session[:toggle]}<br/>
-    title: #{@title}<br/>
     query: #{session[:query]}<br/>
     found: #{found_monologues.count}<br/>
     displayed: #{@monologues.count}
