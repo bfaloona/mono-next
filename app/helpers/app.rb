@@ -27,6 +27,17 @@ Monologues::App.helpers do
     end
   end
 
+  def gender_path(id)
+    case id
+    when 1, '1'
+      ''
+    when 2, '2'
+      '/women'
+    when 3, '3'
+      '/men'
+    end
+  end
+
   def gender_from_path
     case request.path_info
     when /^\/men/, /^\/women/
@@ -65,5 +76,14 @@ Monologues::App.helpers do
     output = "// js_set_global_params\ngParams = #{JSON.pretty_generate(params)};\ngParams['query'] = $('#search-box').val().trim();\n"
     return output
   end
-  
+
+  def do_play play_id, gender_id=nil
+    if gender_id
+      call(env.merge("PATH_INFO" => "#{gender_path(gender_id)}/plays/#{play_id}"))
+    else
+      call(env.merge("PATH_INFO" => "/plays/#{play_id}"))
+    end
+  end
+
+
 end
