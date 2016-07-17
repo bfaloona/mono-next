@@ -26,8 +26,7 @@ module Monologues
           :username => ENV["MEMCACHEDCLOUD_USERNAME"],
           :password => ENV["MEMCACHEDCLOUD_PASSWORD"])
       
-      # DISABLED - 2016Jun29
-      # set :cache, Padrino::Cache.new(:Memcached, :backend => heroku_dalli_cached)
+      set :cache, Padrino::Cache.new(:Memcached, :backend => heroku_dalli_cached)
 
     else
       # development / test
