@@ -2,7 +2,7 @@ Monologues::App.controllers :monologues do
 
   DISPLAY_LIMIT = 100
 
-  get :show, map: "/monologues/:id", cache: true do
+  get :show, map: "/monologues/:id", cache: false do
     begin
       @monologue = Monologue.find(params[:id])
       @title = "#{@monologue.character}'s \"#{@monologue.first_line}\" in #{@monologue.play.title}"
