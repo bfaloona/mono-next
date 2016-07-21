@@ -10,14 +10,14 @@ class MonologuePreviewSpec < Minitest::Capybara::Spec
 
   it 'expand works' do
     click_link('No more you petty spirits of region low')
-    page.must_have_content('Sky-planted batters all rebelling coasts')
+    page.must_have_content('Upon your never-withering banks of flowers')
   end
 
   it 'collapse works' do
     click_link('No more you petty spirits of region low')
-    page.must_have_content('Sky-planted batters all rebelling coasts')
+    page.must_have_content('Upon your never-withering banks of flowers')
     click_link('No more you petty spirits of region low')
-    page.wont_have_content('Sky-planted batters all rebelling coasts')
+    page.wont_have_content('Upon your never-withering banks of flowers')
   end
 
 end

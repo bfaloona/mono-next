@@ -8,5 +8,5 @@ def prepend_protocol url
 end
 
 def monologues_displayed response
-  response.body.downcase.split('pdf_file_icon_16x16.png').count - 1
+  response.body.downcase.split('firstline').count - 1
 end

@@ -45,7 +45,6 @@
 				%tr
 					%th.header Details
 					%th.header First Line
-					%th.header PDF
 
 			%tbody
 				- @monologues.each_with_index do |monologue, index|
@@ -66,12 +65,11 @@
 							- if defined?(toggle) && (toggle == 'expand')
 								.monologue-body-inline
 									!=monologue.body
+									%a{href: monologue.pdf_link, target: '_blank'}
+										%img{src: '/images/pdf_file_icon_16x16.png'}
 							- else
 								.monologue-body-inline.display-hide
 
-						%td
-							%a{href: monologue.pdf_link, target: '_blank'}
-								%img{src: '/images/pdf_file_icon_16x16.png'}
 
 	:javascript
 		#{js_set_global_params}
