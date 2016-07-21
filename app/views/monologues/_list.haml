@@ -43,9 +43,8 @@
 		%table.monologue-list
 			%thead.accent-font
 				%tr
-					%th.header Character
+					%th.header Details
 					%th.header First Line
-					%th.header Act/Scene
 					%th.header PDF
 
 			%tbody
@@ -53,7 +52,10 @@
 
 					%tr{class: (index.even? ? 'even' : 'odd')}
 						%td
-							.monologue-character=monologue.character
+							%span.monologue-character=monologue.character
+							\-
+							%a.location{href: monologue.body_link, target: '_blank'}
+								=monologue.location
 							.monologue-detail
 								=monologue.style + monologue.intercut_label
 								.monologue-playname
@@ -67,9 +69,6 @@
 							- else
 								.monologue-body-inline.display-hide
 
-						%td.monologue-actscene
-							%a.location{href: monologue.body_link, target: '_blank'}
-								=monologue.location
 						%td
 							%a{href: monologue.pdf_link, target: '_blank'}
 								%img{src: '/images/pdf_file_icon_16x16.png'}

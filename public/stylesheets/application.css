@@ -275,6 +275,7 @@ h1.monologue-firstline-heading::first-letter {
     font-size: 125%;
     font-weight: bold;
     width: 100px;
+    white-space: nowrap;
 }
 
 .monologue-detail {
