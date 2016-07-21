@@ -332,6 +332,7 @@ h1.monologue-firstline-heading::first-letter {
     border-width: 1px;
     margin-bottom: 20px;
     min-height: 300px;
+    white-space: nowrap;
 }
 
 .display-hide {
