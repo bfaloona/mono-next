@@ -321,7 +321,6 @@ h1.monologue-firstline-heading::first-letter {
     padding: 15px;
     width: 70%;
     margin-bottom: 60px;
-    white-space: nowrap;
 }
 .monologue-body-inline {
     padding: 10px;
@@ -333,7 +332,6 @@ h1.monologue-firstline-heading::first-letter {
     border-width: 1px;
     margin-bottom: 20px;
     min-height: 300px;
-    white-space: nowrap;
 }
 
 .display-hide {
