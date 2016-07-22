@@ -27,7 +27,7 @@ describe 'Monologues routing' do
 
   it ' /men/plays/3?expand=0 displays monologues collapsed' do
     get '/men/plays/3?expand=0'
-    last_response.body.wont_include "I'll speak to thee in silence."
+    last_response.body.wont_include "\"toggle\": \"expand\""
   end
 
   it ' /men/plays/3?expand=1 displays monologues expanded' do

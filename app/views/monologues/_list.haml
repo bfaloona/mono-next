@@ -69,7 +69,9 @@
 										%img{src: '/images/pdf_file_icon_16x16.png'}
 							- else
 								.monologue-body-inline.display-hide
-
+									!=monologue.body
+									%a{href: monologue.pdf_link, target: '_blank'}
+										%img{src: '/images/pdf_file_icon_16x16.png'}
 	:javascript
 		#{js_set_global_params}
 		registerControls();
