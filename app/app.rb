@@ -25,7 +25,7 @@ module Monologues
           ENV["MEMCACHEDCLOUD_SERVERS"].split(','),
           :username => ENV["MEMCACHEDCLOUD_USERNAME"],
           :password => ENV["MEMCACHEDCLOUD_PASSWORD"])
-      
+
       set :cache, Padrino::Cache.new(:Memcached, :backend => heroku_dalli_cached)
 
     else
@@ -115,12 +115,6 @@ module Monologues
 
     get '/sandbox' do
       send_file 'static/sandbox.html'
-    end
-
-    # Generate redirects for urls with g querystring param
-    use Rack::Rewrite do
-      r301 %r{^/plays/(\d\d?)\?g=3(\?.*)?$}, '/men/plays/$1$2'
-      r301 %r{^/plays/(\d\d?)\?g=2(\?.*)?$}, '/women/plays/$1$2'
     end
 
   end
