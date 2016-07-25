@@ -62,7 +62,7 @@ Monologues::App.controllers :plays do
     lll:            4,  # Love's Labour's Lost
     merchant:       5,  # The Merchant of Venice
     muchado:        6,  # Much Ado About Nothing
-    shrew:          7,  # The Taming of the Shrew 
+    shrew:          7,  # The Taming of the Shrew
     '12thnight':    8,  # Twelfth Night, Or What You Will
     allswell:       9,  # All's Well That Ends Well
     measure:       10,  # Measure for Measure
@@ -70,8 +70,8 @@ Monologues::App.controllers :plays do
     merchent:      12,  # Merchant of Venice
     midsummer:     13,  # A Midsummer Night's Dream
     tempest:       14,  # The Tempest
-    troilus:       15,  # Troilus and Cressida 
-    twogents:      16,  # Two Gentlemen of Verona 
+    troilus:       15,  # Troilus and Cressida
+    twogents:      16,  # Two Gentlemen of Verona
     winterstale:   17,  # The Winter's Tale
     pericles:      18,  # Pericles Prince of Tyre
     'henryiv-i':   19,  # Henry IV, Part 1
@@ -99,8 +99,8 @@ Monologues::App.controllers :plays do
     play_path = "/#{play_key}"
     get(Regexp.new("#{play_path}", true)) { do_play(play_id)}
     # TODO: gender_id parameter hardcoded
-    get(Regexp.new("/men#{play_path}", true)) { do_play(play_id, 3)}
-    get(Regexp.new("/women#{play_path}", true)) { do_play(play_id, 2)}
+    get(Regexp.new("/men#{play_path}/?", true)) { do_play(play_id, 3)}
+    get(Regexp.new("/women#{play_path}/?", true)) { do_play(play_id, 2)}
   end
 
 end
