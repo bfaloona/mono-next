@@ -160,5 +160,16 @@ Monologues::App.helpers do
     r301 %r{^/plays/36\?g=2(\?.*)?$}, '/women/plays/36$1'
     r301 %r{^/plays/37\?g=2(\?.*)?$}, '/women/plays/37$1'
     r301 %r{^/plays/20\?g=2(\?.*)?$}, '/women/plays/20$1'
+
+    # Routes for some really old legacy URLs that still show up in analytics and webmaster tools
+
+    r301 %r{^/womenindex.shtml(\?.*)?$}, '/women$1'
+    r301 %r{^/womenindex.html(\?.*)?$}, '/women$1'
+    r301 %r{^/womenindex.htm(\?.*)?$}, '/women$1'
+    r301 %r{^/menindex.shtml(\?.*)?$}, '/men$1'
+    r301 %r{^/menindex.html(\?.*)?$}, '/men$1'
+    r301 %r{^/menindex.htm(\?.*)?$}, '/men$1'
+    r301 %r{^/monologues/search(\?.*)?$}, '/plays$1'
+
   end
 end
