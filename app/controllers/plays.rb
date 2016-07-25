@@ -96,11 +96,12 @@ Monologues::App.controllers :plays do
     caesar:        38   # Julius Caesar
   }
   play_routes.each do |play_key, play_id|
-    play_path = "/#{play_key}"
+    play_path = "/#{play_key}/?"
     get(Regexp.new("#{play_path}", true)) { do_play(play_id)}
     # TODO: gender_id parameter hardcoded
     get(Regexp.new("/men#{play_path}/?", true)) { do_play(play_id, 3)}
     get(Regexp.new("/women#{play_path}/?", true)) { do_play(play_id, 2)}
+    get(Regexp.new("/plays#{play_path}/?", true)) { do_play(play_id)}
   end
 
 end
