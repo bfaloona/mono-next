@@ -169,7 +169,7 @@ Monologues::App.helpers do
     r301 %r{^/menindex.shtml(\?.*)?$}, '/men$1'
     r301 %r{^/menindex.html(\?.*)?$}, '/men$1'
     r301 %r{^/menindex.htm(\?.*)?$}, '/men$1'
-    r301 %r{^/monologues/search(\?.*)?$}, '/plays$1'
+    r301 %r{^/monologues/search/?(\?.*)?$}, '/plays$1'
 
   end
 end
