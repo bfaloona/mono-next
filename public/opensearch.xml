@@ -4,7 +4,7 @@
   <ShortName>for Monologues</ShortName>
   <Description>Search Shakespeare's Monologues</Description>
   <Url method="get" type="text/html"
-		template="http://www.shakespeare-monologues.org/plays/?search={searchTerms}">
+		template="http://www.shakespeare-monologues.org/plays/?search={searchTerms}"/>
   <LongName>Custom Google Search for Shakespeare's Monologues</LongName>
   <Image height="32" width="16" type="image/x-icon">http://www.shakespeare-monologues.org/favicon.ico</Image>
   <Image height="32" width="32" type="image/vnd.microsoft.icon">http://www.shakespeare-monologues.org/favicon.ico</Image>
