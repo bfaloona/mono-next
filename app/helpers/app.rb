@@ -172,7 +172,9 @@ Monologues::App.helpers do
     r301 %r{^/womensmonos.htm(\?.*)?$}, '/women$1'
     r301 %r{^/mensmonos.htm(\?.*)?$}, '/men$1'
     r301 %r{^/womensmonos.html(\?.*)?$}, '/women$1'
-    r301 %r{^/mensmonos.html(\?.*)?$}, '/men$1'    
+    r301 %r{^/mensmonos.html(\?.*)?$}, '/men$1'
+    r301 %r{^/womensmonos.shtml(\?.*)?$}, '/women$1'
+    r301 %r{^/mensmonos.shtml(\?.*)?$}, '/men$1'    
     r301 %r{^/monologues/search/?(\?.*)?$}, '/plays$1'
 
   end
