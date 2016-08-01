@@ -162,7 +162,6 @@
       $(function () {
       // check to see if search is invoked in the URL first
       if ( document.location.href.indexOf('/?search=') > -1 )
-
         //grab the entire query string
         var query = document.location.search.replace('?', '');
 
@@ -176,7 +175,7 @@
           var field = query[i].split("=");
 
           //decode it, target the field and assign its value
-          var dec = decodeURI(field[1]);
+          var dec = decodeURI(field[1]).replace( /\+/g, ' ' );
           $("input[name='" + field[0] + "'], select[name='" + field[0] + "']").val(dec);
       	  queryChanged()
     			doSearch(gParams);
