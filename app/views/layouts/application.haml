@@ -157,6 +157,32 @@
     #{js_set_global_params}
     $("#search-box")[0].placeholder = createPlaceholderText();
 
+  /%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"}
+  :javascript
+      $(function () {
+      // check to see if search is invoked in the URL first
+      if ( document.location.href.indexOf('/?search=') > -1 )
+
+        //grab the entire query string
+        var query = document.location.search.replace('?', '');
+
+        //extract each field/value pair
+        query = query.split('&');
+
+        //run through each pair
+        for (var i = 0; i < query.length; i++) {
+
+          //split up the field/value pair into an array
+          var field = query[i].split("=");
+
+          //decode it, target the field and assign its value
+          var dec = decodeURI(field[1]);
+          $("input[name='" + field[0] + "'], select[name='" + field[0] + "']").val(dec);
+      	  queryChanged()
+    			doSearch(gParams);
+        }
+      });
+
   :javascript
     var adblock = true;
   %script{:src => "/javascripts/ad/adframe.js", :type => "text/javascript"}
