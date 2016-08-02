@@ -175,7 +175,7 @@
           var field = query[i].split("=");
 
           //decode it, target the field and assign its value
-          var dec = decodeURI(field[1]).replace( /\+/g, ' ' );
+          var dec = decodeURIComponent(field[1]).replace( /\+/g, ' ' );
           $("input[name='" + field[0] + "'], select[name='" + field[0] + "']").val(dec);
       	  queryChanged()
     			doSearch(gParams);
