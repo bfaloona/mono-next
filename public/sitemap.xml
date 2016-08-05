@@ -2,7 +2,7 @@
 <urlset
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	  	  
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <!-- www.check-domains.com sitemap generator -->
 
 <url>
@@ -291,19 +291,19 @@
    <loc>http://www.shakespeare-monologues.org/men</loc>
    <lastmod>2016-07-24T00:04:11+00:00</lastmod>
    <changefreq>monthly</changefreq>
-   <priority>0.6400</priority>
+   <priority>1.0000</priority>
 </url>
 <url>
    <loc>http://www.shakespeare-monologues.org/women</loc>
    <lastmod>2016-07-24T00:04:11+00:00</lastmod>
    <changefreq>monthly</changefreq>
-   <priority>0.6400</priority>
+   <priority>1.0000</priority>
 </url>
 <url>
    <loc>http://www.shakespeare-monologues.org/plays</loc>
    <lastmod>2016-07-24T00:04:11+00:00</lastmod>
    <changefreq>monthly</changefreq>
-   <priority>0.6400</priority>
+   <priority>1.0000</priority>
 </url>
 <url>
    <loc>http://www.shakespeare-monologues.org/faq.html</loc>
