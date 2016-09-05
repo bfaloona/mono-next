@@ -318,8 +318,8 @@ h1.monologue-firstline-heading::first-letter {
 .monologue-body {
     font-size: 120%;
     line-height: 125%;
-    padding: 15px;
-    width: 70%;
+    padding: 10px;
+    width: 455px;
     margin-bottom: 60px;
 }
 .monologue-body-inline {
