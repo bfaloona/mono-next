@@ -8,7 +8,8 @@
 		&nbsp;
 		%h3=@monologue.character
 		%div.monologue-actscene
-			=@monologue.location
+			%a{href: @monologue.body_link, target: '_blank'}
+				!= @monologue.location
 		%div.monologue-detail
 			=@monologue.style + @monologue.intercut_label
 		%div.monologue-playname
