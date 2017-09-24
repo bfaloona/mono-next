@@ -126,7 +126,15 @@
       })();
     / End Google Analytics stuff
     / enable opensearch
+    / begin google adsense page-level for mobile
     %link{:href => "http://www.shakespeare-monologues.org/opensearch.xml", :rel => "search", :title => "Search Shakespeare's Monologues", :type => "application/opensearchdescription+xml"}/
+    %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+    :javascript
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-5236095389905910",
+        enable_page_level_ads: true
+      });
+    / end google adsense page-level for mobile
     / when the rest of the page has loaded, load the social.js-one-script-to-rule-them-all
     :javascript
       (function($) {
