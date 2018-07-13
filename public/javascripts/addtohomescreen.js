@@ -41,7 +41,7 @@ ath.intl = {
 	},
 
 	en_us: {
-		message: '<span style="display:inline-block;height:20px;">To add this web app</span> <br/> <span style="display:inline-block;height:20px;">to your home screen:</span> <br/> <span style="display:inline-block;height:20px;">Go to our <a href="http://www.shakespeare-monologues.org/home/">homepage</a>,</span> <br/> tap %icon menu,<br/> <span style="display:inline-block;height:20px;">then tap  <strong>%action</strong>.</span><br/><span style="display:inline-block;height:40px;">Android users: <a href="https://play.google.com/store/apps/details?id=com.ShakespearesMonologues.app" target="_blank">Get the app on Google Play</a></span>',
+		message: '<span style="display:inline-block;height:20px;">To add this web app</span> <br/> <span style="display:inline-block;height:20px;">to your home screen:</span> <br/> <span style="display:inline-block;height:20px;">Go to our <a href="//www.shakespeare-monologues.org/home/">homepage</a>,</span> <br/> tap %icon menu,<br/> <span style="display:inline-block;height:20px;">then tap  <strong>%action</strong>.</span><br/><span style="display:inline-block;height:40px;">Android users: <a href="https://play.google.com/store/apps/details?id=com.ShakespearesMonologues.app" target="_blank">Get the app on Google Play</a></span>',
 		action: { ios: 'Add to Home Screen', android: 'Add to homescreen', windows: 'pin to start' }
 	},
 
