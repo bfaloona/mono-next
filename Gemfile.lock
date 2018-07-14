@@ -131,6 +131,7 @@ GEM
     rack-protection (1.5.3)
       rack
     rack-rewrite (1.5.1)
+    rack-ssl-enforcer (0.2.9)
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (11.1.2)
@@ -187,6 +188,7 @@ DEPENDENCIES
   pry-padrino
   rack-protection
   rack-rewrite
+  rack-ssl-enforcer
   rack-test
   rake
   rb-fsevent
@@ -194,5 +196,8 @@ DEPENDENCIES
   selenium-webdriver
   terminal-notifier-guard
 
+RUBY VERSION
+   ruby 2.3.0p0
+
 BUNDLED WITH
-   1.11.2
+   1.15.4
