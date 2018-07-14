@@ -23,6 +23,8 @@ gem 'bcrypt'
 gem 'pry', require: false
 gem 'pry-padrino', require: false
 
+gem 'rack-ssl-enforcer'
+
 # Test requirements
 group :test do
   gem 'minitest', require: 'minitest/autorun'
@@ -45,4 +47,3 @@ group :development do
   gem 'terminal-notifier-guard', require: false
   gem 'rb-fsevent', require: false
 end
-
