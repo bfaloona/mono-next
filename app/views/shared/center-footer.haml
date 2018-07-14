@@ -6,7 +6,7 @@
 		%a{href:'/plays'} Search All
 		%a{href:'/links'} Links
 		%a{href:'/quiz.html'} Quiz
-		%a{href:'http://twitter.com/ShakesMonos', target: '_blank'} Twitter
+		%a{href:'//twitter.com/ShakesMonos', target: '_blank'} Twitter
 		%a{href:'https://www.facebook.com/ShakespearesMonologues', target: '_blank'} FB
 		%a{href:'https://plus.google.com/106045313819632308693', rel: 'publisher', target: '_blank'} G+
 		%a{href:'/home'} Home
@@ -20,7 +20,7 @@
 		%br/
 		%a{href: 'https://play.google.com/store/apps/details?id=com.ShakespearesMonologues.app', target: '_blank'}
 			%img{alt: 'Android app on Google Play', border: '0', src: '/images/en_app_rgb_wo_45.png'}/
-		%a{href: "http://www.amazon.com/gp/product/B00LP47IA0/ref=mas_pm_Shakespeare's%20Monologues", target: '_blank'}
+		%a{href: "//www.amazon.com/gp/product/B00LP47IA0/ref=mas_pm_Shakespeare's%20Monologues", target: '_blank'}
 			%img{alt: 'Android app on Amazon App Store', border: '0', src: '/images/AmazonAppStoreBadge.png'}/
 		%a{href: 'https://chrome.google.com/webstore/detail/ejfdmafokffchogjkmfjdhalghlfemno', target: '_blank'}
 			%img{alt: 'Available in the Chrome Web Store', border: '0', src: '/images/ChromeWebStore_BadgeWBorder_v2_160x45.png', valign: 'top'}/
@@ -45,7 +45,7 @@
 		/ end facebook button
 
 		/ begin twitter follow button
-		%a.twitter-follow-button{'data-show-count': 'false', href: 'http://twitter.com/ShakesMonos'} Follow @ShakesMonos
+		%a.twitter-follow-button{'data-show-count': 'false', href: '//twitter.com/ShakesMonos'} Follow @ShakesMonos
 		/ end twitter follow button
 
 		/ begin G+ button
@@ -57,16 +57,17 @@
 		%br/
 		%br/
 		/ SiteSearch Google
-		%form#cse-search-box{action: 'http://www.google.com/cse', target: '_blank'}
-			%div
-				%input{name: 'cx', type: 'hidden', value: 'partner-pub-52360953899059100905950967'}/
-				%input{name: 'ie', type: 'hidden', value: 'UTF-8'}/
-				%input{name: 'q', size: '30', style: 'background: url(https://www.google.com/cse/static/en/google_custom_search_watermark.gif) 0% 50% no-repeat rgb(255, 255, 255);', type: 'text'}/
-				%input{name: 'sa', type: 'submit', value: 'Search'}/
-			%input{name: 'siteurl', type: 'hidden', value: 'www.shakespeare-monologues.org/plays/17?g=3'}/
-			%input{name: 'ref', type: 'hidden', value: 't.co/NpLAI1Zofr'}/
-			%input{name: 'ss', type: 'hidden', value: ''}/
-		%script{src: 'http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en', type: 'text/javascript'}
+		:javascript
+			(function() {
+			var cx = 'partner-pub-5236095389905910:0905950967';
+			var gcse = document.createElement('script');
+			gcse.type = 'text/javascript';
+			gcse.async = true;
+			gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(gcse, s);
+			})();
+		%gcse:search
 		/ End SiteSearch Google
 		/ start copyright info
 	.center-column-copyright
@@ -75,9 +76,9 @@
 		/ Creative Commons Info
 		This site is licensed under a
 		=succeed '.' do
-			%a{href: 'http://creativecommons.org/licenses/by-nc-sa/3.0/', target: '_blank', rel: 'license'}Creative Commons License
+			%a{href: '//creativecommons.org/licenses/by-nc-sa/3.0/', target: '_blank', rel: 'license'}Creative Commons License
 		%br/
-		%a{href: 'http://creativecommons.org/licenses/by-nc-sa/3.0/', target: '_blank'}
+		%a{href: '//creativecommons.org/licenses/by-nc-sa/3.0/', target: '_blank'}
 			%img{alt: 'Creative Commons License', border: '0', src: '//www.shakespeare-monologues.org/images/somerights20.gif'}/
 		%br/
 		The texts of Shakespeare's plays is public domain.
