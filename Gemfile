@@ -23,7 +23,7 @@ gem 'bcrypt'
 gem 'pry', require: false
 gem 'pry-padrino', require: false
 
-gem 'rack-ssl-enforcer'
+# gem 'rack-ssl-enforcer'
 
 # Test requirements
 group :test do
