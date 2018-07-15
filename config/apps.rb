@@ -27,7 +27,6 @@
 #
 Padrino.configure_apps do
   # enable :sessions
-  # use Rack::SslEnforcer, :except_environments => 'development'
   set :session_secret, '56e1c3a632f04f93dcb9c9d2b013e8f8996e7529ebe38f046dc7cbda185b5f86'
   set :protection, :except => :path_traversal
   set :protect_from_csrf, :except => ["/api/monologues"]
@@ -36,3 +35,10 @@ end
 # Mounts the applications for this project
 Padrino.mount("Monologues::Admin", :app_file => Padrino.root('admin/app.rb')).to("/admin")
 Padrino.mount('Monologues::App', :app_file => Padrino.root('app/app.rb')).to('/')
+
+# Force https in production
+  if RACK_ENV == 'production'
+    before do
+      redirect request.url.sub('http', 'https') unless request.secure?
+    end
+  end
