@@ -27,7 +27,7 @@
 #
 
 # Force https in production
-  if RACK_ENV == 'production'
+  unless RACK_ENV == 'development'
     before do
       redirect request.url.sub('http', 'https') unless request.secure?
     end
