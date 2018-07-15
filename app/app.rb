@@ -28,6 +28,13 @@ module Monologues
 
       set :cache, Padrino::Cache.new(:Memcached, :backend => heroku_dalli_cached)
 
+      # Force https in production
+        unless RACK_ENV == 'development'
+          before do
+            redirect request.url.sub('http', 'https') unless request.secure?
+          end
+        end
+
     else
       # development / test
       # DISABLED FOR SANITY

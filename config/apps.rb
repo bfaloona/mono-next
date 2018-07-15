@@ -26,13 +26,6 @@
 # override these settings in the subapps as needed.
 #
 
-# Force https in production
-  unless RACK_ENV == 'development'
-    before do
-      redirect request.url.sub('http', 'https') unless request.secure?
-    end
-  end
-
 Padrino.configure_apps do
   enable :sessions
   set :session_secret, '56e1c3a632f04f93dcb9c9d2b013e8f8996e7529ebe38f046dc7cbda185b5f86'
