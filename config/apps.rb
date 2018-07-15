@@ -25,6 +25,14 @@
 # Setup global project settings for your apps. These settings are inherited by every subapp. You can
 # override these settings in the subapps as needed.
 #
+
+# Force https in production
+  if RACK_ENV == 'production'
+    before do
+      redirect request.url.sub('http', 'https') unless request.secure?
+    end
+  end
+
 Padrino.configure_apps do
   enable :sessions
   set :session_secret, '56e1c3a632f04f93dcb9c9d2b013e8f8996e7529ebe38f046dc7cbda185b5f86'
@@ -35,10 +43,3 @@ end
 # Mounts the applications for this project
 Padrino.mount("Monologues::Admin", :app_file => Padrino.root('admin/app.rb')).to("/admin")
 Padrino.mount('Monologues::App', :app_file => Padrino.root('app/app.rb')).to('/')
-
-# Force https in production
-  if RACK_ENV == 'production'
-    before do
-      redirect request.url.sub('http', 'https') unless request.secure?
-    end
-  end
