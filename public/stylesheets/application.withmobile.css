@@ -71,7 +71,7 @@ h3 {
   padding-bottom: 20px;
   margin: 1px;
   padding: 1px;
-  width: 390px;
+  width: 100%;
 }
 
 .link-menu-left, .link-menu-right {
@@ -226,11 +226,11 @@ div.search-links {
     border: 0;
 }
   .jquery-search-replace{
-    width: 390px;
+    width: 100%;
     margin: 1px;
     padding: 1px;
   }
-}
+
 
 .empty-table-message {
   font-size: 150%;
@@ -258,10 +258,12 @@ table.monologue-list th {
   border-bottom: solid 1px;
   color: #333;
   font-weight: normal;
+  width: 100%;
 }
 
 table.monologue-list tr {
   vertical-align: top;
+  width: 100%;
 }
 
 table.monologue-list td {
@@ -295,10 +297,10 @@ h1.monologue-firstline-heading::first-letter {
   font-size: 125%;
   font-style: italic;
   line-height: 20px;
-  width: 420px;
+  width: 100%;
   border-collapse: collapse;
 }
-
+}
 .monologue-firstline-table A {
   color: #555;
 }
