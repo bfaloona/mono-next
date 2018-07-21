@@ -4,13 +4,15 @@
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-type"}/
     %title= @title.present? ? @title : Monologues::App::SITE_TITLE
     = javascript_include_tag 'jquery.min', 'jquery-ujs', 'bootstrap.min', 'application'
-    = stylesheet_link_tag 'normalize', 'bootstrap.min', 'application'
+    = stylesheet_link_tag 'normalize', 'bootstrap.min', 'application', 'application.withmobile'
+    %link{:href => "/stylesheets/application.withmobile.css", :media => "screen and (max-width: 600px)", :rel => "stylesheet"}
+    %link{:href => "/stylesheets/application.css", :media => "screen and (min-width: 780px)", :rel => "stylesheet"}
     %link{href: 'https://fonts.googleapis.com/css?family=IM+Fell+English', rel: 'stylesheet', type:'text/css'}
     %link{href: 'https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica:400,400italic', rel: 'stylesheet', type:'text/css'}
     :javascript
       (function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
     / Mobile OS add to homescreen and web app goodies
-    %meta{:content => "width=device-width, initial-scale=0.65", :name => "viewport"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     %meta{:content => "yes", :name => "mobile-web-app-capable"}/
     %link{:href => "/favicon.ico", :rel => "icon"}/
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
@@ -45,9 +47,6 @@
     / iPad (Retina, landscape) Splash Screen
     %link{:href => "/img/apple-touch-startup-image-2048x1496.png", :media => "(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)", :rel => "apple-touch-startup-image"}/
     %link{:href => "/img/icon-152x152.png", :rel => "apple-touch-icon-precomposed"}/
-    / use landscape mode
-    %link{:href => "/stylesheets/usethelandscapeluke.css", :rel => "stylesheet", :type => "text/css"}/
-    %script{:src => "/javascripts/usethelandscapeluke.js"}
     :javascript
       addToHomescreen({
          maxDisplayCount: 2,
@@ -170,11 +169,11 @@
   %body
     .container
 
-      .left-column.col-xs-2
+      .left-column.col-md-2.col-xs-12
         %br/
         =render 'shared/left-column', layout: false
 
-      .center-column.col-xs-7
+      .center-column.col-md-7.col-xs-12
 
         / Page views should contain .center-column-header and .center-column-list
         = yield
@@ -182,8 +181,7 @@
         / Footer contains .center-column-footer
         =render 'shared/center-footer', layout: false
 
-
-      .right-column.col-xs-3
+      .right-column.col-md-3.col-xs-12
 
         =render 'shared/right-column', layout: false
 

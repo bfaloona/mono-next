@@ -8,20 +8,21 @@
 		/ Contents of this div replaced by key up triggered jquery ajax call
 
 		%table.categories-list
-			%tr.accent-font
+			%tr
+			%thead.accent-font
 				%th Comedies
-				%th.th-pad-right Histories
+				%th Histories
 				%th Tragedies
 			%tr
-				%td
+				%td{"data-label" => "Comedies"}
 					- @comedies.sort{|a,b| a.title <=> b.title }.each do |comedy|
 						=gendered_play_link(comedy)
 						%br/
-				%td
+				%td{"data-label" => "Histories"}
 					- @histories.sort{|a,b| a.title <=> b.title }.each do |history|
 						=gendered_play_link(history)
 						%br/
-				%td
+				%td{"data-label" => "Tragedies"}
 					- @tragedies.sort{|a,b| a.title <=> b.title }.each do |tragedy|
 						=gendered_play_link(tragedy)
 						%br/

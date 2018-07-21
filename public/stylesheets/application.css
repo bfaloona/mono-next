@@ -121,7 +121,9 @@ h3 {
     text-align: center;
 }
 
-
+.tip_jar{
+  padding-top: 60px;
+}
 
 
 div.wrapper_for_addthis {
@@ -169,6 +171,7 @@ table.categories-list th {
     padding-bottom: 2px;
     border: 1px solid black;
 }
+
 
 table.categories-list td {
     padding-left: 20px;

@@ -1,5 +1,4 @@
 .center-column-footer.accent-font
-
 	.link-menu-bottom
 		%a{href:'/men'} The Men 
 		%a{href:'/women'} The Women
@@ -16,63 +15,56 @@
 		%a{href:'http://shults.org/shakes/contact.php'} Contact
 
 		/ - if Padrino.env == :production
-		%br/
+
 		/ begin google adsense footer ad
-		.googleadsensefooter
-		%script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
-		%ins.adsbygoogle{"data-ad-client" => "ca-pub-5236095389905910", "data-ad-format" => "autorelaxed", "data-ad-slot" => "9674616910", :style => "display:block"}
-		:javascript
-			(adsbygoogle = window.adsbygoogle || []).push({});
-		/end google adsense footer ad
-		%br/
-		%br/
+	/.googleadsensefooter
+	/%script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+	/%ins.adsbygoogle{"data-ad-client" => "ca-pub-5236095389905910", "data-ad-format" => "autorelaxed", "data-ad-slot" => "9674616910", :style => "display:block"}
+	/:javascript
+	/	(adsbygoogle = window.adsbygoogle || []).push({});
+	/end google adsense footer ad
+	/ begin social media buttons
+	/ begin facebook button
+	/ #fb-root
+	/ .fb-like{"data-action" => "like", "data-href" => "//www.shakespeare-monologues.org/", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "true"}
+	/ end facebook button
+	/ begin twitter follow button
+	/ %a.twitter-follow-button{'data-show-count': 'false', href: '//twitter.com/ShakesMonos'} Follow @ShakesMonos
+	/ end twitter follow button
+	/ begin G+ button
+	/ Place this tag where you want the widget to render.
+	/ .g-follow{"data-annotation" => "bubble", "data-height" => "15", "data-href" => "//plus.google.com/106045313819632308693", "data-rel" => "publisher"}
+	/ end G+ button
+	/ end social media buttons
+	%br/
+	/ SiteSearch Google
+	:javascript
+		(function() {
+		var cx = 'partner-pub-5236095389905910:0905950967';
+		var gcse = document.createElement('script');
+		gcse.type = 'text/javascript';
+		gcse.async = true;
+		gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(gcse, s);
+		})();
+	%gcse:search
+	/ End SiteSearch Google
+	/ start copyright info
 
-		/ begin social media buttons
-
-		/ begin facebook button
-		#fb-root
-		.fb-like{"data-action" => "like", "data-href" => "//www.shakespeare-monologues.org/", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "true"}
-		/ end facebook button
-
-		/ begin twitter follow button
-		%a.twitter-follow-button{'data-show-count': 'false', href: '//twitter.com/ShakesMonos'} Follow @ShakesMonos
-		/ end twitter follow button
-
-		/ begin G+ button
-		/ Place this tag where you want the widget to render.
-		.g-follow{"data-annotation" => "bubble", "data-height" => "15", "data-href" => "//plus.google.com/106045313819632308693", "data-rel" => "publisher"}
-		/ end G+ button
-
-		/ end social media buttons
-		%br/
-		%br/
-		/ SiteSearch Google
-		:javascript
-			(function() {
-			var cx = 'partner-pub-5236095389905910:0905950967';
-			var gcse = document.createElement('script');
-			gcse.type = 'text/javascript';
-			gcse.async = true;
-			gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(gcse, s);
-			})();
-		%gcse:search
-		/ End SiteSearch Google
-		/ start copyright info
 	.center-column-copyright
-		&copy; 1997<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script> Steven Shults & Brandon Faloona
-		%br/
-		/ Creative Commons Info
-		This site is licensed under a
-		=succeed '.' do
-			%a{href: '//creativecommons.org/licenses/by-nc-sa/3.0/', target: '_blank', rel: 'license'}Creative Commons License
-		%br/
-		%a{href: '//creativecommons.org/licenses/by-nc-sa/3.0/', target: '_blank'}
-			%img{alt: 'Creative Commons License', border: '0', src: '//www.shakespeare-monologues.org/images/somerights20.gif'}/
-		%br/
-		The texts of Shakespeare's plays is public domain.
-		%br/
-		Contact linked sites regarding intellectual property rights of those sites.
-		%br/
-		/ end copyright info
+	&copy; 1997<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script> Steven Shults & Brandon Faloona
+	%br/
+	/ Creative Commons Info
+	This site is licensed under a
+	=succeed '.' do
+		%a{href: '//creativecommons.org/licenses/by-nc-sa/3.0/', target: '_blank', rel: 'license'}Creative Commons License
+	%br/
+	%a{href: '//creativecommons.org/licenses/by-nc-sa/3.0/', target: '_blank'}
+		%img{alt: 'Creative Commons License', border: '0', src: '//www.shakespeare-monologues.org/images/somerights20.gif'}/
+	%br/
+	The texts of Shakespeare's plays is public domain.
+	%br/
+	Contact linked sites regarding intellectual property rights of those sites.
+	%br/
+	/ end copyright info
