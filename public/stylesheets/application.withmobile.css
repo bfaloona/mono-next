@@ -49,9 +49,9 @@ pre {
 /* body accent-font was removed from here */
 
 .container {
-  max-width: 420 !important;
+  max-width: 960px !important;
   position: relative;
-  width: 420px;
+  width: 100%;
   margin: 1px;
   padding: 1px;
 }
@@ -190,13 +190,13 @@ div.search-links {
     display: none;
   }
   table.categories-list {
-    width: 330px;
+    width: 100%;
     border-collapse: collapse;
     border: 0;
   }
   table.categories-list td {
     display: block;
-    width: 330px;
+    width: 100%;
     padding-top: 5px;
     padding-left: 20px;
     padding-right: 10px;
@@ -326,7 +326,7 @@ h1.monologue-firstline-heading::first-letter {
   padding: 10px;
   font-size: 100%;
   line-height: 1.25;
-  width: 455px;
+  width: 100%;
   margin-top: 5px;
   margin-left: -5px;
   border: solid gray;
@@ -357,7 +357,7 @@ h1.monologue-firstline-heading::first-letter {
   font-size: 120%;
   line-height: 125%;
   padding: 5px;
-  width: 455px;
+  width: 100%;
   margin-bottom: 60px;
 }
 
@@ -366,7 +366,7 @@ h1.monologue-firstline-heading::first-letter {
   font-size: 100%;
   font-style: normal;
   line-height: 1.25;
-  width: 294px;
+  width: 100%;
   border: #333 solid;
   border-width: 1px;
   margin-bottom: 20px;
