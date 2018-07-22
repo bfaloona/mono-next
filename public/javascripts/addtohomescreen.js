@@ -41,7 +41,7 @@ ath.intl = {
 	},
 
 	en_us: {
-		message: '<span style="display:inline-block;height:20px;">To add this web app</span> <br/> <span style="display:inline-block;height:20px;">to your home screen:</span> <br/> <span style="display:inline-block;height:20px;">Go to our <a href="//www.shakespeare-monologues.org/home/">homepage</a>,</span> <br/> tap %icon menu,<br/> <span style="display:inline-block;height:20px;">then tap  <strong>%action</strong>.</span><br/><span style="display:inline-block;height:40px;">Android users: <a href="https://play.google.com/store/apps/details?id=com.ShakespearesMonologues.app" target="_blank">Get the app on Google Play</a></span>',
+		message: '<span style="display:inline-block;height:20px;">To add this web app</span> <br/> <span style="display:inline-block;height:20px;">to your home screen:</span> <br/> <span style="display:inline-block;height:20px;">Go to our <u><a href="//www.shakespeare-monologues.org/home/">homepage</a></u>,</span> <br/> tap %icon menu,<br/> <span style="display:inline-block;height:20px;">then tap  <strong>%action</strong>.</span><br/><br/><span style="display:inline-block;height:60px;"><strong>More tips:</strong> Use landscape mode for line breaks in the right places. Pinch-to-zoom is your friend.',
 		action: { ios: 'Add to Home Screen', android: 'Add to homescreen', windows: 'pin to start' }
 	},
 
@@ -81,9 +81,9 @@ ath.defaults = {
 	autostart: true,			// show the message automatically
 	skipFirstVisit: false,		// show only to returning visitors (ie: skip the first time you visit)
 	startDelay: 1,				// display the message after that many seconds from page load
-	lifespan: 15,				// life of the message in seconds
-	displayPace: 1440,			// minutes before the message is shown again (0: display every time, default 24 hours)
-	maxDisplayCount: 0,			// absolute maximum number of times the message will be shown to the user (0: no limit)
+	lifespan: 30,				// life of the message in seconds
+	displayPace: 20,			// minutes before the message is shown again (0: display every time, default 24 hours)
+	maxDisplayCount: 2,			// absolute maximum number of times the message will be shown to the user (0: no limit)
 	icon: true,					// add touch icon to the message
 	message: '',				// the message can be customized
 	validLocation: [],			// list of pages where the message will be shown (array of regexes)
