@@ -127,7 +127,7 @@ GEM
       slop (~> 3.4)
     pry-padrino (0.1.2)
       pry (>= 0.8)
-    rack (1.6.4)
+    rack (1.6.13)
     rack-protection (1.5.3)
       rack
     rack-rewrite (1.5.1)
