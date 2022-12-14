@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.7.7'
+ruby '2.3.0'
 gem 'rake'
 
 # Padrino Stable Gem
