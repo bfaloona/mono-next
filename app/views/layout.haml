@@ -1,0 +1,18 @@
+%html.no-js{lang: "en"}
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{charset: "utf-8"}/
+    %meta{content: "IE=edge, chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %title MonoCorneal
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %link{href: "/stylesheets/main.css", rel: "stylesheet"}/
+  %body
+    != yield
+  %footer.branding
+    %small
+    © 2022
+    %strong MonoCorneal
+  %script{src: "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"}
+    /[if lt IE 7]
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+    <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
