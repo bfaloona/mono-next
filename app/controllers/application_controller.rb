@@ -5,6 +5,8 @@ require 'tilt'
 
 class ApplicationController < Sinatra::Base
 
+  set :haml, :format => :html5
+
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -12,6 +14,10 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     haml :welcome
+  end
+
+  not_found do
+    haml :e404
   end
 
 end
