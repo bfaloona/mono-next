@@ -3,4 +3,4 @@
     bundle install
 
 # run
-    puma
+    rerun rackup
