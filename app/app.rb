@@ -97,34 +97,37 @@ end
 #   redirect '/home'
 # end
 
-get '/home' do
-  send_file 'static/home.html'
-end
+# get '/home' do
+#   send_file 'static/home.html'
+# end
 
 not_found do
-  haml  :e404, layout: false
+  # haml  :e404, layout: false
+  haml :maintenance, layout: false
 end
 
 error 500 do
-  haml  :e500, layout: false
+  # haml  :e500, layout: false
+  haml :maintenance, layout: false
+
 end
 
-get '/aboutus' do
-  send_file 'static/aboutus.html'
-end
-
-get '/faqs' do
-  send_file 'static/faqs.html'
-end
-
-get '/links' do
-  send_file 'static/links.html'
-end
-
-get '/privacy' do
-  send_file 'static/privacy.html'
-end
-
-get '/sandbox' do
-  send_file 'static/sandbox.html'
-end
+# get '/aboutus' do
+#   send_file 'static/aboutus.html'
+# end
+#
+# get '/faqs' do
+#   send_file 'static/faqs.html'
+# end
+#
+# get '/links' do
+#   send_file 'static/links.html'
+# end
+#
+# get '/privacy' do
+#   send_file 'static/privacy.html'
+# end
+#
+# get '/sandbox' do
+#   send_file 'static/sandbox.html'
+# end
