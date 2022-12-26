@@ -1,3 +1,5 @@
+# In mono-next, this file lived here: /mono-next/app/helpers/app.rb
+
 Monologues::App.helpers do
 
   def display_limit
