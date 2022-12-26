@@ -1,0 +1,62 @@
+!!! 5
+%html{lang: 'en', itemscope: '', itemtype: 'http://schema.org/CollectionPage', class: 'gr__shakespeare-monologues_org'}
+
+	%head
+		%title Temporary Maintenance -- Shakespeare's Monologues Site - Dec 24, 2022
+
+		%script{type: 'text/javascript'}
+			:plain
+				var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', 'UA-600620-1']);
+				_gaq.push(['_trackPageview']);
+
+				(function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				})();
+		/ clickjacking defense from https://www.codemagi.com/blog/post/194
+		%style#antiClickjack
+			:cdata
+				body{display:none !important;}
+		%script{type: 'text/javascript'}
+			:plain
+				if (self === top) {
+				  var antiClickjack = document.getElementById("antiClickjack");
+				  antiClickjack.parentNode.removeChild(antiClickjack);
+				} else {
+				  top.location = self.location;
+				}
+		/ end clickjacking defense
+
+	%body{background: "/images/parchment.jpg", bgcolor: "#F9F9DF"}
+		.container
+
+			%p
+				&nbsp; &nbsp &nbsp; Temporary Site Maintenance
+			%h3
+				%br
+			%font{face: "verdana", size: "4"}
+				%center
+					%strong May all to Athens back again repair,
+					%br
+					%strong And think no more of this night's accidents
+					%br
+					%strong But as the fierce vexation of a dream.
+					%br
+					%small
+						\--A Midsummer Night's Dream, Act IV, Sc i
+
+			%h3
+				%br
+				%table{align: "center"}
+					%tr
+						%td
+							%img{:src => "/images/alas-poor-yorik.jpeg"}
+
+
+			%center.link-menu-bottom
+				%font{face: "verdana", size: "2"}
+					Dec 25, 2022 - For updates please check the
+					%b
+						%a{href: "https://www.facebook.com/ShakespearesMonologues"} [Shakespeare's Monologues Facebook Page]

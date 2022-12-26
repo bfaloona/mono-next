@@ -1,0 +1,29 @@
+.container
+  %header
+    %img.img-responsive.main-image{src: "images/corneal-small.png"}/
+  .col-md-8.col-md-offset-2
+    %h2 Sinatra Template Default Page
+    .content
+      %p
+        Welcome to the Sinatra Template! If you're seeing this page, then everything is working
+        as expected. To get started, delete this file (
+        %code app/views/welcome.haml
+        )
+        and begin adding
+        your own actions to
+        %code app/app.rb
+    .sidebar
+      %h3 Environment
+      %ul
+        %li
+          %b Ruby:
+          = RUBY_VERSION
+        %li
+          %b Environment:
+          = ENV["RACK_ENV"]
+        %li
+          %b Server:
+          = @env["SERVER_SOFTWARE"]
+        %li
+          %b Port:
+          = @env["SERVER_PORT"]
