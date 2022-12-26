@@ -12,7 +12,7 @@ gem 'dalli'
 gem 'rack-protection'
 
 # Component requirements
-gem 'activerecord', '~> 4.2', require: 'active_record'
+gem 'activerecord', '~> 5.2', require: 'active_record'
 gem 'haml'
 gem 'pg'
 gem 'rack-rewrite'
