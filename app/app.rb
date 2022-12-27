@@ -89,13 +89,13 @@ configure do
   set :views, 'app/views'
 end
 
-get '/' do
-  haml :maintenance, layout: false
-end
-
 # get '/' do
-#   redirect '/home'
+#  haml :maintenance, layout: false
 # end
+
+get '/' do
+   redirect '/home'
+end
 
  get '/home' do
    send_file 'static/home.html'
