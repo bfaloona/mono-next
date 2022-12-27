@@ -113,6 +113,7 @@ error 500 do
 end
 
 get '/aboutus' do
+  content_type 'text/html'
   send_file 'static/aboutus.html'
 end
 
