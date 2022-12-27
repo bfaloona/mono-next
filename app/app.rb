@@ -94,9 +94,7 @@ get '/' do
   haml :maintenance, layout: false
 end
 
-print ENV['RACK_ENV']
-
-if ENV['RACK_ENV'] == 'test'
+if ['test', 'development'].include? ENV['RACK_ENV']
   get '/zzz500error' do
     raise("simulated server error")
   end
