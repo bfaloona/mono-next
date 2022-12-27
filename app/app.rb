@@ -85,7 +85,7 @@ end
 # set :show_exceptions, false
 
 configure do
-  set :public_folder, 'static'
+  set :public_folder, 'public'
   set :views, 'app/views'
 end
 
@@ -113,7 +113,6 @@ error 500 do
 end
 
 get '/aboutus' do
-  content_type 'text/html'
   send_file 'static/aboutus.html'
 end
 
