@@ -85,7 +85,7 @@ end
 # set :show_exceptions, false
 
 configure do
-  set :public_folder, 'public'
+  set :public_folder, 'static'
   set :views, 'app/views'
 end
 
@@ -97,9 +97,9 @@ end
 #   redirect '/home'
 # end
 
-# get '/home' do
-#   send_file 'static/home.html'
-# end
+ get '/home' do
+   send_file 'static/home.html'
+ end
 
 not_found do
   # haml  :e404, layout: false
@@ -112,22 +112,22 @@ error 500 do
 
 end
 
-# get '/aboutus' do
-#   send_file 'static/aboutus.html'
-# end
-#
-# get '/faqs' do
-#   send_file 'static/faqs.html'
-# end
-#
-# get '/links' do
-#   send_file 'static/links.html'
-# end
-#
-# get '/privacy' do
-#   send_file 'static/privacy.html'
-# end
-#
-# get '/sandbox' do
-#   send_file 'static/sandbox.html'
-# end
+get '/aboutus' do
+  send_file 'static/aboutus.html'
+end
+
+get '/faqs' do
+  send_file 'static/faqs.html'
+end
+
+get '/links' do
+  send_file 'static/links.html'
+end
+
+get '/privacy' do
+  send_file 'static/privacy.html'
+end
+
+get '/sandbox' do
+  send_file 'static/sandbox.html'
+end
