@@ -2,7 +2,9 @@
 %html{lang: "en", "xmllang": "en", xmlns: "http//www.w3.org/1999/xhtml"}
 	%head
 		%meta{content: "text/html; charset=UTF-8", "http-equiv": "content-type"}/
-		%title We're sorry, but something went wrong (500)
+		%title We're sorry, but something went wrong (
+		= response.status
+		)
 		:css
 			body {
 				background-color: #fff;
