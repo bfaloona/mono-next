@@ -90,48 +90,51 @@ configure do
   set :views, 'app/views'
 end
 
+# will be useful once we allow 500 errors in test
+# if ['test', 'development'].include? ENV['RACK_ENV']
+#   get '/zzz500error' do
+#     raise("simulated server error")
+#   end
+# end
+
+# get '/' do
+# haml :maintenance, layout: false
+# end
+
 get '/' do
+  redirect '/home'
+end
+
+ get '/home' do
+   send_file 'static/home.html'
+ end
+
+not_found do
+  # haml  :e404, layout: false
   haml :maintenance, layout: false
 end
 
-if ['test', 'development'].include? ENV['RACK_ENV']
-  get '/zzz500error' do
-    raise("simulated server error")
-  end
-end
-
-# get '/' do
-#   redirect '/home'
-# end
-
-# get '/home' do
-#   send_file 'static/home.html'
-# end
-
-not_found do
-  haml :e404, layout: false
-end
-
 error 500..599 do
-  haml :e500, layout: false
+  # haml :e500, layout: false
+  haml :maintenance, layout: false
 end
 
-# get '/aboutus' do
-#   send_file 'static/aboutus.html'
-# end
-#
-# get '/faqs' do
-#   send_file 'static/faqs.html'
-# end
-#
-# get '/links' do
-#   send_file 'static/links.html'
-# end
-#
-# get '/privacy' do
-#   send_file 'static/privacy.html'
-# end
-#
-# get '/sandbox' do
-#   send_file 'static/sandbox.html'
-# end
+get '/aboutus' do
+  send_file 'static/aboutus.html'
+end
+
+get '/faqs' do
+  send_file 'static/faqs.html'
+end
+
+get '/links' do
+  send_file 'static/links.html'
+end
+
+get '/privacy' do
+  send_file 'static/privacy.html'
+end
+
+get '/sandbox' do
+  send_file 'static/sandbox.html'
+end
