@@ -94,11 +94,12 @@ get '/' do
   haml :maintenance, layout: false
 end
 
-if ['test', 'development'].include? ENV['RACK_ENV']
-  get '/zzz500error' do
-    raise("simulated server error")
-  end
-end
+# will be useful once we allow 500 errors in test
+# if ['test', 'development'].include? ENV['RACK_ENV']
+#   get '/zzz500error' do
+#     raise("simulated server error")
+#   end
+# end
 
 # get '/' do
 # haml :maintenance, layout: false
