@@ -90,10 +90,6 @@ configure do
   set :views, 'app/views'
 end
 
-get '/' do
-  haml :maintenance, layout: false
-end
-
 # will be useful once we allow 500 errors in test
 # if ['test', 'development'].include? ENV['RACK_ENV']
 #   get '/zzz500error' do
@@ -106,7 +102,7 @@ end
 # end
 
 get '/' do
-   redirect '/home'
+  redirect '/home'
 end
 
  get '/home' do
