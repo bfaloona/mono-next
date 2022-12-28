@@ -1,4 +1,6 @@
-set :haml, :format => :html5
+require 'sinatra'
+
+set :haml, format: :html5
 
 SITE_TITLE = "Shakespeare's Monologues"
 
@@ -36,7 +38,6 @@ else
   # DISABLED FOR SANITY
   # set :cache, Padrino::Cache.new(:LRUHash)
 end
-
 
 ##
 # Caching support.
@@ -89,12 +90,19 @@ configure do
   set :views, 'app/views'
 end
 
+# will be useful once we allow 500 errors in test
+# if ['test', 'development'].include? ENV['RACK_ENV']
+#   get '/zzz500error' do
+#     raise("simulated server error")
+#   end
+# end
+
 # get '/' do
 # haml :maintenance, layout: false
 # end
 
 get '/' do
-   redirect '/home'
+  redirect '/home'
 end
 
  get '/home' do
@@ -106,10 +114,9 @@ not_found do
   haml :maintenance, layout: false
 end
 
-error 500 do
-  # haml  :e500, layout: false
+error 500..599 do
+  # haml :e500, layout: false
   haml :maintenance, layout: false
-
 end
 
 get '/aboutus' do

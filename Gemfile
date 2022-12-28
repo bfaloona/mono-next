@@ -18,10 +18,11 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 
+gem 'rack-test'
+gem 'minitest'
+# gem 'minitest-line'
+# gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+gem 'capybara'
 
 group :test do
-  gem 'minitest'
-  # gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
-  gem 'capybara'
-  gem 'rack-test'
 end
