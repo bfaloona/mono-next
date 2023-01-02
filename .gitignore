@@ -42,3 +42,10 @@ public/plays/*
 public/monologues.html
 public/monologues/*
 .env
+# Entries to ignore cutting-room-floor items from linting and migration project. Exclamation point means "don't ignore"
+[a-zA-Z]*[1-9].haml
+!*migrated*.haml
+!40*.haml
+!50*.haml
+[a-zA-Z]*[1-9].rb
+!*migrated.rb
