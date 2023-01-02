@@ -1,0 +1,28 @@
+
+#
+# This file was originally written for Padrino 0.13 by
+# Brandon Faloona, then migrated to Sinatra 3.0.5 by
+# GPT-3's text-davinci-003 engine, with prompts from Steven Shults. 
+# December 2022.
+#
+
+require 'sinatra/base'
+
+class MiniTestGuard < Sinatra::Base
+
+  # Guard configuration to monitor changes to files
+  configure do
+    set :guard_config, Proc.new {
+      watch(%r{^test\/.*\/?(.*)\.rb$})
+      watch(%r{^app\/.*\/.*\.(rb|haml)$}) 	{'test'}
+      watch(%r{^admin\/.*\/?(.*)\.(rb|haml)$}) 	{'test'}
+      watch(%r{^config\/.*\/?(.*)\.(rb)$}) 		{'test'}
+    }
+  end
+
+  # Execute Guard when changes to files have been detected
+  get '/guard' do
+    guard_config.call
+  end
+
+end

@@ -1,0 +1,31 @@
+
+#
+# This file was originally written for Padrino 0.13 by
+# Brandon Faloona, then migrated to Sinatra 3.0.5 by
+# GPT-3's text-davinci-003 engine, with prompts from Steven Shults. 
+# December 2022.
+#
+
+require 'sinatra'
+require 'sinatra/base'
+
+# This class configures the Sinatra application
+class App < Sinatra::Base
+  # Configure Sinatra
+  configure do
+    set :environment, :production
+    set :port, ENV['PORT']
+    set :bind, '0.0.0.0'
+  end
+
+  # This method handles routing
+  get '/' do
+    # This is the code that will be invoked when the root route is requested
+    # You can replace this with whatever code you need
+    'Hello World!'
+  end
+
+end
+
+# This runs the Sinatra application
+run App

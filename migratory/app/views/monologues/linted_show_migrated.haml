@@ -1,0 +1,48 @@
+
+            # This file was originally written for Padrino 0.13 by
+            # Brandon Faloona, then migrated to Sinatra 3.0.5 by
+            # GPT-3's text-davinci-003 engine, with prompts from Steven Shults. 
+            # December 2022.
+            #
+            require 'sinatra'
+            require 'sinatra/activerecord'
+            require 'sinatra/url_for'
+            require 'sinatra/reloader'
+            require 'sinatra/flash'
+            require 'sinatra/redirect_with_flash'
+            require 'sinatra/partial'
+            require 'sinatra/json'
+            require 'sinatra/content_for'
+            require 'sinatra/namespace'
+            require 'sinatra/cookies'
+            require 'sinatra/streaming'
+            require 'sinatra/config_file'
+            require 'sinatra/capture'
+            require 'sinatra/multi_route'
+            require 'sinatra/decorator'
+            require 'sinatra/respond_with'
+            require 'sinatra/activerecord_helpers'
+            require 'sinatra/respond_to'
+            require 'sinatra/param'
+            
+            # This section of code renders the monologue show page.
+            get '/monologues/:id' do
+              @monologue = Monologue.find(params[:id])
+              erb :'monologues/show'
+            end
+            
+            # This section of code renders the monologue show page's HTML.
+            # It displays the monologue's character, location, style, intercut label,
+            # and play title, as well as a link to the monologue's body and a PDF icon.
+            %h3= @monologue.character
+            .monologue-actscene
+              %a{href: @monologue.body_link, target: '_blank'}
+                != @monologue.location
+            .monologue-detail
+              = @monologue.style + @monologue.intercut_label
+            .monologue-playname
+              = link_to(@monologue.play.title, url_for(:plays, :show, id: @monologue.play.id))
+            .monologue-body
+              != @monologue.body
+              %a{href: @monologue.pdf_link, target: '_blank'}
+                %img{src: '/images/pdf_file_icon_16x16.png'}

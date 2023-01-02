@@ -1,0 +1,28 @@
+.center-column-header
+
+
+.center-column-list
+
+  .col-md-2.monologue-show
+
+    &nbsp;
+    %h3 = @monologue.character
+    %div.monologue-actscene
+      %a{href: @monologue.body_link, target: '_blank'}
+        != @monologue.location
+    %div.monologue-detail
+      = @monologue.style + @monologue.intercut_label
+    %div.monologue-playname
+      = link_to(@monologue.play.title, url_for(:plays, :show, id: @monologue.play.id))
+
+    &nbsp;
+  / second column
+  .col-md-10
+    %br
+    &nbsp;
+    %br
+    &nbsp;
+    %div.monologue-body
+      != @monologue.body
+      %a{href: @monologue.pdf_link, target: '_blank'}
+        %img{src: '/images/pdf_file_icon_16x16.png'}

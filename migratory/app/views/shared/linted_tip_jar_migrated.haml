@@ -1,0 +1,52 @@
+.tip_jar
+  #everbutton-anchor-container
+    %a#everbutton-693-1469672781-59.everbutton.everbutton-693-1469672781-59.everbutton-blue{:href => "https://www.everbutton.com/pay/693" :style => "height:20px;width:49px;min-width:45px;padding:0px;"} Tip Jar
+    :javascript
+      var EB = EB || {};
+      EB.button_stack = EB.button_stack || [];
+      EB.button_stack.push({
+        anchor_id: "everbutton-693-1469672781-59",
+        button_id: 693,
+        host: "https://www.everbutton.com"
+      });
+      if (!EB.script) {
+        EB.script = document.createElement('script');
+        EB.script.type = 'text/javascript';
+        EB.script.async = true;
+        EB.script.src = 'https://www.everbutton.com/assets/everbutton.v1.js?button_id=693';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(EB.script, s);
+      } else if (EB.load_buttons) {
+        EB.load_buttons();
+      }
+%script#fbwq0n8
+  (function(i) {
+    var f, s = document.getElementById(i);
+    f = document.createElement('iframe');
+    f.src = '//button.flattr.com/view/?fid=o6x2wd&button=compact&url=' + encodeURIComponent(document.URL);
+    f.title = 'Flattr';
+    f.height = 20;
+    f.width = 110;
+    f.style.borderWidth = 0;
+    s.parentNode.insertBefore(f, s);
+  })('fbwq0n8');
+%a{:href => "https://www.zazzle.com/shakesmonosstuff*", :rel => "nofollow", :target => "_blank"}
+  %img{:border => 0, :width => 78, :height => 20, :src => "/img/zazzlebutton.png"}
+%style
+  div.addthis_toolbox {
+    width: 85px;
+    margin: 0 auto;
+  }
+.addthis_toolbox.addthis_default_style.addthis_16x16_style
+  %a.addthis_button_facebook
+  %a.addthis_button_twitter
+  %a.addthis_button_compact
+%script{:type => "text/javascript", :src => "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-532e2d3068288ec1"}
+%div{:style => "text-align:center"}
+  %span.small
+    %br
+    %font{:face => "verdana", :size => "-1"}
+      %a{:href => "https://www.facebook.com/ShakespearesMonologues", :target => "_blank"} FB
+      &nbsp;&nbsp;
+      %a{:href => "//twitter.com/ShakesMonos", :target => "_blank"} Twitter
+%hr{:size => "1", :width => "75", :noshade => ""}

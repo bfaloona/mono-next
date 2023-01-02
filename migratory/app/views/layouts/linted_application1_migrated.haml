@@ -1,0 +1,52 @@
+
+-#
+-# This file was originally written for an older version of haml by
+-# Brandon Faloona, then migrated to haml 6.0.1 by
+-# GPT-3's text-davinci-003 engine, with prompts from Steven Shults. 
+-# December 2022.
+-#
+!!!
+%html{ itemscope: "", itemtype: "https://schema.org/CollectionPage", lang: "en" }
+  %head
+    %meta{ content: "text/html; charset=utf-8", "http-equiv": "Content-type" }/
+    %title= @title.present? ? @title : Sinatra::App::SITE_TITLE
+    = javascript_include_tag 'jquery.min', 'jquery-ujs', 'bootstrap.min', 'application'
+    = stylesheet_link_tag 'normalize', 'bootstrap.min', 'application', 'application.withmobile'
+    %link{ href: "/stylesheets/application.withmobile.css", media: "screen and (max-width: 600px)", rel: "stylesheet" }
+    %link{ href: "/stylesheets/application.css", media: "screen and (min-width: 780px)", rel: "stylesheet" }
+    %link{ href: 'https://fonts.googleapis.com/css?family=IM+Fell+English', rel: 'stylesheet', type:'text/css' }
+    %link{ href: 'https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica:400,400italic', rel: 'stylesheet', type:'text/css' }
+    -# Add to homescreen and web app goodies
+    %meta{ content: "width=device-width, initial-scale=1", name: "viewport" }/
+    %meta{ content: "yes", name: "mobile-web-app-capable" }/
+    %link{ href: "/favicon.ico", rel: "icon" }/
+    %link{ href: "/favicon.ico", rel: "shortcut icon" }/
+    %link{ href: "/img/icon-196x196.png", rel: "icon", sizes: "196x196" }/
+    %link{ href: "/img/icon-196x196.png", rel: "apple-touch-icon", sizes: "196x196" }/
+    %link{ href: "/img/icon-196x196.png", rel: "shortcut icon", sizes: "196x196" }/
+    %meta{ content: "yes", name: "apple-mobile-web-app-capable" }/
+    %meta{ content: "black", name: "apple-mobile-web-app-status-bar-style" }/
+    %meta{ content: "ShakesMonos", name: "apple-mobile-web-app-title" }/
+    %meta{ content: "no", name: "msapplication-tap-highlight" }/
+    %meta{ content: "black-translucent", name: "apple-mobile-web-app-status-bar-style" }/
+    %link{ href: "/img/icon-144x144.png", rel: "apple-touch-icon", sizes: "144x144" }/
+    %meta{ content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", name: "viewport" }/
+    %title{ lang: "en" } Sinatra | App
+    %h1{ lang: "en" } Sinatra App
+    %meta{ content: "en", name: "language" }/
+    %meta{ content: "text/html; charset=utf-8", "http-equiv": "Content-Type" }/
+    %meta{ content: "IE=edge,chrome=1", "http-equiv": "X-UA-Compatible" }/
+    %meta{ content: "yes", name: "apple-mobile-web-app-capable" }/
+    %meta{ content: "yes", name: "apple-touch-fullscreen" }/
+    %meta{ content: "black-translucent", name: "apple-mobile-web-app-status-bar-style" }/
+    %meta{ content: "yes", name: "mobile-web-app-capable" }/
+    %meta{ content: "yes", name: "msapplication-tap-highlight" }/
+    %meta{ content: "width=device-width, initial-scale=1", name: "viewport" }/
+    %meta{ content: "minimum-scale=1, maximum-scale=1", name: "viewport" }/
+    %meta{ content: "yes", name: "HandheldFriendly" }/
+    %meta{ content: "true", name: "apple-mobile-web-app-capable" }/
+    %meta{ content: "yes", name: "apple-touch-fullscreen" }/
+    %meta{ content: "black-translucent", name: "apple-mobile-web-app-status-bar-style" }/
+    %meta{ content: "yes", name: "mobile-web-app-capable" }/
+    %meta{ content: "yes", name: "msapplication-tap-highlight" }/
+    %meta{ content: "WCAG 2.1", name: "accessibility" }/

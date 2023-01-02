@@ -1,0 +1,59 @@
+%ul.nav.nav-tabs
+  %li.active=link_to tag_icon(:list, pat(:list)), url(:plays, :index)
+  %li=link_to tag_icon(:plus, pat(:new)), url(:plays, :new)
+
+.tabs-content
+  %table#list.table.table-striped.table-hover.table-condensed
+    %thead
+      %tr
+        %th.header.list-menu
+          .dropdown
+            %a.list-menu-toggle.dropdown-toggle{:href => '#', :'data-toggle' => :dropdown}
+              =tag_icon :magic
+              %span.caret
+            %ul.list-menu.dropdown-menu{:role => :menu}
+              %li.list-menu-wrapper=link_to tag_icon('check-square-o', pat(:select_all)), '#', :id => 'select-all', :class => 'list-menu-link'
+              %li.list-menu-wrapper.list-menu-wrapper-disabled
+                =link_to tag_icon('square-o', pat(:deselect_all)), '#', :id => 'deselect-all', :class => 'list-menu-link list-menu-link-disabled'
+              %li.list-menu-divider.divider
+              %li.list-menu-wrapper.list-menu-wrapper-disabled
+                =link_to tag_icon('trash-o', pat(:delete_selected)), '#', :id => 'delete-selected', :class => 'list-menu-link list-menu-link-disabled'
+                .list-menu-popover-delete-selected.popover.right
+                  .arrow
+                  %h3.popover-title=pat(:delete_selected_title)
+                  .popover-content
+                    = form_tag url(:plays, :destroy_many), :method => :delete do
+                      =hidden_field_tag :play_ids, :'data-delete-many-ids' => true
+                      =submit_tag pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
+                      .btn.btn-default.btn-small.cancel=pat(:cancel)
+        %th.header= mat(:play, :id)
+        %th.header= mat(:play, :author_id)
+        %th.header= mat(:play, :title)
+        %th.header= mat(:play, :created_at)
+        %th.header= mat(:play, :updated_at)
+        %th.header= mat(:play, :classification)
+        %th.header.list-row-action-header
+
+    %tbody
+      -@plays.each do |play|
+        %tr.list-row
+          %td.list-column.list-selectable
+            =check_box_tag 'play_ids[]', :value => play.id, :class => 'list-selectable-checkbox'
+          %td.list-column=play.id
+          %td.list-column=play.author_id
+          %td.list-column
+            =link_to play.title, href: url(:plays, :show, id: play.id)
+          %td.list-column=time_ago_in_words play.created_at
+          %td.list-column=time_ago_in_words play.updated_at
+          %td.list-column=play.classification
+          %td.list-column.list-row-action
+            .list-row-action-wrapper
+              =link_to tag_icon(:edit), :href => url(:plays, :edit, :id => play.id), :rel => :tooltip, :title => "#{pat(:edit)} play", :class => 'list-row-action-wrapper-link'
+              =link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} play", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
+              .popover.list-row-action-popover-delete-one.left
+                .arrow
+                %h3.popover-title=pat(:delete, :model => "play")
+                .popover-content
+                  = form_tag url(:plays, :destroy, :id => play.id), :method => :delete do
+                    =submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
+                    .btn.btn-default.btn-small.cancel=pat(:cancel)

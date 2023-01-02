@@ -1,0 +1,12 @@
+-#
+-# This file was originally written for an older version of haml by
+-# Brandon Faloona, then migrated to haml 6.0.1 by
+-# GPT-3's text-davinci-003 engine, with prompts from Steven Shults. 
+-# December 2022.
+-#
+%form#search-form{role: ''}
+  %h1{title: 'Search Form'}
+  .input-group.accent-font
+    %input#search-box{name: 'search', type: 'text', autocomplete: 'off', action: '#', tabindex: 1}
+    %i.glyphicon.glyphicon-refresh.glyphicon-refresh-animate.searching
+

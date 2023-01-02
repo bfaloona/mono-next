@@ -1,0 +1,76 @@
+-#
+-# This file was originally written for an older version of haml by
+-# Brandon Faloona, then migrated to haml 6.0.1 by
+-# GPT-3's text-davinci-003 engine, with prompts from Steven Shults.
+-# December 2022.
+-#
+.jquery-search-replace
+  / Contents of this div replaced by key up triggered jquery ajax call
+  / TODO Consider removing
+  - if Sinatra.env == :development
+    %span.debug-text
+      !=@debug_output
+      %button.remove-debug.pull-right remove
+      :javascript
+        $("button.remove-debug").click(function(){
+            $("span.debug-text").remove();
+        });
+  .monologue-controls
+    &nbsp;
+    - if @play
+      %span.play-control.accent-font
+        &nbsp;
+        %a.remove-play{href: '#', title: 'Remove play filter'}
+          %span.huge-font ×
+        %span.filter-play = @play.title
+      %span.huge-font &#124;
+    %span.gender-control.accent-font
+      %a.filter-gender{href: '#', data_action: 'w'} Women
+      %span.huge-font &#124;
+      %a.filter-gender{href: '#', data_action: 'm'} Men
+      %span.huge-font &#124;
+      %a.filter-gender{href: '#', data_action: 'a'} A
+    %span.huge-font
+      &#124;
+    %span.toggle-control.big-font.accent-font
+      %a.toggle-mono.mono-expand.display-hide{href: '#', data_action: 'expand'}
+        %img{alt: 'expand text', title: 'expand text', src: '/img/ExpandAll.png'}
+      %a.toggle-mono.mono-collapse.display-hide{href: '#', data_action: 'collapse'}
+        %img{alt: 'collapse text', title: 'collapse text', src: '/img/CollapseAll.png'}
+  - if @monologues.empty?
+    .empty-table-message.accent-font
+      Alas, we didn't find a monologue containing exactly what you typed.
+  - else
+    %table.monologue-list
+      %thead.accent-font
+        %tr
+          %th.header Details
+          %th.header First Li
+      %tbody
+        - @monologues.each_with_index do |monologue, index|
+          %tr{class: (index.even? ? 'even' : 'odd')}
+            %td
+              %span.monologue-character = monologue.character
+              \-
+              %a.location{href: monologue.body_link, target: '_blank'}
+                = monologue.location
+              .monologue-detail
+                = monologue.style + monologue.intercut_label
+                .monologue-playname
+                = gendered_play_link(monologue.play)
+            %td.monologue-firstline-table
+              = link_to(monologue.first_line, url(:monologues, :show, id: monologue.id))
+            - if defined?(toggle) && (toggle == 'expand')
+              .monologue-body-inline
+              = monologue.body
+                %a{href: monologue.pdf_link, target: '_blank'}
+                  %img{src: '/images/pdf_file_icon_16x16.png'}
+            - else
+              .monologue-body-inline.display-hide
+                = monologue.body
+                %a{href: monologue.pdf_link, target: '_blank'}
+                  %img{src: '/images/pdf_file_icon_16x16.png'}
+  :javascript
+    #{js_set_global_params}
+    registerControls();
+

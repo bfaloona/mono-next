@@ -1,0 +1,10 @@
+
+.center-column-header
+  -# This section renders a search box control
+  = render 'shared/search_box_controls', layout: false, locals: { toggle: toggle, monologue_controls: true }
+.center-column-list
+  -# This section renders a jquery-search-replace div
+  .jquery-search-replace
+    / Contents of this div replaced by key up triggered jquery ajax call
+    - play_title = @play.title if @play
+    = partial('monologues/list', locals: { show_play_title: true, play_title: play_title, toggle: toggle })

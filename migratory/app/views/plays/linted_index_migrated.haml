@@ -1,0 +1,29 @@
+-# This file was originally written for an older version of haml by
+-# Brandon Faloona, then migrated to haml 6.0.1 by
+-# GPT-3's text-davinci-003 engine, with prompts from Steven Shults. 
+-# December 2022.
+-#
+.center-column-header
+  =render 'shared/search_box_controls', layout: false, locals: { monologue_controls: false }
+.center-column-list
+  .jquery-search-replace
+    / Contents of this div replaced by key up triggered jquery ajax call
+    %table.categories-list
+      %tr
+        %thead.accent-font
+          %th Comedies
+          %th Histories
+          %th Tragedies
+        %tr
+          %td{data: {label: "Comedies"}}
+            - @comedies.sort { |a,b| a.title <=> b.title }.each do |comedy|
+              =gendered_play_link(comedy)
+              %br
+          %td{data: {label: "Histories"}}
+            - @histories.sort { |a,b| a.title <=> b.title }.each do |history|
+              =gendered_play_link(history)
+              %br
+          %td{data: {label: "Tragedies"}}
+            - @tragedies.sort { |a,b| a.title <=> b.title }.each do |tragedy|
+              =gendered_play_link(tragedy)
+              %br

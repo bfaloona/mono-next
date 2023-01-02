@@ -1,0 +1,16 @@
+-#
+-# This file was originally written for an older version of haml by
+-# Brandon Faloona, then migrated to haml 6.0.1 by
+-# GPT-3's text-davinci-003 engine, with prompts from Steven Shults.
+-# December 2022.
+-#
+.center-column-header
+  %h1{title: @title}= @title
+.center-column-list
+  -# @monologues is visible to the partial, so we don't need to pass it along
+  = partial('monologues/list', locals: { show_play_title: false, play_name: @play&.name })
+  :javascript
+    #{ js_set_global_params }
+    updateDom();
+
+    

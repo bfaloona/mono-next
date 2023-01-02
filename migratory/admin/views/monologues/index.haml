@@ -1,0 +1,77 @@
+%ul.nav.nav-tabs
+  %li.active=link_to tag_icon(:list, pat(:list)), url(:monologues, :index)
+  %li=link_to tag_icon(:plus, pat(:new)), url(:monologues, :new)
+
+.tabs-content
+  %strong= "#{@monologues.count} Monologues"
+  %table#list.table.table-striped.table-hover.table-condensed
+    %thead
+      %tr
+        %th.header.list-menu
+          .dropdown
+            %a.list-menu-toggle.dropdown-toggle{:href => '#', :'data-toggle' => :dropdown}
+              =tag_icon :magic
+              %span.caret
+            %ul.list-menu.dropdown-menu{:role => :menu}
+              %li.list-menu-wrapper=link_to tag_icon('check-square-o', pat(:select_all)), '#', :id => 'select-all', :class => 'list-menu-link'
+              %li.list-menu-wrapper.list-menu-wrapper-disabled
+                =link_to tag_icon('square-o', pat(:deselect_all)), '#', :id => 'deselect-all', :class => 'list-menu-link list-menu-link-disabled'
+              %li.list-menu-divider.divider
+              %li.list-menu-wrapper.list-menu-wrapper-disabled
+                =link_to tag_icon('trash-o', pat(:delete_selected)), '#', :id => 'delete-selected', :class => 'list-menu-link list-menu-link-disabled'
+                .list-menu-popover-delete-selected.popover.right
+                  .arrow
+                  %h3.popover-title=pat(:delete_selected_title)
+                  .popover-content
+                    = form_tag url(:monologues, :destroy_many), :method => :delete do
+                      =hidden_field_tag :monologue_ids, :'data-delete-many-ids' => true
+                      =submit_tag pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small'
+                      .btn.btn-default.btn-small.cancel=pat(:cancel)
+        %th.header= mat(:monologue, :id)
+        %th.header= mat(:monologue, :play_id)
+        %th.header= mat(:monologue, :location)
+        %th.header= mat(:monologue, :first_line)
+        %th.header= mat(:monologue, :body)
+        %th.header= mat(:monologue, :gender_id)
+        %th.header= mat(:monologue, :character)
+        %th.header= mat(:monologue, :style)
+        %th.header= mat(:monologue, :pdf_link)
+        %th.header= mat(:monologue, :created_at)
+        %th.header= mat(:monologue, :updated_at)
+        %th.header= mat(:monologue, :body_link)
+        %th.header= mat(:monologue, :intercut)
+        %th.header.list-row-action-header
+
+    %tbody
+      -@monologues.each do |monologue|
+        %tr.list-row
+          %td.list-column.list-selectable
+            =check_box_tag 'monologue_ids[]', :value => monologue.id, :class => 'list-selectable-checkbox'
+          %td.list-column=monologue.id
+          %td.list-column=monologue.play_id
+          %td.list-column=monologue.location
+          %td.list-column=monologue.first_line
+          %td.list-column=truncate(monologue.body, length: 75)
+          %td.list-column=monologue.gender_id
+          %td.list-column=monologue.character
+          %td.list-column=monologue.style
+          %td.list-column
+            %a{href: monologue.pdf_link}
+              %i.halflings.halflings-link PDF
+          %td.list-column=time_ago_in_words monologue.created_at
+          %td.list-column=time_ago_in_words monologue.updated_at
+          %td.list-column
+            %a{href: monologue.body_link}
+              %i.halflings.halflings-link LINK
+          %td.list-column=monologue.intercut
+          %td.list-column.list-row-action
+            .list-row-action-wrapper
+              =link_to tag_icon(:edit), :href => url(:monologues, :edit, :id => monologue.id), :rel => :tooltip, :title => "#{pat(:edit)} monologue", :class => 'list-row-action-wrapper-link'
+              =link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} monologue", :class => 'list-row-action-delete-one list-row-action-wrapper-link'
+              .popover.list-row-action-popover-delete-one.left
+                .arrow
+                %h3.popover-title=pat(:delete, :model => "monologue")
+                .popover-content
+                  = form_tag url(:monologues, :destroy, :id => monologue.id), :method => :delete do
+                    =submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small'
+                    .btn.btn-default.btn-small.cancel=pat(:cancel)

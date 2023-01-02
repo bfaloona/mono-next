@@ -1,0 +1,31 @@
+
+            #
+ # This file was originally written for Padrino 0.13 by
+ # Brandon Faloona, then migrated to Sinatra 3.0.5 by
+ # GPT-3's text-davinci-003 engine, with prompts from Steven Shults. 
+ # December 2022.
+ #
+
+require 'bundler/setup'
+require 'sinatra/base'
+require 'sinatra/activerecord'
+
+class App < Sinatra::Base
+  register Sinatra::ActiveRecordExtension
+  
+  # Configure the application
+  configure do
+    set :database_file, 'config/database.yml'
+  end
+
+  # Define the default task
+  task :default do
+    Rake::Task['test'].invoke
+  end
+
+  # Run all tests (including prod)
+  task :testall do
+    Rake::Task['test'].invoke
+    Rake::Task['prod'].invoke
+  end
+end
