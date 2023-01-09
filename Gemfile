@@ -6,9 +6,8 @@ gem 'sinatra-contrib'
 gem 'pg'
 gem 'puma'
 gem 'rerun'
-# gem 'activerecord','~> 4.2', :require => 'active_record'
-# gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
-# gem 'otr-activerecord', '~> 2.1', '>= 2.1.1'
+gem 'activerecord'
+gem 'sinatra-activerecord'
 gem 'will_paginate', '~> 3.3'
 gem 'haml'
 gem 'tilt'
@@ -18,11 +17,13 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 
-gem 'rack-test'
-gem 'minitest'
-# gem 'minitest-line'
-# gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
-gem 'capybara'
-
-group :test do
+group :development, :test do
+  gem 'rack-test'
+  gem 'minitest'
+  gem 'minitest-reporters'
+  gem 'rubocop'
+  gem 'simplecov', require: false # test coverage
+  gem 'simplecov-console', require: false # graphical test coverage
+  # gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+  gem 'capybara'
 end

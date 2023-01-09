@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 require 'sinatra'
+require 'sinatra/activerecord'
 
 set :haml, format: :html5
 
@@ -88,6 +91,8 @@ end
 configure do
   set :public_folder, 'public'
   set :views, 'app/views'
+  set :method_override, true
+  # set :root, APP_ROOT
 end
 
 # will be useful once we allow 500 errors in test

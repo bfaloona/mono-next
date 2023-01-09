@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  database: mono_development
+  host: localhost
+  port: 5432
+  username: postgres
+  password: wRto7oD8J
+
+test:
+  adapter: postgresql
+  database: mono_test
+  host: localhost
+  port: 5432
+  username: postgres
+  password: wRto7oD8J
