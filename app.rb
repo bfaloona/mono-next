@@ -160,7 +160,7 @@ get '/test_db' do
   # Connect to the database
   db = PG.connect(dbname: 'mono_test')
   # Run a query to retrieve only the first 5 rows
-  result = db.exec("SELECT * FROM [plays] LIMIT 5")
+  result = db.exec("SELECT * FROM plays LIMIT 5")
   # Return the result
   result.to_a.to_json
 end

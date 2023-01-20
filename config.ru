@@ -3,6 +3,7 @@
 require 'rake'
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
+require 'pg'
 require 'yaml'
 require 'bundler'
 Bundler.require
@@ -11,8 +12,8 @@ Bundler.require
 #   raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
 # end
 
-require 'pg'
-
+ENV['RACK_ENV'] ||= 'test'
 require './app'
 
 run Sinatra::Application
+

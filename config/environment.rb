@@ -20,7 +20,7 @@ Dir.glob(File.join(APP_ROOT, "lib", "*.rb")).each { |file| require file }
 
 # require database configurations
 # the database setup files that were just made in config/
-#require File.join(APP_ROOT, "config", "database")
+require File.join(APP_ROOT, "config", "database")
 
 # require 'bundler/setup'
 Bundler.require(:default, ENV['RACK_ENV'])
