@@ -1,15 +1,19 @@
-development:
-  adapter: postgresql
-  database: mono_development
-  host: localhost
-  port: 5432
-  username: postgres
-  password: wRto7oD8J
+default: &default
+    adapter: postgresql
+    encoding: UTF-8
 
 test:
-  adapter: postgresql
-  database: mono_test
-  host: localhost
-  port: 5432
-  username: postgres
-  password: wRto7oD8J
+    <<: *default
+    database: mono_test
+    host: localhost
+    port: 5432
+    username: postgres
+    password: wRto7oD8J
+
+development:
+    adapter: postgresql
+    database: mono_development
+    host: localhost
+    port: 5432
+    username: postgres
+    password: wRto7oD8J

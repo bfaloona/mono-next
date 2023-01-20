@@ -1,9 +1,18 @@
-ENV['RACK_ENV'] ||= 'development'
+# ENV['RACK_ENV'] ||= 'development'
+ENV['RACK_ENV'] ||= 'test'
 
+require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
+require './app'
 require 'rake/testtask'
 require 'minitest/test_task'
 Minitest::TestTask.create
+
+namespace :db do
+  task :load_config do
+    require "./app"
+  end
+end
 
 Rake::TestTask.new(:test) do |t|
   t.libs << 'test'

@@ -1,9 +1,10 @@
 source 'http://rubygems.org'
 ruby '3.1.3'
 
-gem 'sinatra'
+gem 'sinatra', require: 'sinatra/base'
 gem 'sinatra-contrib'
 gem 'pg'
+gem 'postgresql'
 gem 'puma'
 gem 'rerun'
 gem 'activerecord'

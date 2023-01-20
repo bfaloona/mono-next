@@ -21,11 +21,11 @@ if true || ENV['RACK_ENV'] == 'test'
   # Account
   ##
   account = Account.new(
-    email: 'admin@domain.tld',
+    email: 'postgresdbtesting@shults.org',
     name: 'Admin',
     surname: 'Guy',
-    password: 'soverysecure!',
-    password_confirmation: 'soverysecure!',
+    password: 's0V3ryS3cur3!',
+    password_confirmation: 's0V3ryS3cur3!',
     role: 'admin'
   )
   if account.valid?
