@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require './config/environment'
-require './config/database'
+require 'rake'
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
 require 'yaml'

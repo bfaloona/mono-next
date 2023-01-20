@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
+require 'rake'
+require 'bundler/setup'
 require 'sinatra'
+require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require 'sinatra/activerecord/rake'
 # ENV['RACK_ENV'] ||= "development"
 ENV['RACK_ENV'] ||= "test"
 APP_ROOT = File.expand_path("..", __dir__)
@@ -16,7 +20,7 @@ Dir.glob(File.join(APP_ROOT, "lib", "*.rb")).each { |file| require file }
 
 # require database configurations
 # the database setup files that were just made in config/
-require File.join(APP_ROOT, "config", "database")
+#require File.join(APP_ROOT, "config", "database")
 
 # require 'bundler/setup'
 Bundler.require(:default, ENV['RACK_ENV'])

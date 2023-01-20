@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+require 'rake'
 require 'sinatra'
+set :environment, :test
 require 'sinatra/activerecord'
 class Application < Sinatra::Base
   register Sinatra::ActiveRecordExtension
@@ -9,8 +11,6 @@ end
 ENV['RACK_ENV'] ||= "test"
 
 set :database, {adapter: "postgresql", database: ENV['test']}
-
-# set :database, {adapter: "postgresql", host: "localhost", port: 5432, database: "mono_test", username: "postgres", password: "wRto7oD8J"}
 
 set :haml, format: :html5
 
@@ -151,4 +151,16 @@ end
 
 get '/sandbox' do
   send_file 'static/sandbox.html'
+end
+
+get '/test_db' do
+  # Check the env
+  p Sinatra::Application.environment
+
+  # Connect to the database
+  db = PG.connect(dbname: 'mono_test')
+  # Run a query to retrieve only the first 5 rows
+  result = db.exec("SELECT * FROM [plays] LIMIT 5")
+  # Return the result
+  result.to_a.to_json
 end
