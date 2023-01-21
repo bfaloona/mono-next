@@ -7,15 +7,14 @@ require 'sinatra/activerecord/rake'
 require './app'
 require 'rake/testtask'
 require 'minitest/test_task'
-Minitest::TestTask.create
 
-Rake::TestTask.new(:test) do |t|
+Minitest::TestTask.create
+ Rake::TestTask.new(:test) do |t|
   t.libs << 'test'
   t.verbose = false
   t.test_files = FileList['test/*_test.rb']
   t.warning = false
-end
-
+ end
 test_tasks = Dir['test/*/'].map do |d|
   case File.basename(d)
   when 'prod'
