@@ -4,7 +4,7 @@ default: &default
 
 test:
     <<: *default
-    database: mono_test
+    database: copyOfProdDBforTest
     host: localhost
     port: 5432
     username: postgres

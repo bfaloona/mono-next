@@ -158,7 +158,7 @@ get '/test_db' do
   p Sinatra::Application.environment
 
   # Connect to the database
-  db = PG.connect(dbname: 'mono_test')
+  db = PG.connect(dbname: 'copyOfProdDBforTest')
   # Run a query to retrieve only the first 5 rows
   result = db.exec("SELECT * FROM plays LIMIT 5")
   # Return the result
